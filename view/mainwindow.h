@@ -14,14 +14,9 @@
 #include <QProcess>
 #include <QTimer>
 #include <iostream>
-
-#include "./gifmaker/gif_hash.h"
-#include "./gifmaker/gif_lib.h"
-#include "./gifmaker/gif_lib_private.h"
-#include "./gifmaker/qgifglobal.h"
-#include "./gifmaker/qgifimage.h"
-#include "./gifmaker/qgifimage_p.h"
-#include "controller/controller.h"
+#include "widget.h"
+#include "../model/model.h"
+#include "../controller/controller.h"
 
 namespace Ui {
 class MainWindow;
@@ -31,12 +26,11 @@ class MainWindow : public QMainWindow {
   Q_OBJECT
 
  public:
-  explicit MainWindow(s21::Controller& controller,QWidget *parent = nullptr);
+  explicit MainWindow(s21::Controller& controller, QWidget *parent = nullptr);
   ~MainWindow();
 
  private slots:
-  void on_Browse_clicked();
-
+void BrowseModelWraper();
 //  void closeEvent(QCloseEvent *event);
 
 //  void saveSettings();
@@ -94,24 +88,35 @@ class MainWindow : public QMainWindow {
 //  void OpenAndParseFile();
 
 //  void on_vertex_thicc_sliderMoved(int position);
-//  void OnColorClicked();
 
  private:
-  s21::Controller& controller_;
-    OpenGLWidget * gl_widget_ = nullptr;
-    Ui::MainWindow *ui;
-  //  s21::Settings settings_;
-  //  s21::Controller & controller_;
-  //  QList<QImage> jiff;
-  //  int imagecounter;
-  //  int screenshotcounter;
-  //  int maxface;
-  //  QString filename;
-  //  float minx = 0, miny = 0, minz = 0, maxx = 0, maxy = 0, maxz = 0;
-  //  float medianX, medianY, medianZ;
-  //  std::vector<GLfloat> vertexPositions;
-  //  std::vector<GLuint> indices;
-  //  QTimer timer;
+//template<typename ...Types>
+void BrowseModel();
+  OpenGLWidget *gl_widget_;
+  Ui::MainWindow *ui_;
+  s21::Controller &controller_;
+//  QList<QImage> jiff;
+//  int imagecounter;
+//  int screenshotcounter;
+//  int maxface;
+//  QDir dir;
+//  QString filename;
+//  QColor color;
+//  QColor back_color;
+//  QColor vertex_color;
+//  bool showLines;
+//  bool smoothVertexes;
+//  bool vertexesShown;
+//  bool brokenEdges;
+//  bool orth;
+//  float minx = 0, miny = 0, minz = 0, maxx = 0, maxy = 0, maxz = 0;
+//  Gigachad bigstructarray = {0};
+//  float medianX, medianY, medianZ;
+//  std::vector<GLfloat> vertexPositions;
+//  std::vector<GLuint> indices;
+//  int lineW;
+//  int vertexW;
+//  QTimer timer;
 };
 
 #endif  // MAINWINDOW_H

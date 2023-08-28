@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(gpt_help VERSION 0.1 LANGUAGES CXX C)
+project(gpt_help VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -18,36 +18,19 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS OpenGLWidgets)
 
 
 set(PROJECT_SOURCES
-        ./parser/parser.c
-        ./parser/parser.h
-        ./gifmaker/dgif_lib.c
-        ./gifmaker/egif_lib.c
-        ./gifmaker/gif_err.c
-        ./gifmaker/gif_font.c
-        ./gifmaker/gif_hash.c
-        ./gifmaker/gif_hash.h
-        ./gifmaker/gif_lib_private.h
-        ./gifmaker/gif_lib.h
-        ./gifmaker/gifalloc.c
-        ./gifmaker/qgifglobal.h
-        ./gifmaker/qgifimage_p.h
-        ./gifmaker/qgifimage.h
-        ./gifmaker/qgifimage.cpp
-        ./gifmaker/quantize.c
-        settings.cc
-        settings.h
-        controller/controller.cc
-        controller/controller.h
-        model/model.cc
-        model/model.h
-        model/parser.cc
-        model/parser.h
-        main.cpp
-        model/widget.cc
-        model/widget.h
+        main.cc
+        widget.cc
+        widget.h
         mainwindow.h
-        mainwindow.cpp
+        mainwindow.cc
         mainwindow.ui
+        ../controller/controller.h
+        ../controller/controller.cc
+        ../model/parser.cc
+        ../model/parser.h
+        ../model/settings.h
+        ../model/settings.cc
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

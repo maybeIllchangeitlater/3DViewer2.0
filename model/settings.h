@@ -1,6 +1,6 @@
 #ifndef CPP4_3DVIEWER_V2_0_VIEW_SETTINGS_H_
 #define CPP4_3DVIEWER_V2_0_VIEW_SETTINGS_H_
-#include "ui_mainwindow.h"
+//#include "ui_mainwindow.h"
 #include <iostream>
 #include <QCloseEvent>
 #include <QColorDialog>
@@ -14,7 +14,6 @@
 
 namespace s21{
 class Settings{
-//    Q_OBJECT
 
 public:
     Settings();

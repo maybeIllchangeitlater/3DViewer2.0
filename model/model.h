@@ -2,21 +2,23 @@
 #define CPP4_3DVIEWER_V2_0_MODEL_MODEL_H_
 
 #include <QDir>
-#include "widget.h"
 #include "parser.h"
+#include "settings.h"
 namespace s21{
     class Model{
-//        Q_OBJECT
     public:
         void ParseFile(QString& filename);
-        OpenGLWidget * DisplayModel();
+//        constexpr inline const QVector<float>& GetVertexConstRef() const noexcept{
+//            return vertex_;
+//        }
+//        constexpr inline const QVector<int>& GetFaceConstRef() const noexcept{
+//            return face_;
+//        }
+//        OpenGLWidget * DisplayModel();
     private:
-        bool ValidateFile(QString& filename);
-        ObjParser parser_;
-        QVector<double> vertex_;
-        QVector<int> face_;
-        OpenGLWidget * gl_widget_;
-        Settings settings_;
+        ObjParser parser_; //change model to parser
+//        QVector<float> vertex_;
+//        QVector<int> face_;
     };
 }
 #endif //CPP4_3DVIEWER_V2_0_MODEL_MODEL_H_

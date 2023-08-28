@@ -29,7 +29,7 @@
       <height>511</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="ViewerLayout">
+    <layout class="QVBoxLayout" name="viewer_layout">
      <property name="sizeConstraint">
       <enum>QLayout::SetNoConstraint</enum>
      </property>

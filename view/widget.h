@@ -1,5 +1,5 @@
-#ifndef CPP4_3DVIEWER_V2_0_MODEL_WIDGET_H
-#define CPP4_3DVIEWER_V2_0_MODEL_WIDGET_H
+#ifndef WIDGET_H
+#define WIDGET_H
 
 #include <QMatrix4x4>
 #include <QMouseEvent>
@@ -10,29 +10,27 @@
 #include <QTimer>
 #include <QVector3D>
 #include <QWidget>
-#include <vector>
-//#include "model.h"
-#include "settings.h"
+#include "../model/settings.h"
 
 
 class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions {
  public:
-  OpenGLWidget(QVector<double>& vertex, QVector<int>& face, s21::Settings& settings, QWidget* parent = nullptr);
+  explicit OpenGLWidget(const QVector<float> &vertex, const QVector<int>&face, QWidget* parent = nullptr);
   ~OpenGLWidget();
-  void setEdgesColorAndUpdate(QColor t_color);
-  void setBackgroundColorAndUpdate(QColor b_color);
-  void setVertexColorAndUpdate(QColor v_color);
-  void scaleModel(int position);
-  void scaleVertex(int position);
-  void scaleLines(int scale);
-  void translateModel(int direction, float amount);
-  void rotateModel(int direction, float amount);
-  void ceterModel();
-  void changePerspective();
-  void showVert();
-  void changeVertDisplay();
-  void changeEdgeDisplay();
-  void disLines();
+//  void setEdgesColorAndUpdate(QColor t_color);
+//  void setBackgroundColorAndUpdate(QColor b_color);
+//  void setVertexColorAndUpdate(QColor v_color);
+//  void scaleModel(int position);
+//  void scaleVertex(int position);
+//  void scaleLines(int scale);
+//  void translateModel(int direction, float amount);
+//  void rotateModel(int direction, float amount);
+//  void ceterModel();
+//  void changePerspective();
+//  void showVert();
+//  void changeVertDisplay();
+//  void changeEdgeDisplay();
+//  void disLines();
 
  protected:
   void initializeGL();
@@ -43,11 +41,11 @@ class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions {
   void mouseMoveEvent(QMouseEvent* event);
 
  private:
+  const QVector<float>& vertex_;
+  const QVector<int> &face_;
+  s21::Settings settings_;
   QPoint last_mouse_pos_;
   QPoint last_rmouse_pos_;
-  QVector<double>& vertex_;
-  QVector<int>& face_;
-  s21::Settings& settings_;
 //  bool backgroundChanged;
 //  bool ortho;
 //  bool vertexRecolored;
@@ -69,28 +67,22 @@ class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions {
 //  float m_maxY;
 //  float m_minZ;
 //  float m_maxZ;
-//  QColor m_color;
-//  QColor m_back_color;
-//  QColor m_vertex_color;
-//  std::vector<float> m_vertexPositions;
-//  std::vector<uint> m_indices;
-  QOpenGLShaderProgram shader_program_;
+  QOpenGLShaderProgram shader_programm_;
   QMatrix4x4 projection_matrix_;
   QMatrix4x4 model_view_matrix_;
 //  GLuint texCoordLocation;
   GLuint index_buffer_;
   GLuint vertex_buffer_;
-  GLuint textureBuffer;
-  GLuint normalBuffer;
-  GLfloat translationX;
-  GLfloat translationY;
-  GLfloat translationZ;
-  GLfloat rotationAngleX;
-  GLfloat rotationAngleY;
-  GLfloat rotationAngleZ;
-  float scaleBy;
-//  float aspectRatio;
-  const char* vertex_shader_source =
+//  GLuint textureBuffer;
+//  GLuint normalBuffer;
+  GLfloat translation_x_ =0;
+  GLfloat translation_y_ =0;
+  GLfloat translation_z_ = 0;
+  GLfloat rotation_x_ = 0;
+  GLfloat rotation_y_ = 0;
+  GLfloat rotation_z_ = 0;
+//  float scale_;
+  const char* vertexShaderSource =
       "attribute vec3 position;\n"
       "uniform mat4 projectionMatrix;\n"
       "uniform mat4 modelViewMatrix;\n"
@@ -100,7 +92,7 @@ class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions {
       "1.0);\n"
       "}\n";
 
-  const char* fragment_shader_source =
+  const char* fragmentShaderSource =
       "uniform vec4 color;\n"
       "uniform bool dashed;\n"
       "void main()\n"

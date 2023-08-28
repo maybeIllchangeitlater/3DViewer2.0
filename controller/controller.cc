@@ -2,24 +2,20 @@
 
 namespace s21{
 
-Controller::Controller(Model &model) : model_(model)
+Controller::Controller(ObjParser &parser) : parser_(parser)
 {
 
 }
-
-bool Controller::OpenFile(QString &filename)
-{   try{
-    model_.ParseFile(filename);
-    }catch(std::exception e){
-        filename = e.what();
-        return false;
-    }return true;
-
-}
-
-OpenGLWidget *Controller::Display_Model()
+//template< class... Types>
+void Controller::OpenFile(QString &filename)
 {
-   return model_.DisplayModel();
+    parser_.ParseFile(filename);
+
 }
+
+//OpenGLWidget *Controller::Display_Model()
+//{
+//   return model_.DisplayModel();
+//}
 
 };
