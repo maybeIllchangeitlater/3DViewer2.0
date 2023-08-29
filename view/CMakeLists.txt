@@ -28,8 +28,8 @@ set(PROJECT_SOURCES
         ../controller/controller.cc
         ../model/parser.cc
         ../model/parser.h
-        ../model/settings.h
-        ../model/settings.cc
+        settings.h
+        settings.cc
 
 )
 

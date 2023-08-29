@@ -10,78 +10,65 @@
 #include <QTimer>
 #include <QVector3D>
 #include <QWidget>
-#include "../model/settings.h"
 
+#include "settings.h"
 
-class OpenGLWidget : public QOpenGLWidget, protected QOpenGLFunctions {
+class OpenGLWidget final : public QOpenGLWidget, protected QOpenGLFunctions {
+  Q_OBJECT
  public:
-  explicit OpenGLWidget(const QVector<float> &vertex, const QVector<int>&face, QWidget* parent = nullptr);
+  explicit OpenGLWidget(s21::Settings& settings, const QVector<float>& vertex,
+                        const QVector<int>& face, QWidget* parent = nullptr);
   ~OpenGLWidget();
-//  void setEdgesColorAndUpdate(QColor t_color);
-//  void setBackgroundColorAndUpdate(QColor b_color);
-//  void setVertexColorAndUpdate(QColor v_color);
-//  void scaleModel(int position);
-//  void scaleVertex(int position);
-//  void scaleLines(int scale);
-//  void translateModel(int direction, float amount);
-//  void rotateModel(int direction, float amount);
-//  void ceterModel();
-//  void changePerspective();
-//  void showVert();
-//  void changeVertDisplay();
-//  void changeEdgeDisplay();
-//  void disLines();
 
  protected:
+ private:
   void initializeGL();
   void resizeGL(int w, int h);
   void paintGL();
   void mousePressEvent(QMouseEvent* event);
   void wheelEvent(QWheelEvent* event);
   void mouseMoveEvent(QMouseEvent* event);
-
- private:
   const QVector<float>& vertex_;
-  const QVector<int> &face_;
-  s21::Settings settings_;
+  const QVector<int>& face_;
+  s21::Settings& settings_;
   QPoint last_mouse_pos_;
   QPoint last_rmouse_pos_;
-//  bool backgroundChanged;
-//  bool ortho;
-//  bool vertexRecolored;
-//  bool smoothVertexes;
-//  bool lineThicknessChanged;
-//  bool vertexesShown;
-//  bool linesShown;
-//  bool lineStrip;
-//  int scrollDelta;
-//  int lineThickness;
-//  int vertexThickness;
-//  bool vertexThicknessChanged;
-//  float m_medianX;
-//  float m_medianY;
-//  float m_medianZ;
-//  float m_minX;
-//  float m_maxX;
-//  float m_minY;
-//  float m_maxY;
-//  float m_minZ;
-//  float m_maxZ;
+  //  bool backgroundChanged;
+  //  bool ortho;
+  //  bool vertexRecolored;
+  //  bool smoothVertexes;
+  //  bool lineThicknessChanged;
+  //  bool vertexesShown;
+  //  bool linesShown;
+  //  bool lineStrip;
+  //  int scrollDelta;
+  //  int lineThickness;
+  //  int vertexThickness;
+  //  bool vertexThicknessChanged;
+  //  float m_medianX;
+  //  float m_medianY;
+  //  float m_medianZ;
+  //  float m_minX;
+  //  float m_maxX;
+  //  float m_minY;
+  //  float m_maxY;
+  //  float m_minZ;
+  //  float m_maxZ;
   QOpenGLShaderProgram shader_programm_;
   QMatrix4x4 projection_matrix_;
   QMatrix4x4 model_view_matrix_;
-//  GLuint texCoordLocation;
+  //  GLuint texCoordLocation;
   GLuint index_buffer_;
   GLuint vertex_buffer_;
-//  GLuint textureBuffer;
-//  GLuint normalBuffer;
-  GLfloat translation_x_ =0;
-  GLfloat translation_y_ =0;
+  //  GLuint textureBuffer;
+  //  GLuint normalBuffer;
+  GLfloat translation_x_ = 0;
+  GLfloat translation_y_ = 0;
   GLfloat translation_z_ = 0;
   GLfloat rotation_x_ = 0;
   GLfloat rotation_y_ = 0;
   GLfloat rotation_z_ = 0;
-//  float scale_;
+  //  float scale_;
   const char* vertexShaderSource =
       "attribute vec3 position;\n"
       "uniform mat4 projectionMatrix;\n"
