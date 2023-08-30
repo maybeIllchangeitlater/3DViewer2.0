@@ -2,6 +2,7 @@
 #define CPP4_3DVIEWER_V2_0_MODEL_PARSER_H
 #include <QDir>
 #include <tuple>
+#include <cctype>
 namespace s21{
     class ObjParser{
     public:

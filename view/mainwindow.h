@@ -35,6 +35,7 @@ class MainWindow final : public QMainWindow {
   void ChangeVertexColor();
   void BrowseModel();
   void closeEvent(QCloseEvent *event) override;
+  void TranslateBy();
 
 
  private:

@@ -30,6 +30,7 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
   connect(ui_->line_color, SIGNAL(clicked()), this, SLOT(ChangeLineColor()));
   connect(ui_->vertex_color, SIGNAL(clicked()), this,
           SLOT(ChangeVertexColor()));
+  connect(ui_->move_layout, SIGNAL(itemClicked()), this, SLOT(TranslateBy()));
     ConnectToLambdas();
 
   //, OpenGLWidget *gl_widget_
@@ -89,6 +90,20 @@ void MainWindow::ChangeVertexColor() {
   if (!settings_.vertex_color.isValid())
     settings_.vertex_color = QColorConstants::Red;
   if (gl_widget_) gl_widget_->update();
+}
+
+void MainWindow::TranslateBy() {
+//  if (gl_widget_) {
+//    gl_widget_->TranslateModel(
+//        qobject_cast<QPushButton *>(sender())->text() == "↑"   ? 0
+//        : qobject_cast<QPushButton *>(sender())->text() == "→" ? 1
+//        : qobject_cast<QPushButton *>(sender())->text() == "↓" ? 2
+//        : qobject_cast<QPushButton *>(sender())->text() == "←" ? 3
+//        : qobject_cast<QPushButton *>(sender())->text() == "⇧" ? 4
+//                                                               : 5,
+//        ui_->translateBy->text().toFloat());
+//  }
+    std::cout << "ABOBA" << std::endl;
 }
 
 void MainWindow::closeEvent(QCloseEvent *event) {
