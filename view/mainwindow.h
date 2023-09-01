@@ -14,8 +14,8 @@
 #include <QProcess>
 #include <QTimer>
 #include <iostream>
-
-#include "../controller/controller.h"
+#include "../model/model.h"
+//#include "../controller/controller.h"
 #include "widget.h"
 
 namespace Ui {
@@ -35,7 +35,7 @@ class MainWindow final : public QMainWindow {
   void ChangeVertexColor();
   void BrowseModel();
   void closeEvent(QCloseEvent *event) override;
-  void TranslateBy();
+//  void RotateBy();
 
 
  private:

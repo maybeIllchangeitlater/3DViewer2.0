@@ -30,10 +30,8 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
   connect(ui_->line_color, SIGNAL(clicked()), this, SLOT(ChangeLineColor()));
   connect(ui_->vertex_color, SIGNAL(clicked()), this,
           SLOT(ChangeVertexColor()));
-  connect(ui_->move_layout, SIGNAL(itemClicked()), this, SLOT(TranslateBy()));
     ConnectToLambdas();
 
-  //, OpenGLWidget *gl_widget_
 }
 
 MainWindow::~MainWindow() {
@@ -50,15 +48,14 @@ void MainWindow::BrowseModel() {
           "/Desktop/viewer/models/",
       "obj files (*.obj)"));
   try {
-    controller_.OpenFile(filename);
+    controller_.ParseFile(filename);
     if (gl_widget_) {
       ui_->viewer_layout->removeWidget(gl_widget_);
       delete gl_widget_;
     }
     ui_->model_name->setText(filename);
     gl_widget_ =
-        new OpenGLWidget(settings_, controller_.GetVertexConstRef(),
-                         controller_.GetFaceConstRef(),
+        new OpenGLWidget(settings_, controller_,
                          this);  // change to const reference, save in back
     //        ui_->line_thicc->setVisible(true);
     ui_->viewer_layout->addWidget(gl_widget_);
@@ -92,9 +89,9 @@ void MainWindow::ChangeVertexColor() {
   if (gl_widget_) gl_widget_->update();
 }
 
-void MainWindow::TranslateBy() {
+//void MainWindow::RotateBy() {
 //  if (gl_widget_) {
-//    gl_widget_->TranslateModel(
+//    gl_widget_->RotateModel(
 //        qobject_cast<QPushButton *>(sender())->text() == "↑"   ? 0
 //        : qobject_cast<QPushButton *>(sender())->text() == "→" ? 1
 //        : qobject_cast<QPushButton *>(sender())->text() == "↓" ? 2
@@ -103,8 +100,7 @@ void MainWindow::TranslateBy() {
 //                                                               : 5,
 //        ui_->translateBy->text().toFloat());
 //  }
-    std::cout << "ABOBA" << std::endl;
-}
+//}
 
 void MainWindow::closeEvent(QCloseEvent *event) {
   settings_.SaveSettings();

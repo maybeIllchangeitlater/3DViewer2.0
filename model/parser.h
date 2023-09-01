@@ -1,20 +1,15 @@
-#ifndef CPP4_3DVIEWER_V2_0_MODEL_PARSER_H
-#define CPP4_3DVIEWER_V2_0_MODEL_PARSER_H
+#ifndef CPP4_3DVIEWER_V2_0_MODEL_PARSER_H_
+#define CPP4_3DVIEWER_V2_0_MODEL_PARSER_H_
 #include <QDir>
-#include <tuple>
 #include <cctype>
 namespace s21{
-    class ObjParser{
+    class ObjParser {
     public:
-        void ParseFile(QString &filename);
-        constexpr inline const QVector<float>& GetVertexConstRef() const{return vertex_;}
-        constexpr inline const QVector<int>& GetFaceConstRef() const{return face_;}
+        void ParseFile(QString &filename, QVector<float>& vertex, QVector<int>& face) const;
     private:
-        void PushVertex(QByteArray& data);
-        void PushFace(QByteArray& data);
-        void ChangeFilename(QString& filename) const;
-        QVector<float> vertex_;
-        QVector<int> face_;
+        void PushVertex(QByteArray& data, QVector<float>& vertex) const;
+        void PushFace(QByteArray& data, QVector<int> &face) const;
+        void ChangeFilename(QString& filename, QVector<float> &vertex, QVector<int> &face) const;
     };
 }
-#endif //CPP4_3DVIEWER_V2_0_MODEL_PARSER_H
+#endif //CPP4_3DVIEWER_V2_0_MODEL_PARSER_H_

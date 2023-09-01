@@ -1,20 +1,20 @@
 #ifndef CPP4_3DVIEWER_V2_0_CONTROLLER_CONTROLLER_H_
 #define CPP4_3DVIEWER_V2_0_CONTROLLER_CONTROLLER_H_
-#include "../model/parser.h"
+#include "../model/model.h"
 namespace s21{
     class Controller {
 //        Q_OBJECT
     public:
-        explicit Controller(ObjParser &parser);
+        explicit Controller(Model& model);
         void OpenFile(QString& filename);
-        constexpr inline const QVector<float>& GetVertexConstRef() const{return parser_.GetVertexConstRef();}
-        constexpr inline const QVector<int>& GetFaceConstRef() const{return parser_.GetFaceConstRef();}
+        constexpr inline const QVector<float>& GetVertexConstRef() const{return model_.GetVertexConstRef();}
+        constexpr inline const QVector<int>& GetFaceConstRef() const{return model_.GetFaceConstRef();}
 //        OpenGLWidget * Display_Model();
 
 
 
     private:
-        ObjParser& parser_;
+        Model& model_;
 
     };
 }

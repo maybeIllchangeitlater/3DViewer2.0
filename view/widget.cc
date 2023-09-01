@@ -3,65 +3,36 @@
 #include <iostream>
 
 OpenGLWidget::OpenGLWidget(s21::Settings &settings,
-                           const QVector<float> &vertex,
-                           const QVector<int> &face, QWidget *parent)
+                           s21::Controller &controller, QWidget *parent)
     : settings_(settings),
-      vertex_(vertex),
-      face_(face),
+      controller_(controller),
       QOpenGLWidget(parent) {}
 
 OpenGLWidget::~OpenGLWidget() { std::cout << "ustroy destroy" << std::endl; }
 
-// void OpenGLWidget::setEdgesColorAndUpdate(QColor t_color) {
-//   m_color = t_color;
-//   shaderProgram.bind();
-//   shaderProgram.setUniformValue("color", m_color);
-//   shaderProgram.release();
-//   update();
-// }
-
-// void OpenGLWidget::setBackgroundColorAndUpdate(QColor b_color) {
-//   backgroundChanged = m_back_color == b_color ? false : true;
-//   m_back_color = b_color;
-//   update();
-// }
-
-// void OpenGLWidget::setVertexColorAndUpdate(QColor v_color) {
-//   m_vertex_color = v_color;
-//   update();
-// }
-
-// void OpenGLWidget::scaleModel(int position) {
-//   scaleBy = static_cast<float>(position) / 100;
-//   update();
-// }
-
-// void OpenGLWidget::scaleLines(int scale) {
-//   lineThickness = scale;
-//   lineThicknessChanged = true;
-//   update();
-// }
-
-// void OpenGLWidget::scaleVertex(int position) {
-//   vertexThickness = position;
-//   vertexThicknessChanged = true;
-//   update();
-// }
-
 void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
   if (event->buttons() & Qt::LeftButton) {
     QPoint delta = event->pos() - last_mouse_pos_;
-    rotation_x_ += delta.x();
-    rotation_y_ += delta.y();
+    settings_.rotation_x += delta.x();
+    settings_.rotation_y += delta.y();
     update();
     last_mouse_pos_ = event->pos();
   } else if (event->buttons() & Qt::RightButton) {
     QPoint delta = event->pos() - last_rmouse_pos_;
-    translation_x_ += delta.x() / 100.0f;
-    translation_y_ -= delta.y() / 100.0f;
+    settings_.translation_x += delta.x() / 100.0f;
+    settings_.translation_y -= delta.y() / 100.0f;
     update();
     last_rmouse_pos_ = event->pos();
   }
+}
+
+void OpenGLWidget::MoveModel()
+{
+
+    model_view_matrix_.setToIdentity();
+    controller_.Scale(model_view_matrix_, settings_.scale);
+    controller_.Rotate(model_view_matrix_, settings_.rotation_x, settings_.rotation_y, settings_.rotation_z);
+    controller_.Translate(model_view_matrix_, settings_.translation_x, settings_.translation_y, settings_.translation_z);
 }
 
 // void OpenGLWidget::translateModel(int direction, float amount) {
@@ -80,19 +51,19 @@ void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
 //   update();
 // }
 
-// void OpenGLWidget::rotateModel(int direction, float amount) {
+// void OpenGLWidget::RotateModel(int direction, float amount) {
 //   if (direction == 0)
-//     rotationAngleY += amount;
+//     settings_.rotation_y += amount;
 //   else if (direction == 1)
-//     rotationAngleX += amount;
+//     settings_.rotation_x += amount;
 //   else if (direction == 2)
-//     rotationAngleY -= amount;
+//     settings_.rotation_y -= amount;
 //   else if (direction == 3)
-//     rotationAngleX -= amount;
+//     settings_.rotation_x -= amount;
 //   else if (direction == 4)
-//     rotationAngleZ -= amount;
+//     settings_.rotation_z -= amount;
 //   else if (direction == 5)
-//     rotationAngleZ += amount;
+//     settings_.rotation_z += amount;
 //   update();
 // }
 
@@ -103,31 +74,6 @@ void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
 //   update();
 // }
 
-// void OpenGLWidget::changePerspective() {
-//   ortho = !ortho;
-
-//  resizeGL(OpenGLWidget::width(), OpenGLWidget::height());
-//}
-
-// void OpenGLWidget::showVert() {
-//   vertexesShown = !vertexesShown;
-//   update();
-// }
-
-// void OpenGLWidget::disLines() {
-//   linesShown = !linesShown;
-//   update();
-// }
-
-// void OpenGLWidget::changeVertDisplay() {
-//   smoothVertexes = !smoothVertexes;
-//   update();
-// }
-
-// void OpenGLWidget::changeEdgeDisplay() {
-//   lineStrip = !lineStrip;
-//   update();
-// }
 
 void OpenGLWidget::mousePressEvent(QMouseEvent *event) {
   if (event->button() == Qt::LeftButton) last_mouse_pos_ = event->pos();
@@ -135,12 +81,11 @@ void OpenGLWidget::mousePressEvent(QMouseEvent *event) {
 }
 
 void OpenGLWidget::wheelEvent(QWheelEvent *event) {
-  translation_z_ += static_cast<float>(event->angleDelta().y()) / 120.0f;
+  settings_.translation_z -= static_cast<float>(event->angleDelta().y()) / 120.0f;
   update();
 }
 
 void OpenGLWidget::initializeGL() {
-  initializeOpenGLFunctions();
   glClearColor(settings_.back_color.redF(), settings_.back_color.greenF(),
                settings_.back_color.blueF(), settings_.back_color.alphaF());
   glEnable(GL_DEPTH_TEST);
@@ -154,14 +99,14 @@ void OpenGLWidget::initializeGL() {
   /*----------------------------------------------------------------------------------------------------------------------*/
   shader_programm_.setUniformValue("color", settings_.color);
   /*----------------------------------------------------------------------------------------------------------------------*/
-  glGenBuffers(1, &vertex_buffer_);
+  glGenBuffers(1, &vertex_buffer_); //vertex_buffer_object
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * vertex_.size(),
-               vertex_.data(), GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * controller_.GetVertexCopyConstRef().size(),
+               controller_.GetVertexCopyConstRef().data(), GL_STATIC_DRAW);
   glGenBuffers(1, &index_buffer_);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer_);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * face_.size(),
-               face_.data(), GL_STATIC_DRAW);  // вынести в метов
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * controller_.GetFaceConstRef().size(),
+               controller_.GetFaceConstRef().data(), GL_STATIC_DRAW);  // вынести в метов
   /*----------------------------------------------------------------------------------------------------------------------*/
 
   GLuint positionLocation = shader_programm_.attributeLocation("position");
@@ -195,28 +140,25 @@ void OpenGLWidget::paintGL() {
   shader_programm_.bind();
   shader_programm_.setUniformValue("dashed", false);
   shader_programm_.setUniformValue("projectionMatrix", projection_matrix_);
-  model_view_matrix_.setToIdentity();
-  model_view_matrix_.translate(translation_x_, translation_y_,
-                               -2.5 + translation_z_);
-    model_view_matrix_.scale(settings_.scale);
+  MoveModel();
+  shader_programm_.setUniformValue("modelViewMatrix", model_view_matrix_);
+
   glLineWidth(static_cast<float>(settings_.line_width));
   glPointSize(settings_.point_size);
-  model_view_matrix_.rotate(rotation_y_, 1.0, 0.0, 0.0f);
-  model_view_matrix_.rotate(rotation_x_, 0.0, 1.0, 0.0f);
-  model_view_matrix_.rotate(rotation_z_, 0.0, 0.0, 1.0f);
-  shader_programm_.setUniformValue("modelViewMatrix", model_view_matrix_);
+
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer_);
   settings_.smooth_vertexes ? glEnable(GL_POINT_SMOOTH)
                             : glDisable(GL_POINT_SMOOTH);
   if (settings_.vertexes_shown) {
     shader_programm_.setUniformValue("color", settings_.vertex_color);
-    glDrawElements(GL_POINTS, face_.size(), GL_UNSIGNED_INT, nullptr);
+    glDrawElements(GL_POINTS, controller_.GetFaceConstRef().size(), GL_UNSIGNED_INT, nullptr);
   }
   shader_programm_.setUniformValue("color", settings_.color);
   settings_.broken_lines ? shader_programm_.setUniformValue("dashed", true)
                          : shader_programm_.setUniformValue("dashed", false);
+
   if (settings_.lines_shown)
-    glDrawElements(GL_LINES, face_.size(), GL_UNSIGNED_INT, nullptr);
+    glDrawElements(GL_LINES, controller_.GetFaceConstRef().size(), GL_UNSIGNED_INT, nullptr);
   shader_programm_.release();
   /*----------------------------------------------------------------------------------------------------------------------*/
 }

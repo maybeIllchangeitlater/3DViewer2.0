@@ -12,13 +12,14 @@
 #include <QWidget>
 
 #include "settings.h"
+#include "../model/model.h"
 
-class OpenGLWidget final : public QOpenGLWidget, protected QOpenGLFunctions {
+class OpenGLWidget final : public QOpenGLWidget{
   Q_OBJECT
  public:
-  explicit OpenGLWidget(s21::Settings& settings, const QVector<float>& vertex,
-                        const QVector<int>& face, QWidget* parent = nullptr);
+  explicit OpenGLWidget(s21::Settings& settings, s21::Controller& controller, QWidget* parent = nullptr);
   ~OpenGLWidget();
+//    void RotateModel(int direction, float amount);
 
  protected:
  private:
@@ -28,9 +29,12 @@ class OpenGLWidget final : public QOpenGLWidget, protected QOpenGLFunctions {
   void mousePressEvent(QMouseEvent* event);
   void wheelEvent(QWheelEvent* event);
   void mouseMoveEvent(QMouseEvent* event);
-  const QVector<float>& vertex_;
-  const QVector<int>& face_;
+  void MoveModel();
+
+//  const QVector<float>& vertex_;
+//  const QVector<int>& face_;
   s21::Settings& settings_;
+  s21::Controller& controller_;
   QPoint last_mouse_pos_;
   QPoint last_rmouse_pos_;
   //  bool backgroundChanged;
@@ -62,12 +66,12 @@ class OpenGLWidget final : public QOpenGLWidget, protected QOpenGLFunctions {
   GLuint vertex_buffer_;
   //  GLuint textureBuffer;
   //  GLuint normalBuffer;
-  GLfloat translation_x_ = 0;
-  GLfloat translation_y_ = 0;
-  GLfloat translation_z_ = 0;
-  GLfloat rotation_x_ = 0;
-  GLfloat rotation_y_ = 0;
-  GLfloat rotation_z_ = 0;
+//  GLfloat translation_x_ = 0;
+//  GLfloat translation_y_ = 0;
+//  GLfloat translation_z_ = 0;
+//  GLfloat rotation_x_ = 0;
+//  GLfloat rotation_y_ = 0;
+//  GLfloat rotation_z_ = 0;
   //  float scale_;
   const char* vertexShaderSource =
       "attribute vec3 position;\n"

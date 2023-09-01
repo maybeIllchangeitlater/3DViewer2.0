@@ -24,13 +24,17 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.cc
         mainwindow.ui
-        ../controller/controller.h
-        ../controller/controller.cc
         ../model/parser.cc
         ../model/parser.h
+        ../model/model.cc
+        ../model/model.h
         settings.h
         settings.cc
-
+        ../model/TransformationStrategy.h
+        ../model/OpenGLTransformation.h
+        ../model/OpenGLTransformation.cc
+        ../model/CPUTransformation.cc
+        ../model/CPUTransformation.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

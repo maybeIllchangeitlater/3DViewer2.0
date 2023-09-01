@@ -2,14 +2,14 @@
 
 namespace s21{
 
-Controller::Controller(ObjParser &parser) : parser_(parser)
+Controller::Controller(Model &model) : model_(model)
 {
 
 }
 //template< class... Types>
 void Controller::OpenFile(QString &filename)
 {
-    parser_.ParseFile(filename);
+    model_.ParseFile(filename);
 
 }
 

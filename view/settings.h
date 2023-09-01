@@ -32,6 +32,12 @@ class Settings {
   int line_width;
   int point_size;
   float scale;
+  float translation_x = 0;
+  float translation_y = 0;
+  float translation_z = 0;
+  float rotation_x = 0;
+  float rotation_y = 0;
+  float rotation_z = 0;
 };
 }  // namespace s21
 #endif  // CPP4_3DVIEWER_V2_0_VIEW_SETTINGS_H_

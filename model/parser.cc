@@ -1,27 +1,27 @@
 #include "parser.h"
 #include <fstream>
 namespace s21{
-     void s21::ObjParser::ParseFile(QString &filename)
+     void s21::ObjParser::ParseFile(QString &filename, QVector<float> &vertex, QVector<int> &face) const
     {
-         vertex_.clear();
-         face_.clear();
+         vertex.clear();
+         face.clear();
          QFile file(filename);
             if(!file.exists() || !file.open(QIODevice::ReadOnly))
                 throw std::logic_error("file is empty or doesn't exist");
             while(!file.atEnd()){
                 auto data(file.readLine());
                 if(data[0] == 'v' && data[1] == ' ')
-                    PushVertex(data);
+                    PushVertex(data, vertex);
                 else if(data[0] == 'f'&& data[1] == ' ')
-                    PushFace(data);
+                    PushFace(data, face);
 
             }
-            if (*(std::max_element(face_.begin(), face_.end())) > (vertex_.size() /3 -1) )
+            if (*(std::max_element(face.begin(), face.end())) > (vertex.size() /3 -1) )
                 throw std::logic_error("nice SEGA you got there");
-            ChangeFilename(filename);
+            ChangeFilename(filename, vertex, face);
 
 }
-    void ObjParser::PushVertex(QByteArray &data)
+    void ObjParser::PushVertex(QByteArray &data, QVector<float> &vertex) const
     {
         auto cstr = data.data();
         int size = 0, sizeline_counter = 0;
@@ -30,7 +30,7 @@ namespace s21{
                 ++cstr;
             while(std::isdigit(*(cstr + size)) || *(cstr + size) == '.' || *(cstr + size) == '-' || *(cstr + size) == '+')
                 ++size;
-            vertex_.push_back(std::stof(cstr));
+            vertex.push_back(std::stof(cstr));
             cstr+=size;
             size = 0;
             ++sizeline_counter;
@@ -39,7 +39,7 @@ namespace s21{
 
     }
 
-    void ObjParser::PushFace(QByteArray &data)
+    void ObjParser::PushFace(QByteArray &data, QVector<int> &face) const
     {
         int i = 0;
         auto cstr = data.data();
@@ -49,7 +49,7 @@ namespace s21{
         }
         if(*cstr == '\n') throw std::invalid_argument("Broken Face");
         float first = std::stof(cstr) -1;
-        face_.push_back(first);
+        face.push_back(first);
         while(i<n && !std::isspace(*cstr)){
             ++cstr; i++;
         }
@@ -57,8 +57,8 @@ namespace s21{
             ++cstr; i++;
         }
         while(i < n){
-            face_.push_back(std::stof(cstr) - 1);
-            face_.push_back(std::stof(cstr) - 1);
+            face.push_back(std::stof(cstr) - 1);
+            face.push_back(std::stof(cstr) - 1);
             while(i<n &&!std::isspace(*cstr)){
                 ++cstr; i++;
             }
@@ -66,15 +66,16 @@ namespace s21{
                 ++cstr; i++;
             }
         }
-        face_.push_back(first);
+        face.push_back(first);
     }
 
-    void ObjParser::ChangeFilename(QString &filename)  const
+    void ObjParser::ChangeFilename(QString &filename, QVector<float> &vertex, QVector<int> &face)  const
     {
         filename =  filename.mid(filename.lastIndexOf("/") + 1).chopped(4) + "\n" +
-                "Vertexes: " + QString::number(vertex_.size() / 3) +
-                " Edges: " + QString::number(face_.size()/2);
+                "Vertexes: " + QString::number(vertex.size() / 3) +
+                " Edges: " + QString::number(face.size()/2);
     }
+
 
 
 }
