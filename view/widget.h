@@ -29,7 +29,7 @@ class OpenGLWidget final : public QOpenGLWidget{
   void mousePressEvent(QMouseEvent* event);
   void wheelEvent(QWheelEvent* event);
   void mouseMoveEvent(QMouseEvent* event);
-  void MoveModel();
+//  void MoveModel();
 
 //  const QVector<float>& vertex_;
 //  const QVector<int>& face_;
@@ -73,41 +73,41 @@ class OpenGLWidget final : public QOpenGLWidget{
 //  GLfloat rotation_y_ = 0;
 //  GLfloat rotation_z_ = 0;
   //  float scale_;
-  const char* vertexShaderSource =
-      "attribute vec3 position;\n"
-      "uniform mat4 projectionMatrix;\n"
-      "uniform mat4 modelViewMatrix;\n"
-      "void main()\n"
-      "{\n"
-      "    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, "
-      "1.0);\n"
-      "}\n";
+//  const char* vertexShaderSource =
+//      "attribute vec3 position;\n"
+//      "uniform mat4 projectionMatrix;\n"
+//      "uniform mat4 modelViewMatrix;\n"
+//      "void main()\n"
+//      "{\n"
+//      "    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, "
+//      "1.0);\n"
+//      "}\n";
 
-  const char* fragmentShaderSource =
-      "uniform vec4 color;\n"
-      "uniform bool dashed;\n"
-      "void main()\n"
-      "{\n"
-      "    if (dashed)\n"
-      "    {\n"
-      "        float dashSize = 0.3;\n"
-      "        float gapSize = 0.3;\n"
-      "        float t = mod(gl_FragCoord.x, (dashSize + gapSize)) / (dashSize "
-      "+ gapSize);\n"
-      "        if (t > 0.5)\n"
-      "        {\n"
-      "            gl_FragColor = color;\n"
-      "        }\n"
-      "        else\n"
-      "        {\n"
-      "            discard;\n"
-      "        }\n"
-      "    }\n"
-      "    else\n"
-      "    {\n"
-      "        gl_FragColor = color;\n"
-      "    }\n"
-      "}\n";
+//  const char* fragmentShaderSource =
+//      "uniform vec4 color;\n"
+//      "uniform bool dashed;\n"
+//      "void main()\n"
+//      "{\n"
+//      "    if (dashed)\n"
+//      "    {\n"
+//      "        float dashSize = 0.3;\n"
+//      "        float gapSize = 0.3;\n"
+//      "        float t = mod(gl_FragCoord.x, (dashSize + gapSize)) / (dashSize "
+//      "+ gapSize);\n"
+//      "        if (t > 0.5)\n"
+//      "        {\n"
+//      "            gl_FragColor = color;\n"
+//      "        }\n"
+//      "        else\n"
+//      "        {\n"
+//      "            discard;\n"
+//      "        }\n"
+//      "    }\n"
+//      "    else\n"
+//      "    {\n"
+//      "        gl_FragColor = color;\n"
+//      "    }\n"
+//      "}\n";
 };
 
 #endif  // WIDGET_H

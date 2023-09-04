@@ -7,9 +7,11 @@ class OpenGLTransformation final:  public TransformationStrategy, protected QOpe
 public:
     OpenGLTransformation() = default;
     ~OpenGLTransformation() = default;
-    void ApplyTranslation(QMatrix4x4& matrix, float x, float y, float z) override;
-    void ApplyScaling(QMatrix4x4& matrix, float scale) override;
-    void ApplyRotation(QMatrix4x4& matrix,float x, float y, float z) override;
+    void ApplyTranslation(QMatrix4x4& matrix, QVector<float>& vertex, float x, float y, float z) override; //vertex cabe crutchified
+    void ApplyScaling(QMatrix4x4& matrix, QVector<float>& vertex, float scale) override;
+    void ApplyRotation(QMatrix4x4& matrix,  QVector<float>& vertex, float x, float y, float z) override;
+    void MoveModel(QMatrix4x4& matrix, QVector<float>& vertex, const Settings& settings) override;
+    int shader_version = 1;
 };
 }
-#endif //CPP4_3DVIEWER_V2_0_MODEL_OOPENGLTRANSFORMATION_H_
+#endif //CPP4_3DVIEWER_V2_0_MODEL_OOPENGLTRANSFORMATION_H_ //минимальное остовное дерево

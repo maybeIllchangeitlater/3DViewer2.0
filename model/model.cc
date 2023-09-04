@@ -9,22 +9,15 @@ Controller::Controller(ObjParser &parser, TransformationStrategy *transformer) :
 void Controller::ParseFile(QString &filename)
 {
     parser_.ParseFile(filename, vertex_, face_);
+    vertex_copy_ = vertex_;
 }
 
-void Controller::Translate(QMatrix4x4& matrix, float x, float y, float z){
-    transformer_->ApplyTranslation(matrix, x, y, z);
-}
-
-void Controller::Scale(QMatrix4x4 &matrix, float scale)
+void Controller::MoveModel(QMatrix4x4 &matrix, const Settings &settings)
 {
-    transformer_->ApplyScaling(matrix, scale);
+   if(transformer_->shader_version == 2)
+       vertex_ = vertex_copy_;
+    transformer_->MoveModel(matrix, vertex_, settings);
 }
-
-void Controller::Rotate(QMatrix4x4 &matrix, float x, float y, float z)
-{
-    transformer_->ApplyRotation(matrix, x, y, z);
-}
-
 
 
 }

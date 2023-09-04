@@ -1,12 +1,15 @@
 #include "widget.h"
-
+#include <QResource>
 #include <iostream>
+#define GL_SILENCE_DEPRECATION
+//#include <GLFW/glfw3.h>
 
 OpenGLWidget::OpenGLWidget(s21::Settings &settings,
                            s21::Controller &controller, QWidget *parent)
     : settings_(settings),
       controller_(controller),
-      QOpenGLWidget(parent) {}
+      QOpenGLWidget(parent) {
+}
 
 OpenGLWidget::~OpenGLWidget() { std::cout << "ustroy destroy" << std::endl; }
 
@@ -26,14 +29,14 @@ void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
   }
 }
 
-void OpenGLWidget::MoveModel()
-{
+//void OpenGLWidget::MoveModel()
+//{
 
-    model_view_matrix_.setToIdentity();
-    controller_.Scale(model_view_matrix_, settings_.scale);
-    controller_.Rotate(model_view_matrix_, settings_.rotation_x, settings_.rotation_y, settings_.rotation_z);
-    controller_.Translate(model_view_matrix_, settings_.translation_x, settings_.translation_y, settings_.translation_z);
-}
+//    model_view_matrix_.setToIdentity();
+//    controller_.Scale(model_view_matrix_, settings_.scale);
+//    controller_.Rotate(model_view_matrix_, settings_.rotation_x, settings_.rotation_y, settings_.rotation_z);
+//    controller_.Translate(model_view_matrix_, settings_.translation_x, settings_.translation_y, settings_.translation_z);
+//}
 
 // void OpenGLWidget::translateModel(int direction, float amount) {
 //   if (direction == 0)
@@ -89,11 +92,13 @@ void OpenGLWidget::initializeGL() {
   glClearColor(settings_.back_color.redF(), settings_.back_color.greenF(),
                settings_.back_color.blueF(), settings_.back_color.alphaF());
   glEnable(GL_DEPTH_TEST);
+  GLenum glError = glGetError();
+  if (glError != GL_NO_ERROR) {
+      std::cout << glError << std::endl;
+  }
   /*----------------------------------------------------------------------------------------------------------------------*/
-  shader_programm_.addShaderFromSourceCode(QOpenGLShader::Vertex,
-                                           vertexShaderSource);
-  shader_programm_.addShaderFromSourceCode(QOpenGLShader::Fragment,
-                                           fragmentShaderSource);
+              shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt");
+  shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShader.txt");
   shader_programm_.link();
   shader_programm_.bind();
   /*----------------------------------------------------------------------------------------------------------------------*/
@@ -105,14 +110,15 @@ void OpenGLWidget::initializeGL() {
                controller_.GetVertexCopyConstRef().data(), GL_STATIC_DRAW);
   glGenBuffers(1, &index_buffer_);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer_);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * controller_.GetFaceConstRef().size(),
-               controller_.GetFaceConstRef().data(), GL_STATIC_DRAW);  // вынести в метов
-  /*----------------------------------------------------------------------------------------------------------------------*/
-
-  GLuint positionLocation = shader_programm_.attributeLocation("position");
-  glEnableVertexAttribArray(positionLocation);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * controller_.GetFaceConstRef().size(), controller_.GetFaceConstRef().data(),
+               GL_STATIC_DRAW);
+  GLuint vao = 0;
+  glGenVertexArrays(1, &vao);
+  glBindVertexArray(vao);
+  glEnableVertexAttribArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_);
-  glVertexAttribPointer(positionLocation, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+  /*----------------------------------------------------------------------------------------------------------------------*/
   shader_programm_.release();
   /*----------------------------------------------------------------------------------------------------------------------*/
 }
@@ -121,12 +127,6 @@ void OpenGLWidget::resizeGL(int w, int h) {
   /*----------------------------------------------------------------------------------------------------------------------*/
   glViewport(0, 0, w, h);
   projection_matrix_.setToIdentity();
-  //  ortho ? projectionMatrix.ortho(m_minX < 0 ? m_minX * 2 : m_minX / 2,
-  //                                 m_maxX > 0 ? m_maxX * 2 : m_maxX / 2,
-  //                                 m_minY < 0 ? m_minY * 2 : m_minY / 2,
-  //                                 m_maxY > 0 ? m_maxY * 2 : m_maxY / 2,
-  //                                 m_minZ < 0 ? m_minZ * 2 : m_minZ / 2,
-  //                                 m_maxZ > 0 ? m_maxZ * 2 : m_maxZ / 2)
   projection_matrix_.perspective(60.0f, static_cast<float>(w) / (h), 0.1f,
                                  100.0f);
   /*----------------------------------------------------------------------------------------------------------------------*/
@@ -138,27 +138,13 @@ void OpenGLWidget::paintGL() {
                settings_.back_color.blueF(), settings_.back_color.alphaF());
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   shader_programm_.bind();
-  shader_programm_.setUniformValue("dashed", false);
   shader_programm_.setUniformValue("projectionMatrix", projection_matrix_);
-  MoveModel();
-  shader_programm_.setUniformValue("modelViewMatrix", model_view_matrix_);
-
-  glLineWidth(static_cast<float>(settings_.line_width));
-  glPointSize(settings_.point_size);
-
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer_);
-  settings_.smooth_vertexes ? glEnable(GL_POINT_SMOOTH)
-                            : glDisable(GL_POINT_SMOOTH);
-  if (settings_.vertexes_shown) {
-    shader_programm_.setUniformValue("color", settings_.vertex_color);
-    glDrawElements(GL_POINTS, controller_.GetFaceConstRef().size(), GL_UNSIGNED_INT, nullptr);
-  }
+  controller_.MoveModel(model_view_matrix_, settings_);
+  shader_programm_.setUniformValue("modelViewMatrix", model_view_matrix_); //add if
   shader_programm_.setUniformValue("color", settings_.color);
-  settings_.broken_lines ? shader_programm_.setUniformValue("dashed", true)
-                         : shader_programm_.setUniformValue("dashed", false);
-
-  if (settings_.lines_shown)
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer_);
     glDrawElements(GL_LINES, controller_.GetFaceConstRef().size(), GL_UNSIGNED_INT, nullptr);
   shader_programm_.release();
+
   /*----------------------------------------------------------------------------------------------------------------------*/
 }

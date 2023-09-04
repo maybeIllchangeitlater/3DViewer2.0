@@ -15,6 +15,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS OpenGLWidgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets)
 
 
 set(PROJECT_SOURCES
@@ -33,8 +34,12 @@ set(PROJECT_SOURCES
         ../model/TransformationStrategy.h
         ../model/OpenGLTransformation.h
         ../model/OpenGLTransformation.cc
-        ../model/CPUTransformation.cc
-        ../model/CPUTransformation.h
+#        ../model/CPUTransformation.cc
+#        ../model/CPUTransformation.h
+#        ../resources/FragShader.fsh
+#        ../resources/VertexShader.vsh
+        ../shaders.qrc
+#        ../resources/VertexShaderCPU.vsh
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -55,12 +60,13 @@ else()
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
         add_executable(gpt_help
-            ${PROJECT_SOURCES}
+            ${PROJECT_SOURCES} ${QRC_SOURCES}
         )
     endif()
 endif()
 
 target_link_libraries(gpt_help PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(gpt_help PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 target_link_libraries(gpt_help PRIVATE Qt${QT_VERSION_MAJOR}::OpenGLWidgets)
 
 set_target_properties(gpt_help PROPERTIES

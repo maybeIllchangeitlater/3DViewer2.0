@@ -2,11 +2,18 @@
 
 #include "ui_mainwindow.h"
 #include "widget.h"
+#include <QSurface>
+
 MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
     : controller_(controller),
       QMainWindow(parent),
       ui_(new Ui::MainWindow),
       gl_widget_(nullptr) {
+    QSurfaceFormat window_surface = QSurfaceFormat::defaultFormat();
+        window_surface.setMajorVersion(3);
+        window_surface.setMinorVersion(3);
+        window_surface.setProfile(QSurfaceFormat::CoreProfile);
+        QSurfaceFormat::setDefaultFormat(window_surface);
   ui_->setupUi(this);
   ui_->scale_slider->setSliderPosition(settings_.scale * 100);
   ui_->line_thicc->setSliderPosition(settings_.line_width);

@@ -6,9 +6,11 @@ namespace s21{
     public:
      CPUTransformation() = default;
      ~CPUTransformation() override {};
-     void ApplyTranslation(QMatrix4x4& matrix, float x, float y, float z) override;
-     void ApplyScaling(QMatrix4x4& matrix, float scale) override;;
-     void ApplyRotation(QMatrix4x4& matrix, float x, float y, float z) override;
+     void ApplyTranslation(QMatrix4x4& matrix, QVector<float>& vertex, float x, float y, float z) override;
+     void ApplyScaling(QMatrix4x4& matrix, QVector<float>& vertex, float scale) override;
+     void ApplyRotation(QMatrix4x4& matrix,  QVector<float>& vertex, float x, float y, float z) override;
+     void MoveModel(QMatrix4x4& matrix, QVector<float>& vertex, const Settings& settings) override;
+     int shader_version = 2;
 };
 }
 #endif // CPP4_3DVIEWER_V2_0_MODEL_CPUTRANSFORMATION_H_

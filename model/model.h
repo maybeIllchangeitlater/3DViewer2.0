@@ -4,24 +4,24 @@
 #include "parser.h"
 #include "TransformationStrategy.h"
 #include "OpenGLTransformation.h"
-#include "CPUTransformation.h"
+#include "settings.h"
+//#include "CPUTransformation.h"
 
 namespace s21{
     class Controller{
        public:
-            explicit Controller(ObjParser & parser, TransformationStrategy *transformer);
+           explicit Controller(ObjParser & parser, TransformationStrategy *transformer);
            void ParseFile(QString &filename);
-           void Translate(QMatrix4x4& matrix, float x, float y, float z);
-           void Scale(QMatrix4x4& matrix, float scale);
-           void Rotate(QMatrix4x4& matrix, float x, float y, float z);
-           constexpr inline const QVector<int>& GetFaceConstRef() const{return face_;}
+           void MoveModel(QMatrix4x4& matrix, const Settings &settings);
+           constexpr inline const QVector<unsigned int>& GetFaceConstRef() const{return face_;}
            constexpr inline const QVector<float>& GetVertexCopyConstRef() const{return vertex_;}
+           constexpr inline const int ShaderVersion() const {return transformer_->shader_version;}
 
     private:
         ObjParser & parser_;
         TransformationStrategy *transformer_;
         QVector<float> vertex_;
-        QVector<int> face_;
+        QVector<unsigned int> face_;
         QVector<float> vertex_copy_;
 
     };

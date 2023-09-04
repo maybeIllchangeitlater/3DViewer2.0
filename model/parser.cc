@@ -1,7 +1,7 @@
 #include "parser.h"
 #include <fstream>
 namespace s21{
-     void s21::ObjParser::ParseFile(QString &filename, QVector<float> &vertex, QVector<int> &face) const
+     void s21::ObjParser::ParseFile(QString &filename, QVector<float> &vertex, QVector<unsigned int> &face) const
     {
          vertex.clear();
          face.clear();
@@ -39,7 +39,7 @@ namespace s21{
 
     }
 
-    void ObjParser::PushFace(QByteArray &data, QVector<int> &face) const
+    void ObjParser::PushFace(QByteArray &data, QVector<unsigned int> &face) const
     {
         int i = 0;
         auto cstr = data.data();
@@ -48,7 +48,7 @@ namespace s21{
             ++cstr; i++;
         }
         if(*cstr == '\n') throw std::invalid_argument("Broken Face");
-        float first = std::stof(cstr) -1;
+        unsigned int first = std::stoi(cstr) -1;
         face.push_back(first);
         while(i<n && !std::isspace(*cstr)){
             ++cstr; i++;
@@ -57,8 +57,8 @@ namespace s21{
             ++cstr; i++;
         }
         while(i < n){
-            face.push_back(std::stof(cstr) - 1);
-            face.push_back(std::stof(cstr) - 1);
+            face.push_back(std::stoi(cstr) - 1);
+            face.push_back(std::stoi(cstr) - 1);
             while(i<n &&!std::isspace(*cstr)){
                 ++cstr; i++;
             }
@@ -69,7 +69,7 @@ namespace s21{
         face.push_back(first);
     }
 
-    void ObjParser::ChangeFilename(QString &filename, QVector<float> &vertex, QVector<int> &face)  const
+    void ObjParser::ChangeFilename(QString &filename, QVector<float> &vertex, QVector<unsigned int> &face)  const
     {
         filename =  filename.mid(filename.lastIndexOf("/") + 1).chopped(4) + "\n" +
                 "Vertexes: " + QString::number(vertex.size() / 3) +
