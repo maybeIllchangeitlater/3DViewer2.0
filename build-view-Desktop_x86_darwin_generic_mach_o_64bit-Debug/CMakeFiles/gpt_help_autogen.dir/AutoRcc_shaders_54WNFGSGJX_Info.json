@@ -1,0 +1,24 @@
+{
+	"BUILD_DIR" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen",
+	"CMAKE_BINARY_DIR" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/Users/susannel/3dviewer2/view",
+	"CMAKE_SOURCE_DIR" : "/Users/susannel/3dviewer2/view",
+	"INCLUDE_DIR" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/include",
+	"INPUTS" : 
+	[
+		"/Users/susannel/3dviewer2/resources/VertexShader.txt",
+		"/Users/susannel/3dviewer2/resources/VertexShaderCPU.txt",
+		"/Users/susannel/3dviewer2/resources/FragShader.txt"
+	],
+	"LOCK_FILE" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/gpt_help_autogen.dir/AutoRcc_shaders_54WNFGSGJX_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "shaders" ],
+	"OUTPUT_CHECKSUM" : "54WNFGSGJX",
+	"OUTPUT_NAME" : "qrc_shaders.cpp",
+	"RCC_EXECUTABLE" : "/usr/local/share/qt/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/gpt_help_autogen.dir/AutoRcc_shaders_54WNFGSGJX_Used.txt",
+	"SOURCE" : "/Users/susannel/3dviewer2/shaders.qrc",
+	"VERBOSITY" : 0
+}

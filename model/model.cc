@@ -14,7 +14,7 @@ void Controller::ParseFile(QString &filename)
 
 void Controller::MoveModel(QMatrix4x4 &matrix, const Settings &settings)
 {
-   if(transformer_->shader_version == 2)
+   if(transformer_->GetShaderVersion() == 2)
        vertex_ = vertex_copy_;
     transformer_->MoveModel(matrix, vertex_, settings);
 }

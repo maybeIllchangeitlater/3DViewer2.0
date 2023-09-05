@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/susannel/3dviewer2/model/OpenGLTransformation.cc" "CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o" "gcc" "CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o.d"
   "/Users/susannel/3dviewer2/model/model.cc" "CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o" "gcc" "CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o.d"
   "/Users/susannel/3dviewer2/model/parser.cc" "CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o" "gcc" "CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o.d"
+  "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp" "CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o" "gcc" "CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o.d"
   "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/mocs_compilation.cpp" "CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o.d"
   "/Users/susannel/3dviewer2/view/main.cc" "CMakeFiles/gpt_help.dir/main.cc.o" "gcc" "CMakeFiles/gpt_help.dir/main.cc.o.d"
   "/Users/susannel/3dviewer2/view/mainwindow.cc" "CMakeFiles/gpt_help.dir/mainwindow.cc.o" "gcc" "CMakeFiles/gpt_help.dir/mainwindow.cc.o.d"

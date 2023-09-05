@@ -361,5 +361,62 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o: \
   /usr/local/include/QtGui/qvector4d.h \
   /usr/local/include/QtGui/qquaternion.h \
   /usr/local/include/QtGui/qgenericmatrix.h \
+  /Users/susannel/3dviewer2/view/settings.h \
+  /usr/local/lib/QtGui.framework/Headers/QCloseEvent \
+  /usr/local/lib/QtGui.framework/Headers/qevent.h \
+  /usr/local/include/QtCore/qcoreevent.h \
+  /usr/local/include/QtCore/qpointer.h /usr/local/include/QtCore/qurl.h \
+  /usr/local/include/QtGui/qeventpoint.h \
+  /usr/local/include/QtGui/qvector2d.h \
+  /usr/local/include/QtGui/qpointingdevice.h \
+  /usr/local/include/QtGui/qinputdevice.h \
+  /usr/local/include/QtGui/qscreen.h /usr/local/include/QtCore/QList \
+  /usr/local/lib/QtCore.framework/Headers/qlist.h \
+  /usr/local/include/QtCore/QRect \
+  /usr/local/lib/QtCore.framework/Headers/qrect.h \
+  /usr/local/include/QtCore/QSize \
+  /usr/local/lib/QtCore.framework/Headers/qsize.h \
+  /usr/local/include/QtCore/QSizeF /usr/local/include/QtGui/QTransform \
+  /usr/local/lib/QtGui.framework/Headers/qtransform.h \
+  /usr/local/include/QtGui/qpolygon.h /usr/local/include/QtGui/qregion.h \
+  /usr/local/include/QtCore/qline.h \
+  /usr/local/include/QtGui/qkeysequence.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QColorDialog \
+  /usr/local/lib/QtWidgets.framework/Headers/qcolordialog.h \
+  /usr/local/include/QtWidgets/qtwidgetsglobal.h \
+  /usr/local/include/QtWidgets/qtwidgets-config.h \
+  /usr/local/include/QtWidgets/qdialog.h \
+  /usr/local/include/QtWidgets/qwidget.h \
+  /usr/local/include/QtGui/qpaintdevice.h \
+  /usr/local/include/QtGui/qpalette.h /usr/local/include/QtGui/qcolor.h \
+  /usr/local/include/QtGui/qrgb.h /usr/local/include/QtGui/qrgba64.h \
+  /usr/local/include/QtGui/qbrush.h /usr/local/include/QtGui/qimage.h \
+  /usr/local/include/QtGui/qpixelformat.h \
+  /usr/local/include/QtGui/qtransform.h \
+  /usr/local/include/QtGui/qpixmap.h /usr/local/include/QtGui/qfont.h \
+  /usr/local/include/QtGui/qfontmetrics.h \
+  /usr/local/include/QtGui/qfontinfo.h \
+  /usr/local/include/QtWidgets/qsizepolicy.h \
+  /usr/local/include/QtGui/qcursor.h /usr/local/include/QtGui/qbitmap.h \
+  /usr/local/lib/QtCore.framework/Headers/QFile \
+  /usr/local/lib/QtCore.framework/Headers/qfile.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QFileDialog \
+  /usr/local/lib/QtWidgets.framework/Headers/qfiledialog.h \
+  /usr/local/include/QtCore/qdir.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonArray \
+  /usr/local/lib/QtCore.framework/Headers/qjsonarray.h \
+  /usr/local/include/QtCore/qjsonvalue.h \
+  /usr/local/include/QtCore/qcborvalue.h \
+  /usr/local/include/QtCore/qcborcommon.h \
+  /usr/local/include/QtCore/qregularexpression.h \
+  /usr/local/include/QtCore/quuid.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/compare \
+  /usr/local/lib/QtCore.framework/Headers/QJsonDocument \
+  /usr/local/lib/QtCore.framework/Headers/qjsondocument.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonObject \
+  /usr/local/lib/QtCore.framework/Headers/qjsonobject.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonValue \
+  /usr/local/lib/QtCore.framework/Headers/qjsonvalue.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
   /Users/susannel/3dviewer2/model/OpenGLTransformation.h \
   /Users/susannel/3dviewer2/model/CPUTransformation.h

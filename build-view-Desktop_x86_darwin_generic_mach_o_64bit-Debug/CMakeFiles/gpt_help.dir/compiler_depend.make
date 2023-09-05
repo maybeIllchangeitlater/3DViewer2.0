@@ -277,7 +277,163 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o: /
   /usr/local/include/QtCore/qsharedpointer_impl.h \
   /usr/local/include/QtCore/qobject.h \
   /usr/local/include/QtCore/qobject_impl.h \
-  /usr/local/include/QtCore/qbindingstorage.h
+  /usr/local/include/QtCore/qbindingstorage.h \
+  /Users/susannel/3dviewer2/view/settings.h \
+  /usr/local/lib/QtGui.framework/Headers/QCloseEvent \
+  /usr/local/lib/QtGui.framework/Headers/qevent.h \
+  /usr/local/include/QtCore/qcoreevent.h \
+  /usr/local/include/QtCore/qiodevice.h \
+  /usr/local/include/QtCore/qpointer.h \
+  /usr/local/include/QtCore/qurl.h \
+  /usr/local/include/QtCore/qvariant.h \
+  /usr/local/include/QtGui/qeventpoint.h \
+  /usr/local/include/QtGui/qvector2d.h \
+  /usr/local/include/QtGui/qpointingdevice.h \
+  /usr/local/include/QtGui/qinputdevice.h \
+  /usr/local/include/QtGui/qscreen.h \
+  /usr/local/include/QtCore/QList \
+  /usr/local/lib/QtCore.framework/Headers/qlist.h \
+  /usr/local/include/QtCore/QObject \
+  /usr/local/lib/QtCore.framework/Headers/qobject.h \
+  /usr/local/include/QtCore/QRect \
+  /usr/local/lib/QtCore.framework/Headers/qrect.h \
+  /usr/local/include/QtCore/QSize \
+  /usr/local/lib/QtCore.framework/Headers/qsize.h \
+  /usr/local/include/QtCore/QSizeF \
+  /usr/local/include/QtGui/QTransform \
+  /usr/local/lib/QtGui.framework/Headers/qtransform.h \
+  /usr/local/include/QtGui/qpolygon.h \
+  /usr/local/include/QtGui/qregion.h \
+  /usr/local/include/QtGui/qwindowdefs.h \
+  /usr/local/include/QtCore/qline.h \
+  /usr/local/include/QtCore/qnativeinterface.h \
+  /usr/local/include/QtGui/qkeysequence.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QColorDialog \
+  /usr/local/lib/QtWidgets.framework/Headers/qcolordialog.h \
+  /usr/local/include/QtWidgets/qtwidgetsglobal.h \
+  /usr/local/include/QtWidgets/qtwidgets-config.h \
+  /usr/local/include/QtWidgets/qdialog.h \
+  /usr/local/include/QtWidgets/qwidget.h \
+  /usr/local/include/QtGui/qpaintdevice.h \
+  /usr/local/include/QtGui/qpalette.h \
+  /usr/local/include/QtGui/qcolor.h \
+  /usr/local/include/QtGui/qrgb.h \
+  /usr/local/include/QtGui/qrgba64.h \
+  /usr/local/include/QtGui/qbrush.h \
+  /usr/local/include/QtGui/qimage.h \
+  /usr/local/include/QtGui/qpixelformat.h \
+  /usr/local/include/QtGui/qtransform.h \
+  /usr/local/include/QtGui/qpixmap.h \
+  /usr/local/include/QtGui/qfont.h \
+  /usr/local/include/QtGui/qfontmetrics.h \
+  /usr/local/include/QtGui/qfontinfo.h \
+  /usr/local/include/QtWidgets/qsizepolicy.h \
+  /usr/local/include/QtGui/qcursor.h \
+  /usr/local/include/QtGui/qbitmap.h \
+  /usr/local/lib/QtCore.framework/Headers/QDir \
+  /usr/local/lib/QtCore.framework/Headers/qdir.h \
+  /usr/local/include/QtCore/qfile.h \
+  /usr/local/include/QtCore/qfiledevice.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/filesystem \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stack \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/deque \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/system_error \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__errc \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cerrno \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/locale \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__locale \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/mutex \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__mutex_base \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/locale.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/locale.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_locale.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_xlocale.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_ctype.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/__wctype.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_stdio.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_stdlib.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_string.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_time.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_wchar.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_wctype.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ios \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/streambuf \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/nl_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_char.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_short.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_caddr_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_blkcnt_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_blksize_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_gid_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_addr_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_port_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ino_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ino64_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_key_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_nlink_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_useconds_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_suseconds_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_def.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_setsize.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_set.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_clr.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_zero.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_isset.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_copy.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fsblkcnt_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_types/_nl_item.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iomanip \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/istream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ostream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/bitset \
+  /usr/local/include/QtCore/qfileinfo.h \
+  /usr/local/include/QtCore/qdatetime.h \
+  /usr/local/include/QtCore/qcalendar.h \
+  /usr/local/include/QtCore/qlocale.h \
+  /usr/local/lib/QtCore.framework/Headers/QFile \
+  /usr/local/lib/QtCore.framework/Headers/qfile.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QFileDialog \
+  /usr/local/lib/QtWidgets.framework/Headers/qfiledialog.h \
+  /usr/local/include/QtCore/qdir.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonArray \
+  /usr/local/lib/QtCore.framework/Headers/qjsonarray.h \
+  /usr/local/include/QtCore/qjsonvalue.h \
+  /usr/local/include/QtCore/qcborvalue.h \
+  /usr/local/include/QtCore/qcborcommon.h \
+  /usr/local/include/QtCore/qregularexpression.h \
+  /usr/local/include/QtCore/quuid.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/compare \
+  /usr/local/lib/QtCore.framework/Headers/QJsonDocument \
+  /usr/local/lib/QtCore.framework/Headers/qjsondocument.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonObject \
+  /usr/local/lib/QtCore.framework/Headers/qjsonobject.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonValue \
+  /usr/local/lib/QtCore.framework/Headers/qjsonvalue.h \
+  /usr/local/lib/QtGui.framework/Headers/QOpenGLFunctions \
+  /usr/local/lib/QtGui.framework/Headers/qopenglfunctions.h \
+  /usr/local/include/QtGui/qopengl.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gltypes.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glext.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/OpenGLAvailability.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/os/availability.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/inttypes.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/inttypes.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/inttypes.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_inttypes.h \
+  /usr/local/include/QtGui/qopenglcontext.h \
+  /usr/local/include/QtCore/QScopedPointer \
+  /usr/local/lib/QtCore.framework/Headers/qscopedpointer.h \
+  /usr/local/include/QtGui/QSurfaceFormat \
+  /usr/local/lib/QtGui.framework/Headers/qsurfaceformat.h \
+  /usr/local/include/QtGui/qopenglcontext_platform.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream
 
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o: /Users/susannel/3dviewer2/model/OpenGLTransformation.cc \
   /Users/susannel/3dviewer2/model/OpenGLTransformation.h \
@@ -578,7 +734,140 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o
   /usr/local/include/QtCore/qsize.h \
   /usr/local/include/QtGui/qvector4d.h \
   /usr/local/include/QtGui/qquaternion.h \
-  /usr/local/include/QtGui/qgenericmatrix.h
+  /usr/local/include/QtGui/qgenericmatrix.h \
+  /Users/susannel/3dviewer2/view/settings.h \
+  /usr/local/lib/QtGui.framework/Headers/QCloseEvent \
+  /usr/local/lib/QtGui.framework/Headers/qevent.h \
+  /usr/local/include/QtCore/qcoreevent.h \
+  /usr/local/include/QtCore/qiodevice.h \
+  /usr/local/include/QtCore/qpointer.h \
+  /usr/local/include/QtCore/qurl.h \
+  /usr/local/include/QtGui/qeventpoint.h \
+  /usr/local/include/QtGui/qvector2d.h \
+  /usr/local/include/QtGui/qpointingdevice.h \
+  /usr/local/include/QtGui/qinputdevice.h \
+  /usr/local/include/QtGui/qscreen.h \
+  /usr/local/include/QtCore/QList \
+  /usr/local/lib/QtCore.framework/Headers/qlist.h \
+  /usr/local/include/QtCore/QRect \
+  /usr/local/lib/QtCore.framework/Headers/qrect.h \
+  /usr/local/include/QtCore/QSize \
+  /usr/local/lib/QtCore.framework/Headers/qsize.h \
+  /usr/local/include/QtCore/QSizeF \
+  /usr/local/include/QtGui/QTransform \
+  /usr/local/lib/QtGui.framework/Headers/qtransform.h \
+  /usr/local/include/QtGui/qpolygon.h \
+  /usr/local/include/QtGui/qregion.h \
+  /usr/local/include/QtCore/qline.h \
+  /usr/local/include/QtGui/qkeysequence.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QColorDialog \
+  /usr/local/lib/QtWidgets.framework/Headers/qcolordialog.h \
+  /usr/local/include/QtWidgets/qtwidgetsglobal.h \
+  /usr/local/include/QtWidgets/qtwidgets-config.h \
+  /usr/local/include/QtWidgets/qdialog.h \
+  /usr/local/include/QtWidgets/qwidget.h \
+  /usr/local/include/QtGui/qpaintdevice.h \
+  /usr/local/include/QtGui/qpalette.h \
+  /usr/local/include/QtGui/qcolor.h \
+  /usr/local/include/QtGui/qrgb.h \
+  /usr/local/include/QtGui/qrgba64.h \
+  /usr/local/include/QtGui/qbrush.h \
+  /usr/local/include/QtGui/qimage.h \
+  /usr/local/include/QtGui/qpixelformat.h \
+  /usr/local/include/QtGui/qtransform.h \
+  /usr/local/include/QtGui/qpixmap.h \
+  /usr/local/include/QtGui/qfont.h \
+  /usr/local/include/QtGui/qfontmetrics.h \
+  /usr/local/include/QtGui/qfontinfo.h \
+  /usr/local/include/QtWidgets/qsizepolicy.h \
+  /usr/local/include/QtGui/qcursor.h \
+  /usr/local/include/QtGui/qbitmap.h \
+  /usr/local/lib/QtCore.framework/Headers/QDir \
+  /usr/local/lib/QtCore.framework/Headers/qdir.h \
+  /usr/local/include/QtCore/qfile.h \
+  /usr/local/include/QtCore/qfiledevice.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/filesystem \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stack \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/deque \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/system_error \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__errc \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cerrno \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/locale \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__locale \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/mutex \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__mutex_base \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/locale.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/locale.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_locale.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_xlocale.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_ctype.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/__wctype.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_inttypes.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_stdio.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_stdlib.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_string.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_time.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_wchar.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_wctype.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ios \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/streambuf \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/nl_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_char.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_short.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_caddr_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_blkcnt_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_blksize_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_gid_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_addr_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_port_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ino_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ino64_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_key_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_nlink_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_useconds_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_suseconds_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_def.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_setsize.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_set.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_clr.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_zero.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_isset.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_copy.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fsblkcnt_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_types/_nl_item.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iomanip \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/istream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ostream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/bitset \
+  /usr/local/include/QtCore/qfileinfo.h \
+  /usr/local/include/QtCore/qdatetime.h \
+  /usr/local/include/QtCore/qcalendar.h \
+  /usr/local/include/QtCore/qlocale.h \
+  /usr/local/lib/QtCore.framework/Headers/QFile \
+  /usr/local/lib/QtCore.framework/Headers/qfile.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QFileDialog \
+  /usr/local/lib/QtWidgets.framework/Headers/qfiledialog.h \
+  /usr/local/include/QtCore/qdir.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonArray \
+  /usr/local/lib/QtCore.framework/Headers/qjsonarray.h \
+  /usr/local/include/QtCore/qjsonvalue.h \
+  /usr/local/include/QtCore/qcborvalue.h \
+  /usr/local/include/QtCore/qcborcommon.h \
+  /usr/local/include/QtCore/qregularexpression.h \
+  /usr/local/include/QtCore/quuid.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/compare \
+  /usr/local/lib/QtCore.framework/Headers/QJsonDocument \
+  /usr/local/lib/QtCore.framework/Headers/qjsondocument.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonObject \
+  /usr/local/lib/QtCore.framework/Headers/qjsonobject.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonValue \
+  /usr/local/lib/QtCore.framework/Headers/qjsonvalue.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream
 
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o: /Users/susannel/3dviewer2/model/model.cc \
   /Users/susannel/3dviewer2/model/model.h \
@@ -948,6 +1237,72 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o: /Users/susann
   /usr/local/include/QtGui/qvector4d.h \
   /usr/local/include/QtGui/qquaternion.h \
   /usr/local/include/QtGui/qgenericmatrix.h \
+  /Users/susannel/3dviewer2/view/settings.h \
+  /usr/local/lib/QtGui.framework/Headers/QCloseEvent \
+  /usr/local/lib/QtGui.framework/Headers/qevent.h \
+  /usr/local/include/QtCore/qcoreevent.h \
+  /usr/local/include/QtCore/qpointer.h \
+  /usr/local/include/QtCore/qurl.h \
+  /usr/local/include/QtGui/qeventpoint.h \
+  /usr/local/include/QtGui/qvector2d.h \
+  /usr/local/include/QtGui/qpointingdevice.h \
+  /usr/local/include/QtGui/qinputdevice.h \
+  /usr/local/include/QtGui/qscreen.h \
+  /usr/local/include/QtCore/QList \
+  /usr/local/lib/QtCore.framework/Headers/qlist.h \
+  /usr/local/include/QtCore/QRect \
+  /usr/local/lib/QtCore.framework/Headers/qrect.h \
+  /usr/local/include/QtCore/QSize \
+  /usr/local/lib/QtCore.framework/Headers/qsize.h \
+  /usr/local/include/QtCore/QSizeF \
+  /usr/local/include/QtGui/QTransform \
+  /usr/local/lib/QtGui.framework/Headers/qtransform.h \
+  /usr/local/include/QtGui/qpolygon.h \
+  /usr/local/include/QtGui/qregion.h \
+  /usr/local/include/QtCore/qline.h \
+  /usr/local/include/QtGui/qkeysequence.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QColorDialog \
+  /usr/local/lib/QtWidgets.framework/Headers/qcolordialog.h \
+  /usr/local/include/QtWidgets/qtwidgetsglobal.h \
+  /usr/local/include/QtWidgets/qtwidgets-config.h \
+  /usr/local/include/QtWidgets/qdialog.h \
+  /usr/local/include/QtWidgets/qwidget.h \
+  /usr/local/include/QtGui/qpaintdevice.h \
+  /usr/local/include/QtGui/qpalette.h \
+  /usr/local/include/QtGui/qcolor.h \
+  /usr/local/include/QtGui/qrgb.h \
+  /usr/local/include/QtGui/qrgba64.h \
+  /usr/local/include/QtGui/qbrush.h \
+  /usr/local/include/QtGui/qimage.h \
+  /usr/local/include/QtGui/qpixelformat.h \
+  /usr/local/include/QtGui/qtransform.h \
+  /usr/local/include/QtGui/qpixmap.h \
+  /usr/local/include/QtGui/qfont.h \
+  /usr/local/include/QtGui/qfontmetrics.h \
+  /usr/local/include/QtGui/qfontinfo.h \
+  /usr/local/include/QtWidgets/qsizepolicy.h \
+  /usr/local/include/QtGui/qcursor.h \
+  /usr/local/include/QtGui/qbitmap.h \
+  /usr/local/lib/QtCore.framework/Headers/QFile \
+  /usr/local/lib/QtCore.framework/Headers/qfile.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QFileDialog \
+  /usr/local/lib/QtWidgets.framework/Headers/qfiledialog.h \
+  /usr/local/include/QtCore/qdir.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonArray \
+  /usr/local/lib/QtCore.framework/Headers/qjsonarray.h \
+  /usr/local/include/QtCore/qjsonvalue.h \
+  /usr/local/include/QtCore/qcborvalue.h \
+  /usr/local/include/QtCore/qcborcommon.h \
+  /usr/local/include/QtCore/qregularexpression.h \
+  /usr/local/include/QtCore/quuid.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/compare \
+  /usr/local/lib/QtCore.framework/Headers/QJsonDocument \
+  /usr/local/lib/QtCore.framework/Headers/qjsondocument.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonObject \
+  /usr/local/lib/QtCore.framework/Headers/qjsonobject.h \
+  /usr/local/lib/QtCore.framework/Headers/QJsonValue \
+  /usr/local/lib/QtCore.framework/Headers/qjsonvalue.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
   /Users/susannel/3dviewer2/model/OpenGLTransformation.h \
   /Users/susannel/3dviewer2/model/CPUTransformation.h
 
@@ -1283,6 +1638,8 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o: /Users/susan
   /usr/local/include/QtCore/qsharedpointer.h \
   /usr/local/include/QtCore/qsharedpointer_impl.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/fstream
+
+CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o: gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp
 
 CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o: gpt_help_autogen/mocs_compilation.cpp \
   gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp \
@@ -1738,6 +2095,7 @@ CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o: gpt_help_autoge
   /usr/local/include/QtGui/qvector4d.h \
   /usr/local/include/QtGui/qquaternion.h \
   /usr/local/include/QtGui/qgenericmatrix.h \
+  /Users/susannel/3dviewer2/view/settings.h \
   /Users/susannel/3dviewer2/model/OpenGLTransformation.h \
   /Users/susannel/3dviewer2/model/CPUTransformation.h \
   /Users/susannel/3dviewer2/view/widget.h \
@@ -1757,7 +2115,6 @@ CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o: gpt_help_autoge
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
   /usr/local/lib/QtWidgets.framework/Headers/QWidget \
-  /Users/susannel/3dviewer2/view/settings.h \
   gpt_help_autogen/EWIEGA46WW/moc_widget.cpp \
   /Users/susannel/3dviewer2/view/widget.h
 
@@ -2219,6 +2576,7 @@ CMakeFiles/gpt_help.dir/main.cc.o: /Users/susannel/3dviewer2/view/main.cc \
   /usr/local/include/QtGui/qvector4d.h \
   /usr/local/include/QtGui/qquaternion.h \
   /usr/local/include/QtGui/qgenericmatrix.h \
+  /Users/susannel/3dviewer2/view/settings.h \
   /Users/susannel/3dviewer2/model/OpenGLTransformation.h \
   /Users/susannel/3dviewer2/model/CPUTransformation.h \
   /Users/susannel/3dviewer2/view/widget.h \
@@ -2237,8 +2595,7 @@ CMakeFiles/gpt_help.dir/main.cc.o: /Users/susannel/3dviewer2/view/main.cc \
   /usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
-  /usr/local/lib/QtWidgets.framework/Headers/QWidget \
-  /Users/susannel/3dviewer2/view/settings.h
+  /usr/local/lib/QtWidgets.framework/Headers/QWidget
 
 CMakeFiles/gpt_help.dir/mainwindow.cc.o: /Users/susannel/3dviewer2/view/mainwindow.cc \
   /Users/susannel/3dviewer2/view/mainwindow.h \
@@ -2693,6 +3050,7 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: /Users/susannel/3dviewer2/view/mainwind
   /usr/local/include/QtGui/qvector4d.h \
   /usr/local/include/QtGui/qquaternion.h \
   /usr/local/include/QtGui/qgenericmatrix.h \
+  /Users/susannel/3dviewer2/view/settings.h \
   /Users/susannel/3dviewer2/model/OpenGLTransformation.h \
   /Users/susannel/3dviewer2/model/CPUTransformation.h \
   /Users/susannel/3dviewer2/view/widget.h \
@@ -2712,7 +3070,6 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: /Users/susannel/3dviewer2/view/mainwind
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
   /usr/local/lib/QtWidgets.framework/Headers/QWidget \
-  /Users/susannel/3dviewer2/view/settings.h \
   gpt_help_autogen/include/ui_mainwindow.h \
   /usr/local/include/QtCore/QVariant \
   /usr/local/lib/QtCore.framework/Headers/qvariant.h \
@@ -2750,7 +3107,10 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: /Users/susannel/3dviewer2/view/mainwind
   /usr/local/include/QtWidgets/QStatusBar \
   /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h \
   /usr/local/include/QtWidgets/QVBoxLayout \
-  /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h
+  /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h \
+  /usr/local/lib/QtGui.framework/Headers/QSurface \
+  /usr/local/lib/QtGui.framework/Headers/qsurface.h \
+  /usr/local/include/QtGui/qsurfaceformat.h
 
 CMakeFiles/gpt_help.dir/settings.cc.o: /Users/susannel/3dviewer2/view/settings.cc \
   /Users/susannel/3dviewer2/view/settings.h \
@@ -3634,10 +3994,16 @@ CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc \
   /Users/susannel/3dviewer2/model/parser.h \
   /Users/susannel/3dviewer2/model/TransformationStrategy.h \
   /Users/susannel/3dviewer2/model/OpenGLTransformation.h \
-  /Users/susannel/3dviewer2/model/CPUTransformation.h
+  /Users/susannel/3dviewer2/model/CPUTransformation.h \
+  /usr/local/lib/QtCore.framework/Headers/QResource \
+  /usr/local/lib/QtCore.framework/Headers/qresource.h
 
 
 /Users/susannel/3dviewer2/view/widget.cc:
+
+/usr/local/include/QtGui/qsurfaceformat.h:
+
+/usr/local/lib/QtGui.framework/Headers/QSurface:
 
 /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h:
 
@@ -3671,6 +4037,8 @@ CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc \
 
 /usr/local/include/QtWidgets/qgridlayout.h:
 
+/usr/local/lib/QtGui.framework/Headers/qsurface.h:
+
 /usr/local/include/QtWidgets/qlayoutitem.h:
 
 /usr/local/include/QtWidgets/qlayout.h:
@@ -3695,8 +4063,6 @@ CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc \
 
 /usr/local/lib/QtWidgets.framework/Headers/QApplication:
 
-/Users/susannel/3dviewer2/view/settings.h:
-
 /usr/local/lib/QtWidgets.framework/Headers/qwidget.h:
 
 /usr/local/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h:
@@ -3708,10 +4074,6 @@ CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc \
 /usr/local/lib/QtGui.framework/Headers/QMouseEvent:
 
 /Users/susannel/3dviewer2/view/widget.h:
-
-/usr/local/include/QtWidgets/QApplication:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream:
 
 /usr/local/lib/QtCore.framework/Headers/qtimer.h:
 
@@ -3736,6 +4098,40 @@ CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc \
 /usr/local/include/QtWidgets/qtabwidget.h:
 
 /usr/local/lib/QtWidgets.framework/Headers/QMainWindow:
+
+gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/fstream:
+
+/Users/susannel/3dviewer2/model/parser.h:
+
+/Users/susannel/3dviewer2/model/model.h:
+
+/Users/susannel/3dviewer2/model/OpenGLTransformation.cc:
+
+/usr/local/include/QtWidgets/QApplication:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream:
+
+/usr/local/lib/QtGui.framework/Headers/qsurfaceformat.h:
+
+/usr/local/lib/QtCore.framework/Headers/qscopedpointer.h:
+
+/usr/local/include/QtCore/QScopedPointer:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_inttypes.h:
+
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/inttypes.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/inttypes.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gltypes.h:
+
+/usr/local/include/QtGui/qopengl.h:
+
+/usr/local/include/QtCore/QVariant:
+
+/usr/local/lib/QtGui.framework/Headers/QOpenGLFunctions:
 
 /usr/local/lib/QtCore.framework/Headers/qjsonvalue.h:
 
@@ -3765,97 +4161,7 @@ CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc \
 
 /usr/local/lib/QtWidgets.framework/Headers/qfiledialog.h:
 
-/usr/local/lib/QtCore.framework/Headers/QFile:
-
-/usr/local/include/QtGui/qbitmap.h:
-
-gpt_help_autogen/EWIEGA46WW/moc_widget.cpp:
-
-/usr/local/include/QtGui/qcursor.h:
-
-/usr/local/include/QtGui/qfontmetrics.h:
-
-/Users/susannel/3dviewer2/view/main.cc:
-
-/usr/local/include/QtGui/qfont.h:
-
-/usr/local/include/QtGui/qrgba64.h:
-
-/usr/local/include/QtGui/qrgb.h:
-
-/usr/local/include/QtGui/qcolor.h:
-
-/usr/local/include/QtGui/qpalette.h:
-
-/usr/local/include/QtGui/qpaintdevice.h:
-
-/usr/local/include/QtWidgets/qwidget.h:
-
-/usr/local/include/QtWidgets/qdialog.h:
-
-/usr/local/include/QtWidgets/qtwidgetsglobal.h:
-
-/usr/local/lib/QtOpenGLWidgets.framework/Headers/qopenglwidget.h:
-
-/usr/local/lib/QtWidgets.framework/Headers/qcolordialog.h:
-
-/Users/susannel/3dviewer2/view/mainwindow.cc:
-
-/usr/local/lib/QtWidgets.framework/Headers/QColorDialog:
-
-/usr/local/include/QtGui/qkeysequence.h:
-
-/usr/local/include/QtGui/qregion.h:
-
-/usr/local/include/QtCore/qtextstream.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/mach/machine/_structs.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_setsize.h:
-
-/usr/local/include/QtGui/qpolygon.h:
-
-/usr/local/lib/QtCore.framework/Headers/qdir.h:
-
-/usr/local/lib/QtGui.framework/Headers/qtransform.h:
-
-/usr/local/include/QtGui/QTransform:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_key_t.h:
-
-/usr/local/include/QtCore/QSizeF:
-
-/usr/local/lib/QtGui.framework/Headers/qopenglfunctions.h:
-
-/usr/local/include/QtCore/qnativeinterface.h:
-
-/usr/local/lib/QtCore.framework/Headers/qsize.h:
-
-/usr/local/include/QtCore/qrect.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/inttypes.h:
-
-/usr/local/lib/QtCore.framework/Headers/qrect.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/wchar.h:
-
-/usr/local/include/QtCore/QRect:
-
-/usr/local/include/QtCore/qcompare.h:
-
-/usr/local/include/QtGui/qscreen.h:
-
-/usr/local/include/QtCore/qurl.h:
-
-/usr/local/include/QtCore/qcoreevent.h:
-
-gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/fstream:
-
-/usr/local/lib/QtCore.framework/Headers/qobject.h:
-
-/Users/susannel/3dviewer2/model/parser.cc:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/bitset:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iomanip:
 
@@ -3903,10 +4209,6 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_char.h:
 
-/usr/local/include/QtOpenGL/qtopenglglobal.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/nl_types.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_types/_intmax_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_wctype.h:
@@ -3927,8 +4229,6 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/__wctype.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_xlocale.h:
-
 /usr/local/include/QtCore/qglobal.h:
 
 /usr/local/include/QtCore/QSize:
@@ -3936,6 +4236,10 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/locale.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/mutex:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__node_handle:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__locale:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/type_traits:
 
@@ -3949,63 +4253,125 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stack:
 
-/usr/local/include/QtCore/qiodevice.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_posix_availability.h:
 
 /usr/local/include/QtCore/qfiledevice.h:
 
-/Users/susannel/3dviewer2/model/parser.h:
+/usr/local/lib/QtGui.framework/Headers/qtransform.h:
 
-/usr/local/include/QtGui/qguiapplication.h:
+/usr/local/lib/QtCore.framework/Headers/qdir.h:
 
-/usr/local/include/QtCore/qstringmatcher.h:
+/usr/local/include/QtGui/qbitmap.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_ctype.h:
+/usr/local/include/QtOpenGL/qtopenglglobal.h:
 
-/Users/susannel/3dviewer2/model/model.cc:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/nl_types.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_once_t.h:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/syslimits.h:
 
-/usr/local/include/QtGui/qopenglcontext_platform.h:
+/usr/local/include/QtWidgets/qsizepolicy.h:
 
-/usr/local/include/QtCore/qvariant.h:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_xlocale.h:
 
-/usr/local/lib/QtGui.framework/Headers/qsurfaceformat.h:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/appleapiopts.h:
 
-/usr/local/lib/QtCore.framework/Headers/qscopedpointer.h:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cctype:
 
-/usr/local/include/QtCore/QScopedPointer:
+/usr/local/include/QtGui/qfontinfo.h:
+
+/Users/susannel/3dviewer2/view/main.cc:
+
+/usr/local/include/QtGui/qfont.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ctype.h:
+
+/usr/local/include/QtGui/qpixmap.h:
+
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/__stddef_max_align_t.h:
+
+/usr/local/lib/QtWidgets.framework/Headers/QFileDialog:
+
+/Users/susannel/3dviewer2/model/OpenGLTransformation.h:
+
+/usr/local/include/QtGui/qbrush.h:
+
+/usr/local/include/QtGui/qrgb.h:
+
+/usr/local/include/QtWidgets/qwidget.h:
+
+/usr/local/lib/QtOpenGLWidgets.framework/Headers/qopenglwidget.h:
+
+/usr/local/lib/QtWidgets.framework/Headers/qcolordialog.h:
+
+/usr/local/include/QtCore/QSizeF:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_key_t.h:
+
+/usr/local/include/QtGui/qkeysequence.h:
+
+/usr/local/lib/QtGui.framework/Headers/qopenglfunctions.h:
+
+/usr/local/lib/QtCore.framework/Headers/qsize.h:
+
+/usr/local/include/QtCore/qnativeinterface.h:
+
+/usr/local/include/QtCore/qtextstream.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/mach/machine/_structs.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_setsize.h:
+
+/usr/local/include/QtGui/qpolygon.h:
+
+/usr/local/include/QtGui/qpalette.h:
+
+/usr/local/include/QtGui/QTransform:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/inttypes.h:
+
+/usr/local/include/QtCore/qrect.h:
+
+/usr/local/lib/QtCore.framework/Headers/qrect.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/wchar.h:
+
+/usr/local/include/QtCore/QRect:
 
 /usr/local/include/QtWidgets/QPushButton:
 
 /usr/local/include/QtCore/QObject:
 
-/usr/local/include/QtGui/qtguiglobal.h:
+/usr/local/include/QtCore/qcompare.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glext.h:
+/usr/local/include/QtGui/qscreen.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/bitset:
+/usr/local/include/QtCore/qvariant.h:
 
-/usr/local/include/QtCore/QVariant:
+/usr/local/include/QtCore/qurl.h:
 
-/usr/local/lib/QtGui.framework/Headers/QOpenGLFunctions:
+/usr/local/include/QtCore/qiodevice.h:
 
-/usr/local/include/QtGui/qbrush.h:
+/usr/local/include/QtCore/qcoreevent.h:
 
-/Users/susannel/3dviewer2/model/OpenGLTransformation.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__node_handle:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__locale:
-
-/Users/susannel/3dviewer2/model/OpenGLTransformation.cc:
+/Users/susannel/3dviewer2/view/settings.h:
 
 /usr/local/include/QtCore/qbindingstorage.h:
 
 /usr/local/include/QtCore/qobject.h:
 
 /usr/local/include/QtCore/qsharedpointer_impl.h:
+
+gpt_help_autogen/EWIEGA46WW/moc_widget.cpp:
+
+/usr/local/include/QtGui/qcursor.h:
+
+/usr/local/include/QtCore/qcoreapplication_platform.h:
+
+/usr/local/include/QtCore/qjsonvalue.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_timeval.h:
+
+/usr/local/include/QtGui/qimage.h:
 
 /usr/local/include/QtCore/qcoreapplication.h:
 
@@ -4025,9 +4391,17 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fsfilcnt_t.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_errno_t.h:
+/usr/local/include/QtGui/qguiapplication.h:
+
+/Users/susannel/3dviewer2/model/model.cc:
+
+/usr/local/include/QtCore/qstringmatcher.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_ctype.h:
 
 /usr/local/include/QtGui/qopenglcontext.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_errno_t.h:
 
 /usr/local/include/QtCore/qbytearraylist.h:
 
@@ -4054,6 +4428,8 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 /usr/local/include/QtCore/qobjectdefs_impl.h:
 
 /usr/local/include/QtCore/qdatastream.h:
+
+/usr/local/include/QtGui/qfontmetrics.h:
 
 /usr/local/include/QtCore/qvarlengtharray.h:
 
@@ -4101,14 +4477,6 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/wctype.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/inttypes.h:
-
-/usr/local/include/QtGui/qfontinfo.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/appleapiopts.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cctype:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cstdio:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_clr.h:
@@ -4134,6 +4502,8 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 /usr/local/include/QtCore/qcontainerinfo.h:
 
 /usr/local/include/QtCore/qarraydatapointer.h:
+
+/usr/local/lib/QtCore.framework/Headers/QResource:
 
 /usr/local/lib/QtGui.framework/Headers/QMatrix4x4:
 
@@ -4213,8 +4583,6 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
 /usr/local/include/QtCore/qsysinfo.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_inttypes.h:
-
 /usr/local/include/QtCore/qbytearrayview.h:
 
 /Users/susannel/3dviewer2/model/TransformationStrategy.h:
@@ -4223,9 +4591,9 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__threading_support:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/math.h:
-
 /usr/local/include/QtGui/QSurfaceFormat:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/math.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/variant:
 
@@ -4253,7 +4621,13 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h:
 
+/usr/local/include/QtWidgets/qdialog.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h:
+
+/usr/local/include/QtGui/qopenglcontext_platform.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_once_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__memory/utilities.h:
 
@@ -4275,21 +4649,15 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
 /usr/local/include/QtCore/qcontainerfwd.h:
 
+/usr/local/include/QtGui/qregion.h:
+
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stddef.h:
 
 /usr/local/include/QtWidgets/QLabel:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/pthread/pthread_impl.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/machine/limits.h:
-
-gpt_help_autogen/mocs_compilation.cpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/errno.h:
-
-/usr/local/include/QtWidgets/qsizepolicy.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/syslimits.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/i386/_limits.h:
 
@@ -4389,6 +4757,8 @@ gpt_help_autogen/mocs_compilation.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/math.h:
 
+/usr/local/lib/QtCore.framework/Headers/qresource.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_uid_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/locale:
@@ -4398,8 +4768,6 @@ gpt_help_autogen/mocs_compilation.cpp:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_mode_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/exception:
-
-/usr/local/include/QtGui/qopengl.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/assert.h:
 
@@ -4415,6 +4783,8 @@ gpt_help_autogen/mocs_compilation.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/limits.h:
 
+/usr/local/lib/QtCore.framework/Headers/QFile:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int32_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/stdio.h:
@@ -4425,6 +4795,8 @@ gpt_help_autogen/mocs_compilation.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_cond_t.h:
 
+/usr/local/include/QtGui/qrgba64.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int64_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iterator:
@@ -4434,6 +4806,8 @@ gpt_help_autogen/mocs_compilation.cpp:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_sigset_t.h:
 
 /usr/local/include/QtCore/qdatetime.h:
+
+/usr/local/include/QtGui/qcolor.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_pid_t.h:
 
@@ -4450,6 +4824,10 @@ gpt_help_autogen/mocs_compilation.cpp:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/filesystem:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/ctype.h:
+
+/Users/susannel/3dviewer2/model/parser.cc:
+
+/usr/local/lib/QtCore.framework/Headers/qobject.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_types/_wctype_t.h:
 
@@ -4471,7 +4849,11 @@ gpt_help_autogen/mocs_compilation.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_timespec.h:
 
+/usr/local/include/QtGui/qpaintdevice.h:
+
 /usr/local/include/QtCore/qcontainertools_impl.h:
+
+gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdio.h:
 
@@ -4513,21 +4895,11 @@ gpt_help_autogen/mocs_compilation.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stddef.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gltypes.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/runetype.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_off_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_types/_uintmax_t.h:
-
-/usr/local/include/QtGui/qpixmap.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ctype.h:
-
-/usr/local/include/QtGui/qpointingdevice.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_addr_t.h:
 
@@ -4543,8 +4915,6 @@ gpt_help_autogen/mocs_compilation.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cstdint:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/inttypes.h:
-
 /usr/local/include/QtWidgets/qboxlayout.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int16_t.h:
@@ -4556,6 +4926,10 @@ gpt_help_autogen/mocs_compilation.cpp:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/alloca.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cstddef:
+
+gpt_help_autogen/mocs_compilation.cpp:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/machine/limits.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__mutex_base:
 
@@ -4571,13 +4945,7 @@ gpt_help_autogen/mocs_compilation.cpp:
 
 /usr/local/lib/QtGui.framework/Headers/qevent.h:
 
-/Users/susannel/3dviewer2/model/model.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__tuple:
-
-/usr/local/include/QtCore/qstringtokenizer.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/os/availability.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/pthread.h:
 
@@ -4586,6 +4954,10 @@ gpt_help_autogen/mocs_compilation.cpp:
 /usr/local/include/QtCore/qset.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/chrono:
+
+/Users/susannel/3dviewer2/view/mainwindow.cc:
+
+/usr/local/lib/QtWidgets.framework/Headers/QColorDialog:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/stdint.h:
 
@@ -4609,14 +4981,6 @@ gpt_help_autogen/mocs_compilation.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_sigaltstack.h:
 
-/usr/local/include/QtCore/qcoreapplication_platform.h:
-
-/usr/local/include/QtCore/qjsonvalue.h:
-
-/usr/local/include/QtGui/qimage.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_timeval.h:
-
 /usr/local/lib/QtGui.framework/Headers/QVector3D:
 
 /usr/local/include/QtGui/qimagereader.h:
@@ -4636,6 +5000,10 @@ gpt_help_autogen/mocs_compilation.cpp:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/utility:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ucontext.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/os/availability.h:
+
+/usr/local/include/QtCore/qstringtokenizer.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/array:
 
@@ -4661,17 +5029,19 @@ gpt_help_autogen/include/ui_mainwindow.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/AvailabilityMacros.h:
 
-/usr/local/lib/QtWidgets.framework/Headers/QFileDialog:
-
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/__stddef_max_align_t.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__string:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glext.h:
+
+/usr/local/include/QtGui/qtguiglobal.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__availability:
 
 /Users/susannel/3dviewer2/model/CPUTransformation.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__nullptr:
+
+/usr/local/include/QtWidgets/qtwidgetsglobal.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_va_list.h:
 
@@ -4680,5 +5050,9 @@ gpt_help_autogen/include/ui_mainwindow.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/_locale.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_mach_port_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:
+
+/usr/local/include/QtGui/qpointingdevice.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__debug:

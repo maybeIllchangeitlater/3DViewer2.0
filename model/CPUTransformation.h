@@ -10,7 +10,7 @@ namespace s21{
      void ApplyScaling(QMatrix4x4& matrix, QVector<float>& vertex, float scale) override;
      void ApplyRotation(QMatrix4x4& matrix,  QVector<float>& vertex, float x, float y, float z) override;
      void MoveModel(QMatrix4x4& matrix, QVector<float>& vertex, const Settings& settings) override;
-     int shader_version = 2;
+     inline int GetShaderVersion() override {return 2;};
 };
 }
 #endif // CPP4_3DVIEWER_V2_0_MODEL_CPUTRANSFORMATION_H_

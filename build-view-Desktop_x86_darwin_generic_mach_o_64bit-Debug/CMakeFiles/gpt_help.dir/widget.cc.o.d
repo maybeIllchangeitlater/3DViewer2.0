@@ -441,4 +441,6 @@ CMakeFiles/gpt_help.dir/widget.cc.o: \
   /Users/susannel/3dviewer2/view/../model/parser.h \
   /Users/susannel/3dviewer2/view/../model/TransformationStrategy.h \
   /Users/susannel/3dviewer2/view/../model/OpenGLTransformation.h \
-  /Users/susannel/3dviewer2/view/../model/CPUTransformation.h
+  /Users/susannel/3dviewer2/view/../model/CPUTransformation.h \
+  /usr/local/lib/QtCore.framework/Headers/QResource \
+  /usr/local/lib/QtCore.framework/Headers/qresource.h

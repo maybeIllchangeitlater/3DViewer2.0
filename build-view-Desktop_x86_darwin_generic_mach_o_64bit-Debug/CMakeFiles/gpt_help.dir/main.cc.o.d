@@ -442,6 +442,7 @@ CMakeFiles/gpt_help.dir/main.cc.o: /Users/susannel/3dviewer2/view/main.cc \
   /usr/local/include/QtGui/qvector4d.h \
   /usr/local/include/QtGui/qquaternion.h \
   /usr/local/include/QtGui/qgenericmatrix.h \
+  /Users/susannel/3dviewer2/view/settings.h \
   /Users/susannel/3dviewer2/view/../model/OpenGLTransformation.h \
   /Users/susannel/3dviewer2/view/../model/CPUTransformation.h \
   /Users/susannel/3dviewer2/view/widget.h \
@@ -460,5 +461,4 @@ CMakeFiles/gpt_help.dir/main.cc.o: /Users/susannel/3dviewer2/view/main.cc \
   /usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
-  /usr/local/lib/QtWidgets.framework/Headers/QWidget \
-  /Users/susannel/3dviewer2/view/settings.h
+  /usr/local/lib/QtWidgets.framework/Headers/QWidget

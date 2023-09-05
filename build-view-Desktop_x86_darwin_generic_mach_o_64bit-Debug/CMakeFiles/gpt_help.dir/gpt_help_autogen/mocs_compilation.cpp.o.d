@@ -438,6 +438,7 @@ CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o: \
   /usr/local/include/QtGui/qvector4d.h \
   /usr/local/include/QtGui/qquaternion.h \
   /usr/local/include/QtGui/qgenericmatrix.h \
+  /Users/susannel/3dviewer2/view/settings.h \
   /Users/susannel/3dviewer2/view/../model/OpenGLTransformation.h \
   /Users/susannel/3dviewer2/view/../model/CPUTransformation.h \
   /Users/susannel/3dviewer2/view/widget.h \
@@ -457,6 +458,5 @@ CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o: \
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
   /usr/local/lib/QtWidgets.framework/Headers/QWidget \
-  /Users/susannel/3dviewer2/view/settings.h \
   /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/EWIEGA46WW/moc_widget.cpp \
   /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/EWIEGA46WW/../../../view/widget.h

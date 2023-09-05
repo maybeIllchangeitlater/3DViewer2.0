@@ -238,6 +238,30 @@ Users/susannel/3dviewer2/model/parser.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.s
 .PHONY : Users/susannel/3dviewer2/model/parser.cc.s
 
+gpt_help_autogen/54WNFGSGJX/qrc_shaders.o: gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o
+.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.o
+
+# target to build an object file
+gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o
+.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o
+
+gpt_help_autogen/54WNFGSGJX/qrc_shaders.i: gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.i
+.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.i
+
+# target to preprocess a source file
+gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.i
+.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.i
+
+gpt_help_autogen/54WNFGSGJX/qrc_shaders.s: gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.s
+.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.s
+
+# target to generate assembly for a file
+gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.s
+.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.s
+
 gpt_help_autogen/mocs_compilation.o: gpt_help_autogen/mocs_compilation.cpp.o
 .PHONY : gpt_help_autogen/mocs_compilation.o
 
@@ -380,6 +404,9 @@ help:
 	@echo "... Users/susannel/3dviewer2/model/parser.o"
 	@echo "... Users/susannel/3dviewer2/model/parser.i"
 	@echo "... Users/susannel/3dviewer2/model/parser.s"
+	@echo "... gpt_help_autogen/54WNFGSGJX/qrc_shaders.o"
+	@echo "... gpt_help_autogen/54WNFGSGJX/qrc_shaders.i"
+	@echo "... gpt_help_autogen/54WNFGSGJX/qrc_shaders.s"
 	@echo "... gpt_help_autogen/mocs_compilation.o"
 	@echo "... gpt_help_autogen/mocs_compilation.i"
 	@echo "... gpt_help_autogen/mocs_compilation.s"

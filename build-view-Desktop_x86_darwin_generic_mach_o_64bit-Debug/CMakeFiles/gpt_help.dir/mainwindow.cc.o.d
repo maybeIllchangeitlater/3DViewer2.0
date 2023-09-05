@@ -437,6 +437,7 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: \
   /usr/local/include/QtGui/qvector4d.h \
   /usr/local/include/QtGui/qquaternion.h \
   /usr/local/include/QtGui/qgenericmatrix.h \
+  /Users/susannel/3dviewer2/view/settings.h \
   /Users/susannel/3dviewer2/view/../model/OpenGLTransformation.h \
   /Users/susannel/3dviewer2/view/../model/CPUTransformation.h \
   /Users/susannel/3dviewer2/view/widget.h \
@@ -456,7 +457,6 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: \
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
   /usr/local/lib/QtWidgets.framework/Headers/QWidget \
-  /Users/susannel/3dviewer2/view/settings.h \
   /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/include/ui_mainwindow.h \
   /usr/local/include/QtCore/QVariant \
   /usr/local/lib/QtCore.framework/Headers/qvariant.h \
@@ -493,4 +493,7 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: \
   /usr/local/include/QtWidgets/QStatusBar \
   /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h \
   /usr/local/include/QtWidgets/QVBoxLayout \
-  /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h
+  /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h \
+  /usr/local/lib/QtGui.framework/Headers/QSurface \
+  /usr/local/lib/QtGui.framework/Headers/qsurface.h \
+  /usr/local/include/QtGui/qsurfaceformat.h

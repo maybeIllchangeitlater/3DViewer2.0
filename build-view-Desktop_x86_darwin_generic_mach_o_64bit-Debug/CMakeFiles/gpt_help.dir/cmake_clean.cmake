@@ -10,6 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o.d"
   "CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o"
   "CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o.d"
+  "CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o"
+  "CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o.d"
   "CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/gpt_help.dir/main.cc.o"
@@ -22,6 +24,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/gpt_help.dir/widget.cc.o.d"
   "gpt_help.app/Contents/MacOS/gpt_help"
   "gpt_help.pdb"
+  "gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp"
 )
 
 # Per-language clean rules from dependency scanning.

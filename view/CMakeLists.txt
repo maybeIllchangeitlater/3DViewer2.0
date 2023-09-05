@@ -34,8 +34,8 @@ set(PROJECT_SOURCES
         ../model/TransformationStrategy.h
         ../model/OpenGLTransformation.h
         ../model/OpenGLTransformation.cc
-#        ../model/CPUTransformation.cc
-#        ../model/CPUTransformation.h
+        ../model/CPUTransformation.cc
+        ../model/CPUTransformation.h
 #        ../resources/FragShader.fsh
 #        ../resources/VertexShader.vsh
         ../shaders.qrc
@@ -65,7 +65,8 @@ else()
     endif()
 endif()
 
-target_link_libraries(gpt_help PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+add_compile_options(-fsanitize=address -Wall -Werror -Wextra -std=c++17)
+target_link_libraries(gpt_help PRIVATE Qt${QT_VERSION_MAJOR}::Widgets -fsanitize=address)
 target_link_libraries(gpt_help PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 target_link_libraries(gpt_help PRIVATE Qt${QT_VERSION_MAJOR}::OpenGLWidgets)
 

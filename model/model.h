@@ -5,7 +5,7 @@
 #include "TransformationStrategy.h"
 #include "OpenGLTransformation.h"
 #include "settings.h"
-//#include "CPUTransformation.h"
+#include "CPUTransformation.h"
 
 namespace s21{
     class Controller{
@@ -15,7 +15,7 @@ namespace s21{
            void MoveModel(QMatrix4x4& matrix, const Settings &settings);
            constexpr inline const QVector<unsigned int>& GetFaceConstRef() const{return face_;}
            constexpr inline const QVector<float>& GetVertexCopyConstRef() const{return vertex_;}
-           constexpr inline const int ShaderVersion() const {return transformer_->shader_version;}
+           constexpr inline const int ShaderVersion() const {return transformer_->GetShaderVersion();}
 
     private:
         ObjParser & parser_;
