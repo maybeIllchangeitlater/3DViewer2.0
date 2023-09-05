@@ -35,11 +35,15 @@ class MainWindow final : public QMainWindow {
   void ChangeVertexColor();
   void BrowseModel();
   void closeEvent(QCloseEvent *event) override;
+//  void translateBy(float x,float y);
 //  void RotateBy();
 
 
  private:
   void ConnectToLambdas();
+  void ConnectTranslateToLambdas();
+  void ConnectRotateToLambdas();
+  void UpdateWidget();
   OpenGLWidget *gl_widget_;
   Ui::MainWindow *ui_;
   s21::Controller &controller_;

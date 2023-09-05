@@ -35,10 +35,6 @@ public:
     QPushButton *line_color;
     QPushButton *background_color;
     QSlider *scale_slider;
-    QPushButton *rRight;
-    QPushButton *rDown;
-    QPushButton *rUp;
-    QPushButton *rLeft;
     QPushButton *gif;
     QPushButton *changePerspective;
     QPushButton *centerModel;
@@ -47,8 +43,6 @@ public:
     QPushButton *takeBmp;
     QLineEdit *translateBy;
     QLineEdit *rotateBy;
-    QPushButton *rzDown;
-    QPushButton *rzUp;
     QCheckBox *show_vertexes;
     QCheckBox *broken_lines;
     QCheckBox *show_lines;
@@ -59,13 +53,22 @@ public:
     QCheckBox *smooth_vertexes;
     QWidget *gridLayoutWidget;
     QGridLayout *move_layout;
-    QPushButton *mRight;
-    QPushButton *mDown;
     QPushButton *mUp;
     QPushButton *mForward;
+    QPushButton *mRight;
     QPushButton *mLeft;
     QPushButton *mBackward;
+    QPushButton *mDown;
     QLabel *label_3;
+    QWidget *gridLayoutWidget_3;
+    QGridLayout *move_layout_3;
+    QPushButton *rzUp;
+    QPushButton *rzDown;
+    QPushButton *rLeft;
+    QPushButton *rRight;
+    QPushButton *rDown;
+    QPushButton *rUp;
+    QLabel *label_4;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -122,18 +125,6 @@ public:
         scale_slider->setMaximum(200);
         scale_slider->setSliderPosition(100);
         scale_slider->setOrientation(Qt::Horizontal);
-        rRight = new QPushButton(centralwidget);
-        rRight->setObjectName(QString::fromUtf8("rRight"));
-        rRight->setGeometry(QRect(1090, 410, 41, 31));
-        rDown = new QPushButton(centralwidget);
-        rDown->setObjectName(QString::fromUtf8("rDown"));
-        rDown->setGeometry(QRect(1060, 430, 31, 41));
-        rUp = new QPushButton(centralwidget);
-        rUp->setObjectName(QString::fromUtf8("rUp"));
-        rUp->setGeometry(QRect(1060, 380, 31, 41));
-        rLeft = new QPushButton(centralwidget);
-        rLeft->setObjectName(QString::fromUtf8("rLeft"));
-        rLeft->setGeometry(QRect(1020, 410, 41, 31));
         gif = new QPushButton(centralwidget);
         gif->setObjectName(QString::fromUtf8("gif"));
         gif->setGeometry(QRect(1010, 470, 131, 51));
@@ -183,12 +174,6 @@ public:
         rotateBy->setFont(font8);
         rotateBy->setLayoutDirection(Qt::LeftToRight);
         rotateBy->setAlignment(Qt::AlignCenter);
-        rzDown = new QPushButton(centralwidget);
-        rzDown->setObjectName(QString::fromUtf8("rzDown"));
-        rzDown->setGeometry(QRect(1100, 370, 31, 41));
-        rzUp = new QPushButton(centralwidget);
-        rzUp->setObjectName(QString::fromUtf8("rzUp"));
-        rzUp->setGeometry(QRect(1020, 370, 31, 41));
         show_vertexes = new QCheckBox(centralwidget);
         show_vertexes->setObjectName(QString::fromUtf8("show_vertexes"));
         show_vertexes->setGeometry(QRect(780, 60, 161, 41));
@@ -229,16 +214,6 @@ public:
         move_layout->setHorizontalSpacing(-1);
         move_layout->setVerticalSpacing(0);
         move_layout->setContentsMargins(0, 0, 0, 0);
-        mRight = new QPushButton(gridLayoutWidget);
-        mRight->setObjectName(QString::fromUtf8("mRight"));
-
-        move_layout->addWidget(mRight, 2, 2, 1, 1);
-
-        mDown = new QPushButton(gridLayoutWidget);
-        mDown->setObjectName(QString::fromUtf8("mDown"));
-
-        move_layout->addWidget(mDown, 3, 1, 1, 1);
-
         mUp = new QPushButton(gridLayoutWidget);
         mUp->setObjectName(QString::fromUtf8("mUp"));
 
@@ -248,6 +223,11 @@ public:
         mForward->setObjectName(QString::fromUtf8("mForward"));
 
         move_layout->addWidget(mForward, 0, 0, 1, 1);
+
+        mRight = new QPushButton(gridLayoutWidget);
+        mRight->setObjectName(QString::fromUtf8("mRight"));
+
+        move_layout->addWidget(mRight, 2, 2, 1, 1);
 
         mLeft = new QPushButton(gridLayoutWidget);
         mLeft->setObjectName(QString::fromUtf8("mLeft"));
@@ -259,9 +239,55 @@ public:
 
         move_layout->addWidget(mBackward, 0, 2, 1, 1);
 
+        mDown = new QPushButton(gridLayoutWidget);
+        mDown->setObjectName(QString::fromUtf8("mDown"));
+
+        move_layout->addWidget(mDown, 3, 1, 1, 1);
+
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(670, 210, 221, 51));
+        gridLayoutWidget_3 = new QWidget(centralwidget);
+        gridLayoutWidget_3->setObjectName(QString::fromUtf8("gridLayoutWidget_3"));
+        gridLayoutWidget_3->setGeometry(QRect(830, 260, 179, 161));
+        move_layout_3 = new QGridLayout(gridLayoutWidget_3);
+        move_layout_3->setObjectName(QString::fromUtf8("move_layout_3"));
+        move_layout_3->setHorizontalSpacing(-1);
+        move_layout_3->setVerticalSpacing(0);
+        move_layout_3->setContentsMargins(0, 0, 0, 0);
+        rzUp = new QPushButton(gridLayoutWidget_3);
+        rzUp->setObjectName(QString::fromUtf8("rzUp"));
+
+        move_layout_3->addWidget(rzUp, 0, 0, 1, 1);
+
+        rzDown = new QPushButton(gridLayoutWidget_3);
+        rzDown->setObjectName(QString::fromUtf8("rzDown"));
+
+        move_layout_3->addWidget(rzDown, 0, 2, 1, 1);
+
+        rLeft = new QPushButton(gridLayoutWidget_3);
+        rLeft->setObjectName(QString::fromUtf8("rLeft"));
+
+        move_layout_3->addWidget(rLeft, 2, 0, 1, 1);
+
+        rRight = new QPushButton(gridLayoutWidget_3);
+        rRight->setObjectName(QString::fromUtf8("rRight"));
+
+        move_layout_3->addWidget(rRight, 2, 2, 1, 1);
+
+        rDown = new QPushButton(gridLayoutWidget_3);
+        rDown->setObjectName(QString::fromUtf8("rDown"));
+
+        move_layout_3->addWidget(rDown, 4, 1, 1, 1);
+
+        rUp = new QPushButton(gridLayoutWidget_3);
+        rUp->setObjectName(QString::fromUtf8("rUp"));
+
+        move_layout_3->addWidget(rUp, 0, 1, 1, 1);
+
+        label_4 = new QLabel(centralwidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(860, 210, 221, 51));
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -279,10 +305,6 @@ public:
         model_name->setText(QString());
         line_color->setText(QCoreApplication::translate("MainWindow", "Set color", nullptr));
         background_color->setText(QCoreApplication::translate("MainWindow", "Set background color", nullptr));
-        rRight->setText(QCoreApplication::translate("MainWindow", "\342\207\242", nullptr));
-        rDown->setText(QCoreApplication::translate("MainWindow", "\342\207\243", nullptr));
-        rUp->setText(QCoreApplication::translate("MainWindow", "\342\207\241", nullptr));
-        rLeft->setText(QCoreApplication::translate("MainWindow", "\342\207\240", nullptr));
         gif->setText(QCoreApplication::translate("MainWindow", "Make gif", nullptr));
         changePerspective->setText(QCoreApplication::translate("MainWindow", "Change perspective", nullptr));
         centerModel->setText(QCoreApplication::translate("MainWindow", "Center model", nullptr));
@@ -291,21 +313,26 @@ public:
         takeBmp->setText(QCoreApplication::translate("MainWindow", "screenshot bmp", nullptr));
         translateBy->setText(QCoreApplication::translate("MainWindow", "1.0", nullptr));
         rotateBy->setText(QCoreApplication::translate("MainWindow", "1.0", nullptr));
-        rzDown->setText(QCoreApplication::translate("MainWindow", "\342\206\230", nullptr));
-        rzUp->setText(QCoreApplication::translate("MainWindow", "\342\206\226", nullptr));
         show_vertexes->setText(QCoreApplication::translate("MainWindow", "Show vertexes", nullptr));
         broken_lines->setText(QCoreApplication::translate("MainWindow", "Edged lines", nullptr));
         show_lines->setText(QCoreApplication::translate("MainWindow", "Show lines", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Line Thickness", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Vertex Thickness", nullptr));
         smooth_vertexes->setText(QCoreApplication::translate("MainWindow", "Smooth vertexes", nullptr));
-        mRight->setText(QCoreApplication::translate("MainWindow", "\342\206\222", nullptr));
-        mDown->setText(QCoreApplication::translate("MainWindow", "\342\206\223", nullptr));
         mUp->setText(QCoreApplication::translate("MainWindow", "\342\206\221", nullptr));
         mForward->setText(QCoreApplication::translate("MainWindow", "\342\207\247", nullptr));
+        mRight->setText(QCoreApplication::translate("MainWindow", "\342\206\222", nullptr));
         mLeft->setText(QCoreApplication::translate("MainWindow", "\342\206\220", nullptr));
         mBackward->setText(QCoreApplication::translate("MainWindow", "\342\207\251", nullptr));
+        mDown->setText(QCoreApplication::translate("MainWindow", "\342\206\223", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Move model", nullptr));
+        rzUp->setText(QCoreApplication::translate("MainWindow", "\342\206\226", nullptr));
+        rzDown->setText(QCoreApplication::translate("MainWindow", "\342\206\230", nullptr));
+        rLeft->setText(QCoreApplication::translate("MainWindow", "\342\207\240", nullptr));
+        rRight->setText(QCoreApplication::translate("MainWindow", "\342\207\242", nullptr));
+        rDown->setText(QCoreApplication::translate("MainWindow", "\342\207\243", nullptr));
+        rUp->setText(QCoreApplication::translate("MainWindow", "\342\207\241", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Rotate model", nullptr));
     } // retranslateUi
 
 };

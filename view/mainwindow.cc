@@ -18,18 +18,6 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
   ui_->scale_slider->setSliderPosition(settings_.scale * 100);
   ui_->line_thicc->setSliderPosition(settings_.line_width);
   ui_->vertex_thicc->setSliderPosition(settings_.point_size);
-  connect(ui_->mDown, SIGNAL(clicked()), this, SLOT(translateBy()));
-  connect(ui_->mUp, SIGNAL(clicked()), this, SLOT(translateBy()));
-  connect(ui_->mLeft, SIGNAL(clicked()), this, SLOT(translateBy()));
-  connect(ui_->mRight, SIGNAL(clicked()), this, SLOT(translateBy()));
-  connect(ui_->mBackward, SIGNAL(clicked()), this, SLOT(translateBy()));
-  connect(ui_->mForward, SIGNAL(clicked()), this, SLOT(translateBy()));
-  connect(ui_->rDown, SIGNAL(clicked()), this, SLOT(rotateBy()));
-  connect(ui_->rUp, SIGNAL(clicked()), this, SLOT(rotateBy()));
-  connect(ui_->rLeft, SIGNAL(clicked()), this, SLOT(rotateBy()));
-  connect(ui_->rRight, SIGNAL(clicked()), this, SLOT(rotateBy()));
-  connect(ui_->rzUp, SIGNAL(clicked()), this, SLOT(rotateBy()));
-  connect(ui_->rzDown, SIGNAL(clicked()), this, SLOT(rotateBy()));
 
   connect(ui_->Browse, SIGNAL(clicked()), this, SLOT(BrowseModel()));
   connect(ui_->background_color, SIGNAL(clicked()), this,
@@ -38,6 +26,8 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
   connect(ui_->vertex_color, SIGNAL(clicked()), this,
           SLOT(ChangeVertexColor()));
     ConnectToLambdas();
+    ConnectTranslateToLambdas();
+    ConnectRotateToLambdas();
 
 }
 
@@ -63,14 +53,11 @@ void MainWindow::BrowseModel() {
     ui_->model_name->setText(filename);
     gl_widget_ =
         new OpenGLWidget(settings_, controller_,
-                         this);  // change to const reference, save in back
-    //        ui_->line_thicc->setVisible(true);
+                         this);
     ui_->viewer_layout->addWidget(gl_widget_);
   } catch (std::exception e) {
     ui_->model_name->setText(e.what());
   }
-
-  /*----------------------------------------------------------------------------------------------------------------------*/
 }
 
 void MainWindow::ChangeBackgroundColor() {
@@ -96,59 +83,109 @@ void MainWindow::ChangeVertexColor() {
   if (gl_widget_) gl_widget_->update();
 }
 
-//void MainWindow::RotateBy() {
-//  if (gl_widget_) {
-//    gl_widget_->RotateModel(
-//        qobject_cast<QPushButton *>(sender())->text() == "↑"   ? 0
-//        : qobject_cast<QPushButton *>(sender())->text() == "→" ? 1
-//        : qobject_cast<QPushButton *>(sender())->text() == "↓" ? 2
-//        : qobject_cast<QPushButton *>(sender())->text() == "←" ? 3
-//        : qobject_cast<QPushButton *>(sender())->text() == "⇧" ? 4
-//                                                               : 5,
-//        ui_->translateBy->text().toFloat());
-//  }
-//}
 
 void MainWindow::closeEvent(QCloseEvent *event) {
   settings_.SaveSettings();
   event->accept();
 }
 
+
 void MainWindow::ConnectToLambdas()
 {
-    ui_->line_thicc->connect(ui_->line_thicc, &QSlider::valueChanged,
+    ui_->line_thicc->connect(ui_->line_thicc, &QSlider::valueChanged, this,
                              [this](int w) {
                                settings_.line_width = w;
-                               if (gl_widget_) gl_widget_->update();
+                               UpdateWidget();
                              });
-    ui_->vertex_thicc->connect(ui_->vertex_thicc, &QSlider::valueChanged,
+    ui_->vertex_thicc->connect(ui_->vertex_thicc, &QSlider::valueChanged, this,
                                [this](int w) {
                                  settings_.point_size = w;
-                                 if (gl_widget_) gl_widget_->update();
+                                 UpdateWidget();
                                });
-    ui_->scale_slider->connect(ui_->scale_slider, &QSlider::valueChanged,
+    ui_->scale_slider->connect(ui_->scale_slider, &QSlider::valueChanged, this,
                                [this](int w) {
                                  settings_.scale = static_cast<float>(w) / 100.0f;
-                                 if (gl_widget_) gl_widget_->update();
+                                 UpdateWidget();
                                });
-    ui_->show_lines->connect(ui_->show_lines, &QCheckBox::toggled,
+    ui_->show_lines->connect(ui_->show_lines, &QCheckBox::toggled, this,
                              [this](bool b) {
                                settings_.lines_shown = b;
-                               if (gl_widget_) gl_widget_->update();
+                               UpdateWidget();
                              });
-    ui_->show_vertexes->connect(ui_->show_vertexes, &QCheckBox::toggled,
+    ui_->show_vertexes->connect(ui_->show_vertexes, &QCheckBox::toggled, this,
                                 [this](bool b) {
                                   settings_.vertexes_shown = b;
-                                  if (gl_widget_) gl_widget_->update();
+                                  UpdateWidget();
                                 });
-    ui_->broken_lines->connect(ui_->broken_lines, &QCheckBox::toggled,
+    ui_->broken_lines->connect(ui_->broken_lines, &QCheckBox::toggled, this,
                                [this](bool b) {
                                  settings_.broken_lines = b;
-                                 if (gl_widget_) gl_widget_->update();
+                                 UpdateWidget();
                                });
-    ui_->smooth_vertexes->connect(ui_->smooth_vertexes, &QCheckBox::toggled,
+    ui_->smooth_vertexes->connect(ui_->smooth_vertexes, &QCheckBox::toggled, this,
                                   [this](bool b) {
                                     settings_.smooth_vertexes = b;
-                                    if (gl_widget_) gl_widget_->update();
-                                  });
+                                    UpdateWidget();
+    });
+}
+
+void MainWindow::ConnectTranslateToLambdas()
+{
+    ui_->mDown->connect(ui_->mDown, &QPushButton::clicked, this, [this](bool){
+           settings_.translation_y -= ui_->translateBy->text().toFloat();
+           UpdateWidget();
+    });
+    ui_->mUp->connect(ui_->mUp, &QPushButton::clicked, this, [this](bool){
+           settings_.translation_y += ui_->translateBy->text().toFloat();
+           UpdateWidget();
+    });
+    ui_->mLeft->connect(ui_->mLeft, &QPushButton::clicked, this, [this](bool){
+           settings_.translation_x -= ui_->translateBy->text().toFloat();
+           UpdateWidget();
+    });
+    ui_->mRight->connect(ui_->mRight, &QPushButton::clicked, this, [this](bool){
+           settings_.translation_x += ui_->translateBy->text().toFloat();
+           UpdateWidget();
+    });
+    ui_->mForward->connect(ui_->mForward, &QPushButton::clicked, this, [this](bool){
+           settings_.translation_z -= ui_->translateBy->text().toFloat();
+           UpdateWidget();
+    });
+    ui_->mBackward->connect(ui_->mBackward, &QPushButton::clicked, this, [this](bool){
+           settings_.translation_z += ui_->translateBy->text().toFloat();
+           UpdateWidget();
+    });
+}
+
+void MainWindow::ConnectRotateToLambdas()
+{
+    ui_->rDown->connect(ui_->rDown, &QPushButton::clicked, this, [this](bool){
+           settings_.rotation_y += ui_->rotateBy->text().toFloat();
+           UpdateWidget();
+    });
+    ui_->rUp->connect(ui_->rUp, &QPushButton::clicked, this, [this](bool){
+           settings_.rotation_y -= ui_->rotateBy->text().toFloat();
+           UpdateWidget();
+    });
+    ui_->rLeft->connect(ui_->rLeft, &QPushButton::clicked, this, [this](bool){
+           settings_.rotation_x -= ui_->rotateBy->text().toFloat();
+           UpdateWidget();
+    });
+    ui_->rRight->connect(ui_->rRight, &QPushButton::clicked, this, [this](bool){
+           settings_.rotation_x += ui_->rotateBy->text().toFloat();
+           UpdateWidget();
+    });
+    ui_->rzDown->connect(ui_->rzDown, &QPushButton::clicked, this, [this](bool){
+           settings_.rotation_z += ui_->rotateBy->text().toFloat();
+           UpdateWidget();
+    });
+    ui_->rzUp->connect(ui_->rzUp, &QPushButton::clicked, this, [this](bool){
+           settings_.rotation_z -= ui_->rotateBy->text().toFloat();
+           UpdateWidget();
+    });
+}
+
+void MainWindow::UpdateWidget()
+{
+    if (gl_widget_) gl_widget_->update();
 }
