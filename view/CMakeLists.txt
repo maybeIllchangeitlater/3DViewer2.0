@@ -38,6 +38,7 @@ set(PROJECT_SOURCES
         ../model/CPUTransformation.h
 #        ../resources/FragShader.fsh
 #        ../resources/VertexShader.vsh
+        style.qrc
         ../shaders.qrc
 #        ../resources/VertexShaderCPU.vsh
 )

@@ -10,6 +10,7 @@ int main(int argc, char *argv[]) {
   s21::Controller c(p, &t);
   QApplication a(argc, argv);
   MainWindow w(c);
+  w.LoadStyle();
   w.show();
   return a.exec();
 }

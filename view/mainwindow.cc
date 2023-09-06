@@ -3,6 +3,9 @@
 #include "ui_mainwindow.h"
 #include "widget.h"
 #include <QSurface>
+#include <QFontDatabase>
+#include <QFile>
+#include <QTextStream>
 
 MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
     : controller_(controller),
@@ -38,6 +41,20 @@ MainWindow::~MainWindow() {
   }
   delete ui_;
 }
+
+void MainWindow::LoadStyle() {
+  QFontDatabase::addApplicationFont(":/style/fonts/Tahoma.ttf");
+  QFont font("Tahoma", 14);
+
+  QFile style_file(":/style/style/style.ss");
+  style_file.open(QIODevice::ReadOnly);
+
+  QTextStream style_stream(&style_file);
+  setStyleSheet(style_stream.readAll());
+}
+
+
+
 void MainWindow::BrowseModel() {
   QString filename(QFileDialog::getOpenFileName(
       this, "Open File",

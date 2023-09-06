@@ -27,6 +27,7 @@ class MainWindow final : public QMainWindow {
 
  public:
   explicit MainWindow(s21::Controller &controller, QWidget *parent = nullptr);
+  void LoadStyle();
   ~MainWindow();
 
  private slots:
