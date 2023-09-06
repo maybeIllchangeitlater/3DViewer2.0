@@ -7,18 +7,19 @@ uniform float lineWidth; // Customize line width
 
 void main()
 {
+    float lineWidthh = 1.8;
     for (int i = 0; i < 2; ++i)
     {
-        gl_Position = gl_in[i].gl_Position + vec4(-lineWidth, -lineWidth, 0.0, 0.0);
+        gl_Position = gl_in[i].gl_Position + vec4(-lineWidthh, -lineWidthh, 0.0, 0.0);
         EmitVertex();
 
-        gl_Position = gl_in[i].gl_Position + vec4(lineWidth, -lineWidth, 0.0, 0.0);
+        gl_Position = gl_in[i].gl_Position + vec4(lineWidthh, -lineWidthh, 0.0, 0.0);
         EmitVertex();
 
-        gl_Position = gl_in[i].gl_Position + vec4(-lineWidth, lineWidth, 0.0, 0.0);
+        gl_Position = gl_in[i].gl_Position + vec4(-lineWidthh, lineWidthh, 0.0, 0.0);
         EmitVertex();
 
-        gl_Position = gl_in[i].gl_Position + vec4(lineWidth, lineWidth, 0.0, 0.0);
+        gl_Position = gl_in[i].gl_Position + vec4(lineWidthh, lineWidthh, 0.0, 0.0);
         EmitVertex();
 
         EndPrimitive();
