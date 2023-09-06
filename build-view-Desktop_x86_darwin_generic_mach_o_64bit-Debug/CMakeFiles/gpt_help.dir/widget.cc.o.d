@@ -345,6 +345,8 @@ CMakeFiles/gpt_help.dir/widget.cc.o: \
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
   /usr/local/lib/QtWidgets.framework/Headers/QWidget \
+  /usr/local/lib/QtOpenGL.framework/Headers/QOpenGLBuffer \
+  /usr/local/lib/QtOpenGL.framework/Headers/qopenglbuffer.h \
   /Users/susannel/3dviewer2/view/settings.h \
   /usr/local/lib/QtGui.framework/Headers/QCloseEvent \
   /usr/local/lib/QtWidgets.framework/Headers/QColorDialog \

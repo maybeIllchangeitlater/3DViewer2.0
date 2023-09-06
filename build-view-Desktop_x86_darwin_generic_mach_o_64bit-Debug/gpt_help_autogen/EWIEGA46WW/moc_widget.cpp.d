@@ -348,8 +348,10 @@
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qvector4d.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qvectornd.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
+  /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/QOpenGLBuffer \
   /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/QOpenGLShaderProgram \
   /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/QOpenGLVertexArrayObject \
+  /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/qopenglbuffer.h \
   /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/qopenglshaderprogram.h \
   /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/qopenglvertexarrayobject.h \
   /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/qtopenglglobal.h \

@@ -2115,6 +2115,8 @@ CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o: gpt_help_autoge
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
   /usr/local/lib/QtWidgets.framework/Headers/QWidget \
+  /usr/local/lib/QtOpenGL.framework/Headers/QOpenGLBuffer \
+  /usr/local/lib/QtOpenGL.framework/Headers/qopenglbuffer.h \
   gpt_help_autogen/EWIEGA46WW/moc_widget.cpp \
   /Users/susannel/3dviewer2/view/widget.h
 
@@ -2595,7 +2597,9 @@ CMakeFiles/gpt_help.dir/main.cc.o: /Users/susannel/3dviewer2/view/main.cc \
   /usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
-  /usr/local/lib/QtWidgets.framework/Headers/QWidget
+  /usr/local/lib/QtWidgets.framework/Headers/QWidget \
+  /usr/local/lib/QtOpenGL.framework/Headers/QOpenGLBuffer \
+  /usr/local/lib/QtOpenGL.framework/Headers/qopenglbuffer.h
 
 CMakeFiles/gpt_help.dir/mainwindow.cc.o: /Users/susannel/3dviewer2/view/mainwindow.cc \
   /Users/susannel/3dviewer2/view/mainwindow.h \
@@ -3070,6 +3074,8 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: /Users/susannel/3dviewer2/view/mainwind
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
   /usr/local/lib/QtWidgets.framework/Headers/QWidget \
+  /usr/local/lib/QtOpenGL.framework/Headers/QOpenGLBuffer \
+  /usr/local/lib/QtOpenGL.framework/Headers/qopenglbuffer.h \
   gpt_help_autogen/include/ui_mainwindow.h \
   /usr/local/include/QtCore/QVariant \
   /usr/local/lib/QtCore.framework/Headers/qvariant.h \
@@ -3898,6 +3904,8 @@ CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc \
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
   /usr/local/lib/QtWidgets.framework/Headers/QWidget \
+  /usr/local/lib/QtOpenGL.framework/Headers/QOpenGLBuffer \
+  /usr/local/lib/QtOpenGL.framework/Headers/qopenglbuffer.h \
   /Users/susannel/3dviewer2/view/settings.h \
   /usr/local/lib/QtGui.framework/Headers/QCloseEvent \
   /usr/local/lib/QtWidgets.framework/Headers/QColorDialog \
@@ -4062,6 +4070,10 @@ CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc \
 /usr/local/lib/QtWidgets.framework/Headers/qapplication.h:
 
 /usr/local/lib/QtWidgets.framework/Headers/QApplication:
+
+/usr/local/lib/QtOpenGL.framework/Headers/qopenglbuffer.h:
+
+/usr/local/lib/QtOpenGL.framework/Headers/QOpenGLBuffer:
 
 /usr/local/lib/QtWidgets.framework/Headers/qwidget.h:
 

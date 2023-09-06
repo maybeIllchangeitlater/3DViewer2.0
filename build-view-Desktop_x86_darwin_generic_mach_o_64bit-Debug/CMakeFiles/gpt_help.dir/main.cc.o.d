@@ -461,4 +461,6 @@ CMakeFiles/gpt_help.dir/main.cc.o: /Users/susannel/3dviewer2/view/main.cc \
   /usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
-  /usr/local/lib/QtWidgets.framework/Headers/QWidget
+  /usr/local/lib/QtWidgets.framework/Headers/QWidget \
+  /usr/local/lib/QtOpenGL.framework/Headers/QOpenGLBuffer \
+  /usr/local/lib/QtOpenGL.framework/Headers/qopenglbuffer.h

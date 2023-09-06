@@ -10,6 +10,7 @@
 #include <QTimer>
 #include <QVector3D>
 #include <QWidget>
+#include <QOpenGLBuffer>
 
 #include "settings.h"
 #include "../model/model.h"
@@ -20,7 +21,6 @@ class OpenGLWidget final : public QOpenGLWidget{
   explicit OpenGLWidget(s21::Settings& settings, s21::Controller& controller, QWidget* parent = nullptr);
   ~OpenGLWidget();
 
- protected:
  private:
   void initializeGL();
   void resizeGL(int w, int h);
@@ -37,6 +37,11 @@ class OpenGLWidget final : public QOpenGLWidget{
   QOpenGLShaderProgram shader_programm_;
   QMatrix4x4 projection_matrix_;
   QMatrix4x4 model_view_matrix_;
+
+
+  QOpenGLBuffer ibo_;
+  QOpenGLBuffer vbo_;
+  QOpenGLVertexArrayObject vao_;
 
   GLuint index_buffer_;
   GLuint vertex_buffer_;

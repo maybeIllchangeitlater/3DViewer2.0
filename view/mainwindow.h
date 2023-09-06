@@ -35,9 +35,6 @@ class MainWindow final : public QMainWindow {
   void ChangeVertexColor();
   void BrowseModel();
   void closeEvent(QCloseEvent *event) override;
-//  void translateBy(float x,float y);
-//  void RotateBy();
-
 
  private:
   void ConnectToLambdas();
@@ -48,28 +45,6 @@ class MainWindow final : public QMainWindow {
   Ui::MainWindow *ui_;
   s21::Controller &controller_;
   s21::Settings settings_;
-  //  QList<QImage> jiff;
-  //  int imagecounter;
-  //  int screenshotcounter;
-  //  int maxface;
-  //  QDir dir;
-  //  QString filename;
-  //  QColor color;
-  //  QColor back_color;
-  //  QColor vertex_color;
-  //  bool showLines;
-  //  bool smoothVertexes;
-  //  bool vertexesShown;
-  //  bool brokenEdges;
-  //  bool orth;
-  //  float minx = 0, miny = 0, minz = 0, maxx = 0, maxy = 0, maxz = 0;
-  //  Gigachad bigstructarray = {0};
-  //  float medianX, medianY, medianZ;
-  //  std::vector<GLfloat> vertexPositions;
-  //  std::vector<GLuint> indices;
-  //  int lineW;
-  //  int vertexW;
-  //  QTimer timer;
 };
 
 #endif  // MAINWINDOW_H

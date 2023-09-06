@@ -457,6 +457,8 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: \
   /usr/local/lib/QtGui.framework/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Headers/qvectornd.h \
   /usr/local/lib/QtWidgets.framework/Headers/QWidget \
+  /usr/local/lib/QtOpenGL.framework/Headers/QOpenGLBuffer \
+  /usr/local/lib/QtOpenGL.framework/Headers/qopenglbuffer.h \
   /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/include/ui_mainwindow.h \
   /usr/local/include/QtCore/QVariant \
   /usr/local/lib/QtCore.framework/Headers/qvariant.h \
