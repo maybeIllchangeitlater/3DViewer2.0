@@ -6,8 +6,11 @@ namespace s21{
          vertex.clear();
          face.clear();
          QFile file(filename);
-            if(!file.exists() || !file.open(QIODevice::ReadOnly))
-                throw std::logic_error("file is empty or doesn't exist");
+         if(!file.exists() || !file.open(QIODevice::ReadOnly)){
+             throw std::logic_error("file is empty or doesn't exist");
+             file.close();
+
+         }
             while(!file.atEnd()){
                 auto data(file.readLine());
                 if(data[0] == 'v' && data[1] == ' ')
@@ -16,9 +19,12 @@ namespace s21{
                     PushFace(data, face);
 
             }
-            if (*(std::max_element(face.begin(), face.end())) > (vertex.size() /3 -1) )
+            if (*(std::max_element(face.begin(), face.end())) > (vertex.size() /3 -1) ){
                 throw std::logic_error("nice SEGA you got there");
+                file.close();
+            }
             ChangeFilename(filename, vertex, face);
+            file.close();
 
 }
     void ObjParser::PushVertex(QByteArray &data, QVector<float> &vertex) const
