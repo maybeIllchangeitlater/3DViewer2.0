@@ -189,3 +189,4 @@ void MainWindow::UpdateWidget()
 {
     if (gl_widget_) gl_widget_->update();
 }
+//TODO Move connects to separate class ?

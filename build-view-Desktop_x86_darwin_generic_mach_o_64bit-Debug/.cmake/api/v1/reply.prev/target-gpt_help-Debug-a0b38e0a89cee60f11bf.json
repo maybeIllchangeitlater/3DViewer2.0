@@ -70,13 +70,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 71,
+				"line" : 69,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 69,
+				"line" : 71,
 				"parent" : 0
 			},
 			{
@@ -262,19 +262,19 @@
 					"define" : "QT_CORE_LIB"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"define" : "QT_GUI_LIB"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"define" : "QT_OPENGLWIDGETS_LIB"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"define" : "QT_OPENGL_LIB"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"define" : "QT_WIDGETS_LIB"
 				}
 			],
@@ -311,42 +311,42 @@
 					"path" : "/usr/local/include"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "/usr/local/lib/QtWidgets.framework"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "/usr/local/lib/QtWidgets.framework/Headers"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "/usr/local/lib/QtGui.framework"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "/usr/local/lib/QtGui.framework/Headers"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"isSystem" : true,
 					"path" : "/usr/local/lib/QtOpenGLWidgets.framework"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"isSystem" : true,
 					"path" : "/usr/local/lib/QtOpenGLWidgets.framework/Headers"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"isSystem" : true,
 					"path" : "/usr/local/lib/QtOpenGL.framework"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"isSystem" : true,
 					"path" : "/usr/local/lib/QtOpenGL.framework/Headers"
 				}
@@ -402,11 +402,16 @@
 			},
 			{
 				"backtrace" : 5,
-				"fragment" : "/usr/local/lib/QtOpenGLWidgets.framework/Versions/A/QtOpenGLWidgets",
+				"fragment" : "-fsanitize=address",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 6,
+				"fragment" : "/usr/local/lib/QtOpenGLWidgets.framework/Versions/A/QtOpenGLWidgets",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
 				"fragment" : "/usr/local/lib/QtWidgets.framework/Versions/A/QtWidgets",
 				"role" : "libraries"
 			},

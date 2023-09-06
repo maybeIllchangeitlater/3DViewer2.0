@@ -71,6 +71,7 @@ include CMakeFiles/gpt_help.dir/flags.make
 
 gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: /Users/susannel/3dviewer2/shaders.qrc
 gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: CMakeFiles/gpt_help_autogen.dir/AutoRcc_shaders_54WNFGSGJX_Info.json
+gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: /Users/susannel/3dviewer2/resources/GeometryShader.txt
 gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: /Users/susannel/3dviewer2/resources/VertexShader.txt
 gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: /Users/susannel/3dviewer2/resources/VertexShaderCPU.txt
 gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: /Users/susannel/3dviewer2/resources/FragShader.txt

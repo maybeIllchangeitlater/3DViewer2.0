@@ -7,6 +7,7 @@
 	"INCLUDE_DIR" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/include",
 	"INPUTS" : 
 	[
+		"/Users/susannel/3dviewer2/resources/GeometryShader.txt",
 		"/Users/susannel/3dviewer2/resources/VertexShader.txt",
 		"/Users/susannel/3dviewer2/resources/VertexShaderCPU.txt",
 		"/Users/susannel/3dviewer2/resources/FragShader.txt"

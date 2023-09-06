@@ -1,0 +1,18 @@
+#version 410 core
+
+layout(lines) in;
+layout(line_strip, max_vertices = 4) out;
+uniform float lineWidth;  // Line width
+
+void main() {
+    vec2 p0 = gl_in[0].gl_Position.xy;
+    vec2 p1 = gl_in[1].gl_Position.xy;
+    vec2 dir = normalize(p1 - p0);
+    vec2 normal = vec2(-dir.y, dir.x);
+
+    gl_Position = vec4(p0 + normal * 0.5 * lineWidth, 0.0, 1.0);
+    EmitVertex();
+    gl_Position = vec4(p1 + normal * 0.5 * lineWidth, 0.0, 1.0);
+    EmitVertex();
+    EndPrimitive();
+}

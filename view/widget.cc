@@ -101,10 +101,12 @@ void OpenGLWidget::initializeGL() {
                                      shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShaderCPU.txt");
   std::cout << "/t My shader version is :" << controller_.ShaderVersion() << std::endl;
   shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShader.txt");
+  shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShader.txt");
   shader_programm_.link();
   shader_programm_.bind();
   /*----------------------------------------------------------------------------------------------------------------------*/
   shader_programm_.setUniformValue("color", settings_.color);
+  shader_programm_.setUniformValue("lineWidth", 20);
   /*----------------------------------------------------------------------------------------------------------------------*/
   glGenBuffers(1, &vertex_buffer_); //vertex_buffer_object
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_);
@@ -155,4 +157,4 @@ void OpenGLWidget::paintGL() {
     glDrawElements(GL_LINES, controller_.GetFaceConstRef().size(), GL_UNSIGNED_INT, nullptr);
   shader_programm_.release();
 
-}
+} //move everything from init and paint to its own functions
