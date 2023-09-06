@@ -189,4 +189,14 @@ void MainWindow::UpdateWidget()
 {
     if (gl_widget_) gl_widget_->update();
 }
+
+//void MainWindow::UpdateWidgetFluff()
+//{
+//    if(gl_widget_) gl_widget_->SettingsChanged();
+//}
+
+//void MainWindow::UpdateWidgetMove()
+//{
+//    if (gl_widget_) gl_widget_->update();
+//}
 //TODO Move connects to separate class ?

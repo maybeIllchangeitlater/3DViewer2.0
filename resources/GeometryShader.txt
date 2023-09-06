@@ -1,33 +1,26 @@
 #version 410 core
 
 layout(lines) in;
-layout(line_strip, max_vertices = 4) out;
+layout(triangle_strip, max_vertices = 4) out;
 
-uniform mat4 projectionMatrix;
-uniform mat4 modelViewMatrix;
-uniform float lineWidth;
+uniform float lineWidth; // Customize line width
 
-void main() {
-    vec3 p0 = gl_in[0].gl_Position.xyz;
-    vec3 p1 = gl_in[1].gl_Position.xyz;
+void main()
+{
+    for (int i = 0; i < 2; ++i)
+    {
+        gl_Position = gl_in[i].gl_Position + vec4(-lineWidth, -lineWidth, 0.0, 0.0);
+        EmitVertex();
 
-    vec3 dir = normalize(p1 - p0); //check the fuck is this shit
-    vec3 normal = vec3(-dir.y, dir.x, 0.0);  //check the fuck is this shit
+        gl_Position = gl_in[i].gl_Position + vec4(lineWidth, -lineWidth, 0.0, 0.0);
+        EmitVertex();
 
-    // Calculate vertices for the line strip with width
-    vec4 vertex0 = vec4(p0 + normal * (lineWidth * 0.5), 1.0); //check the fuck is this shit
-    vec4 vertex1 = vec4(p0 - normal * (lineWidth * 0.5), 1.0);
-    vec4 vertex2 = vec4(p1 + normal * (lineWidth * 0.5), 1.0);
-    vec4 vertex3 = vec4(p1 - normal * (lineWidth * 0.5), 1.0);
+        gl_Position = gl_in[i].gl_Position + vec4(-lineWidth, lineWidth, 0.0, 0.0);
+        EmitVertex();
 
-    gl_Position = vertex0;
-    EmitVertex();
-    gl_Position = vertex1;
-    EmitVertex();
-    gl_Position = vertex2;
-    EmitVertex();
-    gl_Position = vertex3;
-    EmitVertex();
+        gl_Position = gl_in[i].gl_Position + vec4(lineWidth, lineWidth, 0.0, 0.0);
+        EmitVertex();
 
-    EndPrimitive();
+        EndPrimitive();
+    }
 }

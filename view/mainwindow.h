@@ -40,6 +40,8 @@ class MainWindow final : public QMainWindow {
   void ConnectToLambdas();
   void ConnectTranslateToLambdas();
   void ConnectRotateToLambdas();
+//  void UpdateWidgetMove();
+//  void UpdateWidgetFluff();
   void UpdateWidget();
   OpenGLWidget *gl_widget_;
   Ui::MainWindow *ui_;

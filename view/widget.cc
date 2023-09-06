@@ -11,11 +11,12 @@ OpenGLWidget::OpenGLWidget(s21::Settings &settings,
 
 OpenGLWidget::~OpenGLWidget() { std::cout << "ustroy destroy" << std::endl; }
 
-void OpenGLWidget::SettingsChanged()
-{
-    shader_programm_.setUniformValue("color", settings_.color);
-    shader_programm_.setUniformValue("lineWidth", settings_.line_width);
-}
+//void OpenGLWidget::SettingsChanged()
+//{
+//    shader_programm_.bind();
+
+//    shader_programm_.release();
+//}
 
 void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
   if (event->buttons() & Qt::LeftButton) {
@@ -60,7 +61,7 @@ void OpenGLWidget::initializeGL() {
   controller_.ShaderVersion() == 1 ? shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt") :
                                      shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShaderCPU.txt");
   std::cout << "/t My shader version is :" << controller_.ShaderVersion() << std::endl;
-  shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShader.txt");
+//  shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShader.txt");
   shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShader.txt");
   shader_programm_.link();
   shader_programm_.bind();
@@ -110,6 +111,8 @@ void OpenGLWidget::paintGL() {
   shader_programm_.setUniformValue("projectionMatrix", projection_matrix_);
   controller_.MoveModel(model_view_matrix_, settings_);
   shader_programm_.setUniformValue("modelViewMatrix", model_view_matrix_); //add if
+  shader_programm_.setUniformValue("color", settings_.color);
+  shader_programm_.setUniformValue("lineWidth", settings_.line_width);
 
   vao_.bind();
   ibo_.bind();

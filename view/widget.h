@@ -20,6 +20,7 @@ class OpenGLWidget final : public QOpenGLWidget{
  public:
   explicit OpenGLWidget(s21::Settings& settings, s21::Controller& controller, QWidget* parent = nullptr);
   ~OpenGLWidget();
+//   void SettingsChanged();
 
  private:
   void initializeGL();
