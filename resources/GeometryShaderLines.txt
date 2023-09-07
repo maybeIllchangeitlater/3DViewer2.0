@@ -1,0 +1,44 @@
+#version 410 core
+
+layout(lines) in;
+layout(triangle_strip, max_vertices = 8) out;
+
+uniform float lineWidth;
+uniform float pointWidth;
+
+void main()
+{
+    float lineWidthh = 5;
+    float pointWidthh = 0.5;
+
+    vec2 dir = normalize(gl_in[1].gl_Position.xy - gl_in[0].gl_Position.xy);
+    vec2 normal = vec2(-dir.y, dir.x) * lineWidthh /25;
+
+    gl_Position = gl_in[0].gl_Position + vec4(-pointWidthh, -pointWidthh, 0.0, 0.0);
+    EmitVertex();
+
+    gl_Position = gl_in[0].gl_Position + vec4(pointWidthh, -pointWidthh, 0.0, 0.0);
+    EmitVertex();
+
+    gl_Position = gl_in[0].gl_Position + vec4(-pointWidthh, pointWidthh, 0.0, 0.0);
+    EmitVertex();
+
+    gl_Position = gl_in[0].gl_Position + vec4(pointWidthh, pointWidthh, 0.0, 0.0);
+    EmitVertex();
+    EndPrimitive();
+
+    gl_Position = gl_in[0].gl_Position + vec4(normal, 0.0, 0.0);
+    EmitVertex();
+
+    gl_Position = gl_in[0].gl_Position - vec4(normal, 0.0, 0.0);
+    EmitVertex();
+
+    gl_Position = gl_in[1].gl_Position + vec4(normal, 0.0, 0.0);
+    EmitVertex();
+
+    gl_Position = gl_in[1].gl_Position - vec4(normal, 0.0, 0.0);
+    EmitVertex();
+
+    EndPrimitive();
+
+}

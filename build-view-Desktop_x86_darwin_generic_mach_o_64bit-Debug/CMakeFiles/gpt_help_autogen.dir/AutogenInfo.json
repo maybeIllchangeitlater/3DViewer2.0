@@ -484,6 +484,7 @@
 		"/usr/local/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessTargets.cmake",
 		"/usr/local/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake",
 		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeParseArguments.cmake",
+		"/Users/susannel/3dviewer2/view/style.qrc",
 		"/Users/susannel/3dviewer2/shaders.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/Users/susannel/3dviewer2/view",

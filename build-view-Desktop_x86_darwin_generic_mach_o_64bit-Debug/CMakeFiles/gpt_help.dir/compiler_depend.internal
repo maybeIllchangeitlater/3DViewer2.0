@@ -1646,6 +1646,9 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o
 CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o
  /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp
 
+CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o
+ /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp
+
 CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o
  /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/mocs_compilation.cpp
  /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp
@@ -3101,6 +3104,8 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o
  /usr/local/include/QtWidgets/qlayoutitem.h
  /usr/local/include/QtWidgets/qboxlayout.h
  /usr/local/include/QtWidgets/qgridlayout.h
+ /usr/local/include/QtWidgets/QHBoxLayout
+ /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h
  /usr/local/include/QtWidgets/QLabel
  /usr/local/lib/QtWidgets.framework/Headers/qlabel.h
  /usr/local/include/QtWidgets/qframe.h
@@ -3118,13 +3123,18 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o
  /usr/local/include/QtWidgets/QSlider
  /usr/local/lib/QtWidgets.framework/Headers/qslider.h
  /usr/local/include/QtWidgets/qabstractslider.h
+ /usr/local/include/QtWidgets/QSpacerItem
+ /usr/local/lib/QtWidgets.framework/Headers/qlayoutitem.h
  /usr/local/include/QtWidgets/QStatusBar
  /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h
  /usr/local/include/QtWidgets/QVBoxLayout
- /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h
  /usr/local/lib/QtGui.framework/Headers/QSurface
  /usr/local/lib/QtGui.framework/Headers/qsurface.h
  /usr/local/include/QtGui/qsurfaceformat.h
+ /usr/local/lib/QtGui.framework/Headers/QFontDatabase
+ /usr/local/lib/QtGui.framework/Headers/qfontdatabase.h
+ /usr/local/lib/QtCore.framework/Headers/QTextStream
+ /usr/local/lib/QtCore.framework/Headers/qtextstream.h
 
 CMakeFiles/gpt_help.dir/settings.cc.o
  /Users/susannel/3dviewer2/view/settings.cc

@@ -2063,6 +2063,9 @@
 			"path" : "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeParseArguments.cmake"
 		},
 		{
+			"path" : "style.qrc"
+		},
+		{
 			"isExternal" : true,
 			"path" : "/Users/susannel/3dviewer2/shaders.qrc"
 		},

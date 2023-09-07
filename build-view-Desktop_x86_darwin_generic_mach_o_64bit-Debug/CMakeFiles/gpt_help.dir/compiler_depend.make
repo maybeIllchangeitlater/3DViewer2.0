@@ -1641,6 +1641,8 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o: /Users/susan
 
 CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o: gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp
 
+CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o: gpt_help_autogen/EWIEGA46WW/qrc_style.cpp
+
 CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o: gpt_help_autogen/mocs_compilation.cpp \
   gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/memory \
@@ -3093,6 +3095,8 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: /Users/susannel/3dviewer2/view/mainwind
   /usr/local/include/QtWidgets/qlayoutitem.h \
   /usr/local/include/QtWidgets/qboxlayout.h \
   /usr/local/include/QtWidgets/qgridlayout.h \
+  /usr/local/include/QtWidgets/QHBoxLayout \
+  /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h \
   /usr/local/include/QtWidgets/QLabel \
   /usr/local/lib/QtWidgets.framework/Headers/qlabel.h \
   /usr/local/include/QtWidgets/qframe.h \
@@ -3110,13 +3114,18 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: /Users/susannel/3dviewer2/view/mainwind
   /usr/local/include/QtWidgets/QSlider \
   /usr/local/lib/QtWidgets.framework/Headers/qslider.h \
   /usr/local/include/QtWidgets/qabstractslider.h \
+  /usr/local/include/QtWidgets/QSpacerItem \
+  /usr/local/lib/QtWidgets.framework/Headers/qlayoutitem.h \
   /usr/local/include/QtWidgets/QStatusBar \
   /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h \
   /usr/local/include/QtWidgets/QVBoxLayout \
-  /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h \
   /usr/local/lib/QtGui.framework/Headers/QSurface \
   /usr/local/lib/QtGui.framework/Headers/qsurface.h \
-  /usr/local/include/QtGui/qsurfaceformat.h
+  /usr/local/include/QtGui/qsurfaceformat.h \
+  /usr/local/lib/QtGui.framework/Headers/QFontDatabase \
+  /usr/local/lib/QtGui.framework/Headers/qfontdatabase.h \
+  /usr/local/lib/QtCore.framework/Headers/QTextStream \
+  /usr/local/lib/QtCore.framework/Headers/qtextstream.h
 
 CMakeFiles/gpt_help.dir/settings.cc.o: /Users/susannel/3dviewer2/view/settings.cc \
   /Users/susannel/3dviewer2/view/settings.h \
@@ -4009,15 +4018,21 @@ CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc \
 
 /Users/susannel/3dviewer2/view/widget.cc:
 
+/usr/local/lib/QtCore.framework/Headers/qtextstream.h:
+
+/usr/local/lib/QtGui.framework/Headers/qfontdatabase.h:
+
 /usr/local/include/QtGui/qsurfaceformat.h:
 
 /usr/local/lib/QtGui.framework/Headers/QSurface:
 
-/usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h:
-
 /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h:
 
 /usr/local/include/QtWidgets/QStatusBar:
+
+/usr/local/lib/QtWidgets.framework/Headers/qlayoutitem.h:
+
+/usr/local/include/QtWidgets/QSpacerItem:
 
 /usr/local/include/QtWidgets/qabstractslider.h:
 
@@ -4042,6 +4057,10 @@ CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc \
 /usr/local/include/QtWidgets/qframe.h:
 
 /usr/local/lib/QtWidgets.framework/Headers/qlabel.h:
+
+/usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h:
+
+/usr/local/include/QtWidgets/QHBoxLayout:
 
 /usr/local/include/QtWidgets/qgridlayout.h:
 
@@ -4113,6 +4132,8 @@ CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc \
 
 gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 
+gpt_help_autogen/EWIEGA46WW/qrc_style.cpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/fstream:
 
 /Users/susannel/3dviewer2/model/parser.h:
@@ -4146,6 +4167,8 @@ gpt_help_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 /usr/local/lib/QtGui.framework/Headers/QOpenGLFunctions:
 
 /usr/local/lib/QtCore.framework/Headers/qjsonvalue.h:
+
+/usr/local/lib/QtGui.framework/Headers/QFontDatabase:
 
 /usr/local/lib/QtCore.framework/Headers/QJsonValue:
 
@@ -4594,6 +4617,8 @@ gpt_help_autogen/EWIEGA46WW/moc_widget.cpp:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/machine/_mcontext.h:
 
 /usr/local/include/QtCore/qsysinfo.h:
+
+/usr/local/lib/QtCore.framework/Headers/QTextStream:
 
 /usr/local/include/QtCore/qbytearrayview.h:
 

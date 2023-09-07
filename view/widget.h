@@ -36,6 +36,7 @@ class OpenGLWidget final : public QOpenGLWidget{
   QPoint last_rmouse_pos_;
 
   QOpenGLShaderProgram shader_programm_;
+  QOpenGLShaderProgram shader_programm_point_;
   QMatrix4x4 projection_matrix_;
   QMatrix4x4 model_view_matrix_;
 

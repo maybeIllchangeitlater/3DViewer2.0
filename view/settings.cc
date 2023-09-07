@@ -73,8 +73,8 @@ void Settings::LoadSettings() {
     vertexes_shown = settings.value("vertexes_shown").toBool();
     broken_lines = settings.value("broken_lines").toBool();
     lines_shown = settings.value("lines_shown").toBool();
-    line_width = settings.value("line_width").toInt();
-    point_size = settings.value("line_width").toInt();
+    line_width = settings.value("line_width").toDouble();
+    point_size = settings.value("line_width").toDouble();
     scale = settings.value("scale").toDouble();
 
     file.close();

@@ -43,6 +43,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.23.0/CMakeSystem.cmake"
   "/Users/susannel/3dviewer2/shaders.qrc"
   "/Users/susannel/3dviewer2/view/CMakeLists.txt"
+  "/Users/susannel/3dviewer2/view/style.qrc"
   "/opt/goinfre/susannel/Qt Creator.app/Contents/Resources/package-manager/auto-setup.cmake"
   "/usr/local/lib/cmake/Qt6/FindWrapAtomic.cmake"
   "/usr/local/lib/cmake/Qt6/FindWrapOpenGL.cmake"
@@ -158,6 +159,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/gpt_help_autogen.dir/AutogenInfo.json"
+  "CMakeFiles/gpt_help_autogen.dir/AutoRcc_style_EWIEGA46WW_Info.json"
   "CMakeFiles/gpt_help_autogen.dir/AutoRcc_shaders_54WNFGSGJX_Info.json"
   "gpt_help.app/Contents/MacOS"
   "gpt_help.app/Contents/Info.plist"

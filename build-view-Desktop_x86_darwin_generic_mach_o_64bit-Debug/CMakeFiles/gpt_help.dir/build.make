@@ -69,6 +69,14 @@ include CMakeFiles/gpt_help.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/gpt_help.dir/flags.make
 
+gpt_help_autogen/EWIEGA46WW/qrc_style.cpp: /Users/susannel/3dviewer2/view/style.qrc
+gpt_help_autogen/EWIEGA46WW/qrc_style.cpp: CMakeFiles/gpt_help_autogen.dir/AutoRcc_style_EWIEGA46WW_Info.json
+gpt_help_autogen/EWIEGA46WW/qrc_style.cpp: /Users/susannel/3dviewer2/view/style/style.ss
+gpt_help_autogen/EWIEGA46WW/qrc_style.cpp: /Users/susannel/3dviewer2/view/style/Tahoma.ttf
+gpt_help_autogen/EWIEGA46WW/qrc_style.cpp: /usr/local/share/qt/libexec/rcc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for style.qrc"
+	/Applications/CMake.app/Contents/bin/cmake -E cmake_autorcc /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/gpt_help_autogen.dir/AutoRcc_style_EWIEGA46WW_Info.json Debug
+
 gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: /Users/susannel/3dviewer2/shaders.qrc
 gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: CMakeFiles/gpt_help_autogen.dir/AutoRcc_shaders_54WNFGSGJX_Info.json
 gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: /Users/susannel/3dviewer2/resources/GeometryShader.txt
@@ -76,13 +84,13 @@ gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: /Users/susannel/3dviewer2/resources
 gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: /Users/susannel/3dviewer2/resources/VertexShaderCPU.txt
 gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: /Users/susannel/3dviewer2/resources/FragShader.txt
 gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp: /usr/local/share/qt/libexec/rcc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for ../shaders.qrc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Automatic RCC for ../shaders.qrc"
 	/Applications/CMake.app/Contents/bin/cmake -E cmake_autorcc /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/gpt_help_autogen.dir/AutoRcc_shaders_54WNFGSGJX_Info.json Debug
 
 CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o: CMakeFiles/gpt_help.dir/flags.make
 CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o: gpt_help_autogen/mocs_compilation.cpp
 CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o: CMakeFiles/gpt_help.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o -MF CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.o -c /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/mocs_compilation.cpp
 
 CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.i: cmake_force
@@ -96,7 +104,7 @@ CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.s: cmake_force
 CMakeFiles/gpt_help.dir/main.cc.o: CMakeFiles/gpt_help.dir/flags.make
 CMakeFiles/gpt_help.dir/main.cc.o: /Users/susannel/3dviewer2/view/main.cc
 CMakeFiles/gpt_help.dir/main.cc.o: CMakeFiles/gpt_help.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gpt_help.dir/main.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gpt_help.dir/main.cc.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gpt_help.dir/main.cc.o -MF CMakeFiles/gpt_help.dir/main.cc.o.d -o CMakeFiles/gpt_help.dir/main.cc.o -c /Users/susannel/3dviewer2/view/main.cc
 
 CMakeFiles/gpt_help.dir/main.cc.i: cmake_force
@@ -110,7 +118,7 @@ CMakeFiles/gpt_help.dir/main.cc.s: cmake_force
 CMakeFiles/gpt_help.dir/widget.cc.o: CMakeFiles/gpt_help.dir/flags.make
 CMakeFiles/gpt_help.dir/widget.cc.o: /Users/susannel/3dviewer2/view/widget.cc
 CMakeFiles/gpt_help.dir/widget.cc.o: CMakeFiles/gpt_help.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gpt_help.dir/widget.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gpt_help.dir/widget.cc.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gpt_help.dir/widget.cc.o -MF CMakeFiles/gpt_help.dir/widget.cc.o.d -o CMakeFiles/gpt_help.dir/widget.cc.o -c /Users/susannel/3dviewer2/view/widget.cc
 
 CMakeFiles/gpt_help.dir/widget.cc.i: cmake_force
@@ -124,7 +132,7 @@ CMakeFiles/gpt_help.dir/widget.cc.s: cmake_force
 CMakeFiles/gpt_help.dir/mainwindow.cc.o: CMakeFiles/gpt_help.dir/flags.make
 CMakeFiles/gpt_help.dir/mainwindow.cc.o: /Users/susannel/3dviewer2/view/mainwindow.cc
 CMakeFiles/gpt_help.dir/mainwindow.cc.o: CMakeFiles/gpt_help.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gpt_help.dir/mainwindow.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gpt_help.dir/mainwindow.cc.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gpt_help.dir/mainwindow.cc.o -MF CMakeFiles/gpt_help.dir/mainwindow.cc.o.d -o CMakeFiles/gpt_help.dir/mainwindow.cc.o -c /Users/susannel/3dviewer2/view/mainwindow.cc
 
 CMakeFiles/gpt_help.dir/mainwindow.cc.i: cmake_force
@@ -138,7 +146,7 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.s: cmake_force
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o: CMakeFiles/gpt_help.dir/flags.make
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o: /Users/susannel/3dviewer2/model/parser.cc
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o: CMakeFiles/gpt_help.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o -MF CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o.d -o CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o -c /Users/susannel/3dviewer2/model/parser.cc
 
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.i: cmake_force
@@ -152,7 +160,7 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.s: cmake_force
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o: CMakeFiles/gpt_help.dir/flags.make
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o: /Users/susannel/3dviewer2/model/model.cc
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o: CMakeFiles/gpt_help.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o -MF CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o.d -o CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o -c /Users/susannel/3dviewer2/model/model.cc
 
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.i: cmake_force
@@ -166,7 +174,7 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.s: cmake_force
 CMakeFiles/gpt_help.dir/settings.cc.o: CMakeFiles/gpt_help.dir/flags.make
 CMakeFiles/gpt_help.dir/settings.cc.o: /Users/susannel/3dviewer2/view/settings.cc
 CMakeFiles/gpt_help.dir/settings.cc.o: CMakeFiles/gpt_help.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/gpt_help.dir/settings.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/gpt_help.dir/settings.cc.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gpt_help.dir/settings.cc.o -MF CMakeFiles/gpt_help.dir/settings.cc.o.d -o CMakeFiles/gpt_help.dir/settings.cc.o -c /Users/susannel/3dviewer2/view/settings.cc
 
 CMakeFiles/gpt_help.dir/settings.cc.i: cmake_force
@@ -180,7 +188,7 @@ CMakeFiles/gpt_help.dir/settings.cc.s: cmake_force
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o: CMakeFiles/gpt_help.dir/flags.make
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o: /Users/susannel/3dviewer2/model/OpenGLTransformation.cc
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o: CMakeFiles/gpt_help.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o -MF CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o.d -o CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o -c /Users/susannel/3dviewer2/model/OpenGLTransformation.cc
 
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.i: cmake_force
@@ -194,7 +202,7 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.s
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o: CMakeFiles/gpt_help.dir/flags.make
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o: /Users/susannel/3dviewer2/model/CPUTransformation.cc
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o: CMakeFiles/gpt_help.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o -MF CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o.d -o CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o -c /Users/susannel/3dviewer2/model/CPUTransformation.cc
 
 CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.i: cmake_force
@@ -205,10 +213,24 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.s: c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/susannel/3dviewer2/model/CPUTransformation.cc -o CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.s
 
+CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o: CMakeFiles/gpt_help.dir/flags.make
+CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o: gpt_help_autogen/EWIEGA46WW/qrc_style.cpp
+CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o: CMakeFiles/gpt_help.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o -MF CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o.d -o CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o -c /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp
+
+CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp > CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.i
+
+CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp -o CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.s
+
 CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o: CMakeFiles/gpt_help.dir/flags.make
 CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o: gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp
 CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o: CMakeFiles/gpt_help.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o -MF CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o.d -o CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o -c /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp
 
 CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.i: cmake_force
@@ -230,6 +252,7 @@ gpt_help_OBJECTS = \
 "CMakeFiles/gpt_help.dir/settings.cc.o" \
 "CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o" \
 "CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o" \
+"CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o" \
 "CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o"
 
 # External object files for target gpt_help
@@ -244,6 +267,7 @@ gpt_help.app/Contents/MacOS/gpt_help: CMakeFiles/gpt_help.dir/Users/susannel/3dv
 gpt_help.app/Contents/MacOS/gpt_help: CMakeFiles/gpt_help.dir/settings.cc.o
 gpt_help.app/Contents/MacOS/gpt_help: CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o
 gpt_help.app/Contents/MacOS/gpt_help: CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o
+gpt_help.app/Contents/MacOS/gpt_help: CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o
 gpt_help.app/Contents/MacOS/gpt_help: CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o
 gpt_help.app/Contents/MacOS/gpt_help: CMakeFiles/gpt_help.dir/build.make
 gpt_help.app/Contents/MacOS/gpt_help: /usr/local/lib/QtOpenGLWidgets.framework/Versions/A/QtOpenGLWidgets
@@ -252,7 +276,7 @@ gpt_help.app/Contents/MacOS/gpt_help: /usr/local/lib/QtOpenGL.framework/Versions
 gpt_help.app/Contents/MacOS/gpt_help: /usr/local/lib/QtGui.framework/Versions/A/QtGui
 gpt_help.app/Contents/MacOS/gpt_help: /usr/local/lib/QtCore.framework/Versions/A/QtCore
 gpt_help.app/Contents/MacOS/gpt_help: CMakeFiles/gpt_help.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable gpt_help.app/Contents/MacOS/gpt_help"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable gpt_help.app/Contents/MacOS/gpt_help"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gpt_help.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -264,6 +288,7 @@ CMakeFiles/gpt_help.dir/clean:
 .PHONY : CMakeFiles/gpt_help.dir/clean
 
 CMakeFiles/gpt_help.dir/depend: gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp
+CMakeFiles/gpt_help.dir/depend: gpt_help_autogen/EWIEGA46WW/qrc_style.cpp
 	cd /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/susannel/3dviewer2/view /Users/susannel/3dviewer2/view /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/gpt_help.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/gpt_help.dir/depend
 

@@ -476,6 +476,8 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: \
   /usr/local/include/QtWidgets/qlayoutitem.h \
   /usr/local/include/QtWidgets/qboxlayout.h \
   /usr/local/include/QtWidgets/qgridlayout.h \
+  /usr/local/include/QtWidgets/QHBoxLayout \
+  /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h \
   /usr/local/include/QtWidgets/QLabel \
   /usr/local/lib/QtWidgets.framework/Headers/qlabel.h \
   /usr/local/include/QtWidgets/qframe.h \
@@ -492,10 +494,15 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: \
   /usr/local/include/QtWidgets/QSlider \
   /usr/local/lib/QtWidgets.framework/Headers/qslider.h \
   /usr/local/include/QtWidgets/qabstractslider.h \
+  /usr/local/include/QtWidgets/QSpacerItem \
+  /usr/local/lib/QtWidgets.framework/Headers/qlayoutitem.h \
   /usr/local/include/QtWidgets/QStatusBar \
   /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h \
   /usr/local/include/QtWidgets/QVBoxLayout \
-  /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h \
   /usr/local/lib/QtGui.framework/Headers/QSurface \
   /usr/local/lib/QtGui.framework/Headers/qsurface.h \
-  /usr/local/include/QtGui/qsurfaceformat.h
+  /usr/local/include/QtGui/qsurfaceformat.h \
+  /usr/local/lib/QtGui.framework/Headers/QFontDatabase \
+  /usr/local/lib/QtGui.framework/Headers/qfontdatabase.h \
+  /usr/local/lib/QtCore.framework/Headers/QTextStream \
+  /usr/local/lib/QtCore.framework/Headers/qtextstream.h

@@ -3,6 +3,9 @@
 #include "ui_mainwindow.h"
 #include "widget.h"
 #include <QSurface>
+#include <QFontDatabase>
+#include <QFile>
+#include <QTextStream>
 
 MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
     : controller_(controller),
@@ -28,6 +31,7 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
     ConnectToLambdas();
     ConnectTranslateToLambdas();
     ConnectRotateToLambdas();
+    LoadStyle();
 
 }
 
@@ -38,6 +42,20 @@ MainWindow::~MainWindow() {
   }
   delete ui_;
 }
+
+void MainWindow::LoadStyle() {
+  QFontDatabase::addApplicationFont(":/style/fonts/Tahoma.ttf");
+  QFont font("Tahoma", 14);
+
+  QFile style_file(":/style/style/style.ss");
+  style_file.open(QIODevice::ReadOnly);
+
+  QTextStream style_stream(&style_file);
+  setStyleSheet(style_stream.readAll());
+}
+
+
+
 void MainWindow::BrowseModel() {
   QString filename(QFileDialog::getOpenFileName(
       this, "Open File",
@@ -94,12 +112,12 @@ void MainWindow::ConnectToLambdas()
 {
     ui_->line_thicc->connect(ui_->line_thicc, &QSlider::valueChanged, this,
                              [this](int w) {
-                               settings_.line_width = w;
+                               settings_.line_width = static_cast<float>(w) / 100.0f;
                                UpdateWidget();
                              });
     ui_->vertex_thicc->connect(ui_->vertex_thicc, &QSlider::valueChanged, this,
                                [this](int w) {
-                                 settings_.point_size = w;
+                                 settings_.point_size = static_cast<float>(w) / 100.0f;
                                  UpdateWidget();
                                });
     ui_->scale_slider->connect(ui_->scale_slider, &QSlider::valueChanged, this,
@@ -189,14 +207,4 @@ void MainWindow::UpdateWidget()
 {
     if (gl_widget_) gl_widget_->update();
 }
-
-//void MainWindow::UpdateWidgetFluff()
-//{
-//    if(gl_widget_) gl_widget_->SettingsChanged();
-//}
-
-//void MainWindow::UpdateWidgetMove()
-//{
-//    if (gl_widget_) gl_widget_->update();
-//}
 //TODO Move connects to separate class ?

@@ -46,7 +46,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 46,
+				"line" : 47,
 				"parent" : 0
 			},
 			{
@@ -70,13 +70,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 69,
+				"line" : 70,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 71,
+				"line" : 72,
 				"parent" : 0
 			},
 			{
@@ -372,7 +372,8 @@
 				12,
 				15,
 				16,
-				20
+				21,
+				22
 			]
 		}
 	],
@@ -496,7 +497,8 @@
 				12,
 				15,
 				16,
-				20
+				21,
+				22
 			]
 		},
 		{
@@ -511,7 +513,7 @@
 				13,
 				14,
 				17,
-				19
+				20
 			]
 		},
 		{
@@ -519,14 +521,16 @@
 			"sourceIndexes" : 
 			[
 				6,
-				18
+				18,
+				19
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				21
+				23,
+				24
 			]
 		}
 	],
@@ -634,6 +638,11 @@
 		},
 		{
 			"backtrace" : 4,
+			"path" : "style.qrc",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
 			"path" : "/Users/susannel/3dviewer2/shaders.qrc",
 			"sourceGroupIndex" : 2
 		},
@@ -647,8 +656,21 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
+			"path" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
 			"path" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.rule",
+			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 0,
