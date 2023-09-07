@@ -3,7 +3,7 @@
 layout(lines) in;
 layout(triangle_strip, max_vertices = 4) out;
 
-uniform float lineWidth; // Customize line width
+uniform float lineWidth; // Customize line width // add connect between lines
 
 void main()
 {
