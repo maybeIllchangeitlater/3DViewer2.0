@@ -1,4 +1,4 @@
-/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/EWIEGA46WW/moc_widget.cpp: /Users/susannel/3dviewer2/view/widget.h \
+/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/5QF3R2FZUP/moc_model.cpp: /Users/susannel/3dviewer2/model/model.h \
   /Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/moc_predefs.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/Availability.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h \
@@ -190,7 +190,6 @@
   /Users/susannel/3dviewer2/model/CPUTransformation.h \
   /Users/susannel/3dviewer2/model/OpenGLTransformation.h \
   /Users/susannel/3dviewer2/model/TransformationStrategy.h \
-  /Users/susannel/3dviewer2/model/model.h \
   /Users/susannel/3dviewer2/model/parser.h \
   /Users/susannel/3dviewer2/view/settings.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/QDir \
@@ -205,7 +204,6 @@
   /usr/local/lib/QtCore.framework/Versions/A/Headers/QScopedPointer \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/QSize \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/QSizeF \
-  /usr/local/lib/QtCore.framework/Versions/A/Headers/QTimer \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qalgorithms.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qanystringview.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qarraydata.h \
@@ -213,7 +211,6 @@
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qarraydatapointer.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qatomic.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qbasicatomic.h \
-  /usr/local/lib/QtCore.framework/Versions/A/Headers/qbasictimer.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qbindingstorage.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qbytearray.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qbytearrayalgorithms.h \
@@ -295,7 +292,6 @@
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qtaggedpointer.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qtcore-config.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qtextstream.h \
-  /usr/local/lib/QtCore.framework/Versions/A/Headers/qtimer.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qtmetamacros.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qtypeinfo.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qurl.h \
@@ -305,12 +301,9 @@
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qvarlengtharray.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QCloseEvent \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/QMatrix4x4 \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/QMouseEvent \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QOpenGLFunctions \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QSurfaceFormat \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QTransform \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/QVector3D \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qbitmap.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qbrush.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qcolor.h \
@@ -349,19 +342,8 @@
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qvector4d.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qvectornd.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
-  /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/QOpenGLBuffer \
-  /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/QOpenGLShaderProgram \
-  /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/QOpenGLVertexArrayObject \
-  /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/qopenglbuffer.h \
-  /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/qopenglshaderprogram.h \
-  /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/qopenglvertexarrayobject.h \
-  /usr/local/lib/QtOpenGL.framework/Versions/A/Headers/qtopenglglobal.h \
-  /usr/local/lib/QtOpenGLWidgets.framework/Versions/A/Headers/QOpenGLWidget \
-  /usr/local/lib/QtOpenGLWidgets.framework/Versions/A/Headers/qopenglwidget.h \
-  /usr/local/lib/QtOpenGLWidgets.framework/Versions/A/Headers/qtopenglwidgetsglobal.h \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/QColorDialog \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/QFileDialog \
-  /usr/local/lib/QtWidgets.framework/Versions/A/Headers/QWidget \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qcolordialog.h \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qdialog.h \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qfiledialog.h \

@@ -59,7 +59,6 @@
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/filesystem \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/functional \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/initializer_list \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/inttypes.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ios \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iosfwd \
@@ -223,12 +222,10 @@
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qiodevicebase.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qiterable.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qiterator.h \
-  /usr/local/lib/QtCore.framework/Versions/A/Headers/qline.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qlist.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qlocale.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qlogging.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qmap.h \
-  /usr/local/lib/QtCore.framework/Versions/A/Headers/qmargins.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qmath.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qmetacontainer.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qmetatype.h \
@@ -239,9 +236,7 @@
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qobjectdefs.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qobjectdefs_impl.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qpair.h \
-  /usr/local/lib/QtCore.framework/Versions/A/Headers/qpoint.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qprocessordetection.h \
-  /usr/local/lib/QtCore.framework/Versions/A/Headers/qrect.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qrefcount.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qscopedpointer.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qscopeguard.h \
@@ -250,7 +245,6 @@
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qshareddata_impl.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qsharedpointer.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qsharedpointer_impl.h \
-  /usr/local/lib/QtCore.framework/Versions/A/Headers/qsize.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qstring.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qstringalgorithms.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qstringconverter.h \
@@ -269,36 +263,4 @@
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qutf8stringview.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qvariant.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qvarlengtharray.h \
-  /usr/local/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/QSurfaceFormat \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qbitmap.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qbrush.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qcolor.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qcursor.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qfont.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qfontinfo.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qfontmetrics.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qimage.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qkeysequence.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qopengl.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qpaintdevice.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qpalette.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qpixelformat.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qpixmap.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qpolygon.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qregion.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qrgb.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qrgba64.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qsurfaceformat.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qtgui-config.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
-  /usr/local/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
-  /usr/local/lib/QtOpenGLWidgets.framework/Versions/A/Headers/QOpenGLWidget \
-  /usr/local/lib/QtOpenGLWidgets.framework/Versions/A/Headers/qopenglwidget.h \
-  /usr/local/lib/QtOpenGLWidgets.framework/Versions/A/Headers/qtopenglwidgetsglobal.h \
-  /usr/local/lib/QtWidgets.framework/Versions/A/Headers/QWidget \
-  /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
-  /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qtwidgets-config.h \
-  /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsglobal.h \
-  /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qwidget.h
+  /usr/local/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h

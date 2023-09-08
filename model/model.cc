@@ -4,12 +4,18 @@ Controller::Controller(ObjParser &parser, TransformationStrategy *transformer) :
     transformer_(transformer)
 {
 
+    QObject::connect(&parser_, SIGNAL(ParseOver(bool)), this, SLOT(Update(bool)));
+
 }
 
-void Controller::ParseFile(QString &filename)
+void Controller::ParseFile(QString filename)
 {
-    parser_.ParseFile(filename, vertex_, face_);
-    vertex_copy_ = vertex_;
+
+    parser_.SetFilename(filename);
+    std::thread t1([this](){
+                parser_.ParseFile();
+            });
+    t1.detach();
 }
 
 void Controller::MoveModel(QMatrix4x4 &matrix, const Settings &settings)
@@ -19,5 +25,10 @@ void Controller::MoveModel(QMatrix4x4 &matrix, const Settings &settings)
     transformer_->MoveModel(matrix, vertex_, settings);
 }
 
-
+void Controller::Update(bool) {
+    vertex_ = parser_.GetTmpVertexConstRef();
+    vertex_copy_ = vertex_;
+    face_ = parser_.GetFaceConstRef();
+    emit ParseOver(true);
+}
 }

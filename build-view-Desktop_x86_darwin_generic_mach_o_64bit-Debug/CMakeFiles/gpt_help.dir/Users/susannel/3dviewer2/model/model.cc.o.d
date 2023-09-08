@@ -419,4 +419,5 @@ CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o: \
   /usr/local/lib/QtCore.framework/Headers/qjsonvalue.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
   /Users/susannel/3dviewer2/model/OpenGLTransformation.h \
-  /Users/susannel/3dviewer2/model/CPUTransformation.h
+  /Users/susannel/3dviewer2/model/CPUTransformation.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/thread

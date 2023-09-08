@@ -444,5 +444,6 @@ CMakeFiles/gpt_help.dir/widget.cc.o: \
   /Users/susannel/3dviewer2/view/../model/TransformationStrategy.h \
   /Users/susannel/3dviewer2/view/../model/OpenGLTransformation.h \
   /Users/susannel/3dviewer2/view/../model/CPUTransformation.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/thread \
   /usr/local/lib/QtCore.framework/Headers/QResource \
   /usr/local/lib/QtCore.framework/Headers/qresource.h

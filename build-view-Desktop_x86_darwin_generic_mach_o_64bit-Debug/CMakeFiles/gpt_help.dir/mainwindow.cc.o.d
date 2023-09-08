@@ -440,6 +440,7 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: \
   /Users/susannel/3dviewer2/view/settings.h \
   /Users/susannel/3dviewer2/view/../model/OpenGLTransformation.h \
   /Users/susannel/3dviewer2/view/../model/CPUTransformation.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/thread \
   /Users/susannel/3dviewer2/view/widget.h \
   /usr/local/lib/QtGui.framework/Headers/QMatrix4x4 \
   /usr/local/lib/QtGui.framework/Headers/qmatrix4x4.h \
@@ -505,5 +506,4 @@ CMakeFiles/gpt_help.dir/mainwindow.cc.o: \
   /usr/local/lib/QtGui.framework/Headers/QFontDatabase \
   /usr/local/lib/QtGui.framework/Headers/qfontdatabase.h \
   /usr/local/lib/QtCore.framework/Headers/QTextStream \
-  /usr/local/lib/QtCore.framework/Headers/qtextstream.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/thread
+  /usr/local/lib/QtCore.framework/Headers/qtextstream.h
