@@ -11,12 +11,6 @@ OpenGLWidget::OpenGLWidget(s21::Settings &settings,
 
 OpenGLWidget::~OpenGLWidget() { std::cout << "ustroy destroy" << std::endl; }
 
-//void OpenGLWidget::SettingsChanged()
-//{
-//    shader_programm_.bind();
-
-//    shader_programm_.release();
-//}
 
 void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
   if (event->buttons() & Qt::LeftButton) {
@@ -33,14 +27,6 @@ void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
     last_rmouse_pos_ = event->pos();
   }
 }
-
-
-// void OpenGLWidget::ceterModel() {
-//   translationZ = -m_medianZ * scaleBy;
-//   translationX = -m_medianX * scaleBy;
-//   translationY = -m_medianY * scaleBy;
-//   update();
-// }
 
 
 void OpenGLWidget::mousePressEvent(QMouseEvent *event) {
@@ -60,15 +46,13 @@ void OpenGLWidget::initializeGL() {
   /*----------------------------------------------------------------------------------------------------------------------*/
   controller_.ShaderVersion() == 1 ? shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt") :
                                      shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShaderCPU.txt");
-  std::cout << "/t My shader version is :" << controller_.ShaderVersion() << std::endl;
   shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShader.txt");
   shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShader.txt");
   shader_programm_.link();
   shader_programm_.bind();
-  /*----------------------------------------------------------------------------------------------------------------------*/
+
   shader_programm_.setUniformValue("pointColor", settings_.vertex_color);
   shader_programm_.setUniformValue("lineColor", settings_.color);
-  /*----------------------------------------------------------------------------------------------------------------------*/
 
   vbo_.create();
   vbo_.bind();
@@ -83,28 +67,23 @@ void OpenGLWidget::initializeGL() {
 
   vao_.create();
   vao_.bind();
-  int vertex_location = shader_programm_.attributeLocation("position"); // Get the attribute location from your shader program
+  int vertex_location = shader_programm_.attributeLocation("position");
   shader_programm_.enableAttributeArray(vertex_location);
   shader_programm_.setAttributeBuffer(vertex_location, GL_FLOAT, 0, 3);
   vbo_.release();
   vao_.release();
   ibo_.release();
-  /*----------------------------------------------------------------------------------------------------------------------*/
   shader_programm_.release();
-  /*----------------------------------------------------------------------------------------------------------------------*/
 }
 
 void OpenGLWidget::resizeGL(int w, int h) {
-  /*----------------------------------------------------------------------------------------------------------------------*/
   glViewport(0, 0, w, h);
   projection_matrix_.setToIdentity();
   projection_matrix_.perspective(60.0f, static_cast<float>(w) / (h), 0.1f,
                                  100.0f);
-  /*----------------------------------------------------------------------------------------------------------------------*/
 }
 
 void OpenGLWidget::paintGL() {
-  /*----------------------------------------------------------------------------------------------------------------------*/
   glClearColor(settings_.back_color.redF(), settings_.back_color.greenF(),
                settings_.back_color.blueF(), settings_.back_color.alphaF());
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

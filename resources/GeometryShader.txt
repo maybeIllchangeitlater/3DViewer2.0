@@ -15,8 +15,6 @@ out vec4 Color;
 
 void main()
 {
-    //float lineWidthh = 0.1;
-    //float pointWidthh = 0.1;
     if(showVertex){
         Color = pointColor;
         if(!smoothVertex){

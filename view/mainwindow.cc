@@ -6,6 +6,7 @@
 #include <QFontDatabase>
 #include <QFile>
 #include <QTextStream>
+#include <thread>
 
 MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
     : controller_(controller),
@@ -18,13 +19,6 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
         window_surface.setProfile(QSurfaceFormat::CoreProfile);
         QSurfaceFormat::setDefaultFormat(window_surface);
   ui_->setupUi(this);
-  ui_->scale_slider->setSliderPosition(settings_.scale * 100);
-  std::cout << settings_.scale * 100 << std::endl;
-  std::cout << settings_.line_width * 100 << std::endl;
-  std::cout << settings_.point_size * 100 << std::endl;
-  ui_->line_thicc->setSliderPosition(settings_.line_width * 100);
-  ui_->vertex_thicc->setSliderPosition(settings_.point_size * 100);
-
   connect(ui_->Browse, SIGNAL(clicked()), this, SLOT(BrowseModel()));
   connect(ui_->background_color, SIGNAL(clicked()), this,
           SLOT(ChangeBackgroundColor()));
@@ -35,6 +29,7 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
     ConnectTranslateToLambdas();
     ConnectRotateToLambdas();
     LoadStyle();
+    SetSliders();
 
 }
 
@@ -66,6 +61,11 @@ void MainWindow::BrowseModel() {
           "/Desktop/viewer/models/",
       "obj files (*.obj)"));
   try {
+      //open file
+      //start thread with parser and gl_widget_creation
+      //on browse click open file and start new thread with parsen that closes other thread when its done with parsing
+//      std::thread t1([this](QString filename){controller_.ParseFile(filename);});
+//      t1.join();
     controller_.ParseFile(filename);
     if (gl_widget_) {
       ui_->viewer_layout->removeWidget(gl_widget_);
@@ -148,6 +148,16 @@ void MainWindow::ConnectToLambdas()
                                     settings_.smooth_vertexes = b;
                                     UpdateWidget();
     });
+    ui_->takeBmp->connect(ui_->takeBmp, &QPushButton::clicked, this, [this](bool){
+        if(gl_widget_){
+            MakeScreenshot(1);
+        }
+    });
+    ui_->takeJpeg->connect(ui_->takeJpeg, &QPushButton::clicked, this, [this](bool){
+        if(gl_widget_){
+            MakeScreenshot(2);
+        }
+    });
 }
 
 void MainWindow::ConnectTranslateToLambdas()
@@ -210,4 +220,25 @@ void MainWindow::UpdateWidget()
 {
     if (gl_widget_) gl_widget_->update();
 }
+
+void MainWindow::SetSliders()
+{
+    ui_->scale_slider->setSliderPosition(settings_.scale * 100);
+    ui_->line_thicc->setSliderPosition(settings_.line_width * 100);
+    ui_->vertex_thicc->setSliderPosition(settings_.point_size * 100);
+    ui_->show_vertexes->setChecked(settings_.vertexes_shown);
+    ui_->show_lines->setChecked(settings_.lines_shown);
+    ui_->smooth_vertexes->setChecked(settings_.smooth_vertexes);
+    ui_->broken_lines->setChecked(settings_.broken_lines);
+}
+
+    void MainWindow::MakeScreenshot(int mode) {
+      QPixmap pixmap = gl_widget_->grab();
+      QImage image = pixmap.toImage();
+      QDir dir = QDir::homePath();
+      image.save(dir.absolutePath() + "/Desktop/viewer/screenshot_" +
+                   QString::number(screenshotcounter++) +
+                   (mode == 2 ? ".jpeg" : ".bmp"));
+
+    }
 //TODO Multithreading, sliders read settings

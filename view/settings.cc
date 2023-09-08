@@ -71,7 +71,7 @@ void Settings::LoadSettings() {
     broken_lines = settings.value("broken_lines").toBool();
     lines_shown = settings.value("lines_shown").toBool();
     line_width = settings.value("line_width").toDouble();
-    point_size = settings.value("line_width").toDouble();
+    point_size = settings.value("point_size").toDouble();
     scale = settings.value("scale").toDouble();
 
     file.close();

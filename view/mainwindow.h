@@ -45,13 +45,18 @@ class MainWindow final : public QMainWindow {
   void ConnectTranslateToLambdas();
   void ConnectRotateToLambdas();
   void UpdateWidget();
+  void SetSliders();
+  /**
+   * @param mode - 1 take bmp, 2 - take jpeg, 3 - make gif
+   **/
+  void MakeScreenshot(int mode);
   OpenGLWidget *gl_widget_;
   Ui::MainWindow *ui_;
   s21::Controller &controller_;
   s21::Settings settings_;
   //  QList<QImage> jiff;
-  //  int imagecounter;
-  //  int screenshotcounter;
+    int imagecounter = 0;
+    int screenshotcounter = 0;
   //  int maxface;
   //  QDir dir;
   //  QString filename;
