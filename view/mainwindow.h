@@ -39,6 +39,8 @@ class MainWindow final : public QMainWindow {
 //  void translateBy(float x,float y);
 //  void RotateBy();
 
+  void UpdateView(bool);
+
 
  private:
   void ConnectToLambdas();

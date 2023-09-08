@@ -6,16 +6,26 @@
 #include "OpenGLTransformation.h"
 #include "settings.h"
 #include "CPUTransformation.h"
+#include <thread>
 
 namespace s21{
-    class Controller{
+    class Controller : public QObject{
+
+        Q_OBJECT
+
        public:
            explicit Controller(ObjParser & parser, TransformationStrategy *transformer);
-           void ParseFile(QString &filename);
+           void ParseFile(QString filename);
            void MoveModel(QMatrix4x4& matrix, const Settings &settings);
            constexpr inline const QVector<unsigned int>& GetFaceConstRef() const{return face_;}
            constexpr inline const QVector<float>& GetVertexCopyConstRef() const{return vertex_;}
            constexpr inline const int ShaderVersion() const {return transformer_->GetShaderVersion();}
+
+    signals:
+        void ParseOver(bool);
+
+    public slots:
+        void Update(bool);
 
     private:
         ObjParser & parser_;

@@ -31,6 +31,8 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
     LoadStyle();
     SetSliders();
 
+    QObject::connect(&controller_, SIGNAL(ParseOver(bool)), this, SLOT(UpdateView(bool)));
+
 }
 
 MainWindow::~MainWindow() {
@@ -60,25 +62,34 @@ void MainWindow::BrowseModel() {
       static_cast<QDir>(QDir::homePath()).absolutePath() +
           "/Desktop/viewer/models/",
       "obj files (*.obj)"));
-  try {
-      //open file
-      //start thread with parser and gl_widget_creation
-      //on browse click open file and start new thread with parsen that closes other thread when its done with parsing
-//      std::thread t1([this](QString filename){controller_.ParseFile(filename);});
-//      t1.join();
     controller_.ParseFile(filename);
+//    if (gl_widget_) {
+//      ui_->viewer_layout->removeWidget(gl_widget_);
+//      delete gl_widget_;
+//    }
+//    ui_->model_name->setText(filename);
+//    gl_widget_ =
+//        new OpenGLWidget(settings_, controller_,
+//                         this);
+//    ui_->viewer_layout->addWidget(gl_widget_);
+//  } catch (std::exception e) {
+//    ui_->model_name->setText(e.what());
+//  }
+}
+
+void MainWindow::UpdateView(bool) {
     if (gl_widget_) {
       ui_->viewer_layout->removeWidget(gl_widget_);
       delete gl_widget_;
     }
-    ui_->model_name->setText(filename);
+//    ui_->model_name->setText(filename);
     gl_widget_ =
         new OpenGLWidget(settings_, controller_,
                          this);
     ui_->viewer_layout->addWidget(gl_widget_);
-  } catch (std::exception e) {
-    ui_->model_name->setText(e.what());
-  }
+//  } catch (std::exception e) {
+//    ui_->model_name->setText(e.what());
+//  }
 }
 
 void MainWindow::ChangeBackgroundColor() {
