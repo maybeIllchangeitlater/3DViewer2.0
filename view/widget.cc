@@ -66,7 +66,8 @@ void OpenGLWidget::initializeGL() {
   shader_programm_.link();
   shader_programm_.bind();
   /*----------------------------------------------------------------------------------------------------------------------*/
-  shader_programm_.setUniformValue("color", settings_.color);
+  shader_programm_.setUniformValue("pointColor", settings_.vertex_color);
+  shader_programm_.setUniformValue("lineColor", settings_.color);
   /*----------------------------------------------------------------------------------------------------------------------*/
 
   vbo_.create();
@@ -110,16 +111,16 @@ void OpenGLWidget::paintGL() {
   shader_programm_.bind();
   shader_programm_.setUniformValue("projectionMatrix", projection_matrix_);
   controller_.MoveModel(model_view_matrix_, settings_);
-//  shader_programm_.setUniformValue("lineWidth", 10);
-//   shader_programm_.setUniformValue("pointWidth", settings_.point_size);
-//   shader_programm_.setUniformValue("showVertex", settings_.vertexes_shown);
-//   shader_programm_.setUniformValue("smoothVertex", settings_.smooth_vertexes);
-//   shader_programm_.setUniformValue("showLines", settings_.lines_shown);
-//   shader_programm_.setUniformValue("edgedLines", settings_.broken_lines);
-  shader_programm_.setUniformValue("modelViewMatrix", model_view_matrix_); //add if
+  shader_programm_.setUniformValue("lineWidth", settings_.line_width);
+   shader_programm_.setUniformValue("pointWidth", settings_.point_size);
+   shader_programm_.setUniformValue("showVertex", settings_.vertexes_shown);
+   shader_programm_.setUniformValue("smoothVertex", settings_.smooth_vertexes);
+   shader_programm_.setUniformValue("showLines", settings_.lines_shown);
+   shader_programm_.setUniformValue("edgedLines", settings_.broken_lines);
+  shader_programm_.setUniformValue("modelViewMatrix", model_view_matrix_);
 
-//  shader_programm_.setUniformValue("pointColor", settings_.vertex_color);
-//  shader_programm_.setUniformValue("lineColor", settings_.color);
+  shader_programm_.setUniformValue("pointColor", settings_.vertex_color);
+  shader_programm_.setUniformValue("lineColor", settings_.color);
 
   vao_.bind();
   ibo_.bind();

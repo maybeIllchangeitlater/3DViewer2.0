@@ -7,7 +7,7 @@ void CPUTransformation::ApplyTranslation(QMatrix4x4 &matrix, QVector<float> &ver
     for(auto b_it = vertex.begin(), e_it = vertex.end(); b_it != e_it;){
         *b_it++ += x;
         *b_it++ += y;
-        *b_it++ += z;
+        *b_it++ += z - 2.5;
     }
 }
 

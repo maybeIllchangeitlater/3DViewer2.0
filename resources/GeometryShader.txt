@@ -1,45 +1,41 @@
 #version 410 core
 
 layout(lines) in;
-layout(triangle_strip, max_vertices = 8) out;
+layout(triangle_strip, max_vertices = 24) out;
 
 uniform float lineWidth;
 uniform float pointWidth;
 uniform bool smoothVertex;
 uniform bool showVertex;
 uniform bool showLines;
-uniform bool edgedLines;
 
-uniform vec4 pointColor;  // Цвет для точек
-uniform vec4 lineColor;   // Цвет для линий
+uniform vec4 pointColor;
+uniform vec4 lineColor;
 out vec4 Color;
 
 void main()
 {
-    float lineWidthh = 0.1;
-    float pointWidthh = 0.1;
-
-    vec2 dir = normalize(gl_in[1].gl_Position.xy - gl_in[0].gl_Position.xy);
-    vec2 normal = vec2(-dir.y, dir.x) * lineWidthh / 25;
+    //float lineWidthh = 0.1;
+    //float pointWidthh = 0.1;
     if(showVertex){
         Color = pointColor;
         if(!smoothVertex){
-            gl_Position = gl_in[0].gl_Position + vec4(-pointWidthh, -pointWidthh, 0.0, 0.0);
+            gl_Position = gl_in[0].gl_Position + vec4(-pointWidth, -pointWidth, 0.0, 0.0);
             EmitVertex();
 
-            gl_Position = gl_in[0].gl_Position + vec4(pointWidthh, -pointWidthh, 0.0, 0.0);
+            gl_Position = gl_in[0].gl_Position + vec4(pointWidth, -pointWidth, 0.0, 0.0);
             EmitVertex();
 
-            gl_Position = gl_in[0].gl_Position + vec4(-pointWidthh, pointWidthh, 0.0, 0.0);
+            gl_Position = gl_in[0].gl_Position + vec4(-pointWidth, pointWidth, 0.0, 0.0);
             EmitVertex();
 
-            gl_Position = gl_in[0].gl_Position + vec4(pointWidthh, pointWidthh, 0.0, 0.0);
+            gl_Position = gl_in[0].gl_Position + vec4(pointWidth, pointWidth, 0.0, 0.0);
             EmitVertex();
         }else{
         for (int i = 0; i <= 8; ++i)
             {
-                float angle = float(i) * 0.19634954084936207 * 4; // 2*pi / 32 (Adjust as needed)
-                vec2 offset = vec2(cos(angle) * pointWidthh, sin(angle) * pointWidthh);
+                float angle = float(i) * 0.19634954084936207 * 4;
+                vec2 offset = vec2(cos(angle) * pointWidth, sin(angle) * pointWidth);
                 gl_Position = gl_in[0].gl_Position + vec4(offset, 0.0, 0.0);
                 EmitVertex();
                 gl_Position = gl_in[0].gl_Position;
@@ -49,6 +45,8 @@ void main()
         EndPrimitive();
     }
     if(showLines){
+    vec2 dir = normalize(gl_in[1].gl_Position.xy - gl_in[0].gl_Position.xy);
+    vec2 normal = vec2(-dir.y, dir.x) * lineWidth;
     Color = lineColor;
     gl_Position = gl_in[0].gl_Position + vec4(normal, 0.0, 0.0);
     EmitVertex();

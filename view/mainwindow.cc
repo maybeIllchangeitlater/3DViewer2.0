@@ -19,8 +19,11 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
         QSurfaceFormat::setDefaultFormat(window_surface);
   ui_->setupUi(this);
   ui_->scale_slider->setSliderPosition(settings_.scale * 100);
-  ui_->line_thicc->setSliderPosition(settings_.line_width);
-  ui_->vertex_thicc->setSliderPosition(settings_.point_size);
+  std::cout << settings_.scale * 100 << std::endl;
+  std::cout << settings_.line_width * 100 << std::endl;
+  std::cout << settings_.point_size * 100 << std::endl;
+  ui_->line_thicc->setSliderPosition(settings_.line_width * 100);
+  ui_->vertex_thicc->setSliderPosition(settings_.point_size * 100);
 
   connect(ui_->Browse, SIGNAL(clicked()), this, SLOT(BrowseModel()));
   connect(ui_->background_color, SIGNAL(clicked()), this,
@@ -207,4 +210,4 @@ void MainWindow::UpdateWidget()
 {
     if (gl_widget_) gl_widget_->update();
 }
-//TODO Move connects to separate class ?
+//TODO Multithreading, sliders read settings

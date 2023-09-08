@@ -7,9 +7,6 @@ Settings::Settings() {
   broken_lines = false;
   lines_shown = true;
   orth = false;
-  line_width = 1;
-  point_size = 5;
-  scale = 1.0f;
   color.setRgbF(1.0f, 1.0f, 1.0f, 1.0f);
   back_color.setRgbF(0.0f, 0.0f, 0.0f, 1.0f);
   vertex_color.setRgbF(1.0f, 0.0f, 1.0f, 1.0f);  // to default settings

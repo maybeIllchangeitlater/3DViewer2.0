@@ -29,9 +29,9 @@ class Settings {
   bool vertexes_shown;
   bool lines_shown;
   bool broken_lines;
-  int line_width;
-  int point_size;
-  float scale;
+  float line_width = 0.01;
+  float point_size = 0.01;
+  float scale = 1.0;
   float translation_x = 0;
   float translation_y = 0;
   float translation_z = 0;
