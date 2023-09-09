@@ -1,19 +1,15 @@
 #ifndef CPP4_3DVIEWER_V2_0_VIEW_SETTINGS_H_
 #define CPP4_3DVIEWER_V2_0_VIEW_SETTINGS_H_
-// #include "ui_mainwindow.h"
-// #include "mainwindow.h
-// #include <QMainWindow>
 #include <QCloseEvent>
 #include <QColorDialog>
 #include <QDir>
 #include <QFile>
 #include <QFileDialog>
-#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
-#include <QOpenGLFunctions>
-#include <iostream>
+
+#include "ShaderFactory.h"
 
 namespace s21 {
 class Settings {
@@ -38,6 +34,12 @@ class Settings {
   float rotation_x = 0;
   float rotation_y = 0;
   float rotation_z = 0;
+  ShaderFactory::ShaderVersion shader_version = ShaderFactory::kEverything;
+  //  void SwapShader(ShaderState * shader){shader_ = shader;}
+  //  const char * GetVertexShader() const{return
+  //  shader_->GetVertexShader(GetVertexShaderVersion());} const char *
+  //  GetGeometryShader() const{return shader_->GetGeometryShader();}; const
+  //  char * GetFragmentShader() const{return shader_->GetFragmentShader();};
 };
 }  // namespace s21
 #endif  // CPP4_3DVIEWER_V2_0_VIEW_SETTINGS_H_

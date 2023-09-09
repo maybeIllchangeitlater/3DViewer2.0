@@ -35,6 +35,7 @@ void Settings::SaveSettings() {
   settings["point_size"] = point_size;
   settings["orth"] = orth;
   settings["scale"] = scale;
+  settings["shader_version"] = shader_version;
 
   QJsonDocument doc(settings);
   QFile file(static_cast<QDir>(QDir::homePath()).absolutePath() +
@@ -73,6 +74,8 @@ void Settings::LoadSettings() {
     line_width = settings.value("line_width").toDouble();
     point_size = settings.value("point_size").toDouble();
     scale = settings.value("scale").toDouble();
+    shader_version = static_cast<ShaderFactory::ShaderVersion>(
+        settings.value("shader_version").toInt());
 
     file.close();
   }

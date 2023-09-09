@@ -3,6 +3,7 @@
 
 #include <QMatrix4x4>
 #include <QMouseEvent>
+#include <QOpenGLBuffer>
 #include <QOpenGLFunctions>
 #include <QOpenGLShaderProgram>
 #include <QOpenGLVertexArrayObject>
@@ -10,15 +11,15 @@
 #include <QTimer>
 #include <QVector3D>
 #include <QWidget>
-#include <QOpenGLBuffer>
 
+#include "../controller/controller.h"
 #include "settings.h"
-#include "../model/model.h"
 
-class OpenGLWidget final : public QOpenGLWidget{
+class OpenGLWidget final : public QOpenGLWidget {
   Q_OBJECT
  public:
-  explicit OpenGLWidget(s21::Settings& settings, s21::Controller& controller, QWidget* parent = nullptr);
+  explicit OpenGLWidget(s21::Settings& settings, s21::Controller& controller,
+                        QWidget* parent = nullptr);
   ~OpenGLWidget();
   void ChangeShaders();
 
@@ -31,7 +32,6 @@ class OpenGLWidget final : public QOpenGLWidget{
   void mouseMoveEvent(QMouseEvent* event);
   void AddShaders();
 
-
   s21::Settings& settings_;
   s21::Controller& controller_;
   QPoint last_mouse_pos_;
@@ -41,7 +41,6 @@ class OpenGLWidget final : public QOpenGLWidget{
   QMatrix4x4 projection_matrix_;
   QMatrix4x4 model_view_matrix_;
 
-
   QOpenGLBuffer ibo_;
   QOpenGLBuffer vbo_;
   QOpenGLVertexArrayObject vao_;
@@ -49,6 +48,8 @@ class OpenGLWidget final : public QOpenGLWidget{
   GLuint index_buffer_;
   GLuint vertex_buffer_;
 
+  s21::ShaderState * shader_version_ = nullptr;
+  s21::ShaderFactory shader_factory_;
 };
 
 #endif  // WIDGET_H

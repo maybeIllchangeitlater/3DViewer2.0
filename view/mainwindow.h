@@ -5,17 +5,22 @@
 #include <QColorDialog>
 #include <QFile>
 #include <QFileDialog>
+#include <QFontDatabase>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QMainWindow>
+#include <QMenu>
 #include <QMovie>
 #include <QProcess>
+#include <QSurface>
+#include <QTextStream>
 #include <QTimer>
 #include <iostream>
-#include "../model/model.h"
-//#include "../controller/controller.h"
+#include <thread>
+
+#include "../controller/controller.h"
 #include "widget.h"
 
 namespace Ui {
@@ -36,23 +41,17 @@ class MainWindow final : public QMainWindow {
   void ChangeVertexColor();
   void BrowseModel();
   void closeEvent(QCloseEvent *event) override;
-//  void translateBy(float x,float y);
-//  void RotateBy();
-
-  void UpdateView(bool);
-//  void SwapToUncustomizableLines();
-//  void SwapToLines();
-//  void SwapToPoints();
-//  void EnableEverything();
+  void UpdateView(bool correct_file);
   void MakeScreenshot(int mode);
 
-
  private:
+  void CreateOpenGLContext();
   void ConnectToLambdas();
   void ConnectTranslateToLambdas();
   void ConnectRotateToLambdas();
   void UpdateWidget();
   void SetSliders();
+  void SetShaderMenu();
   /**
    * @param mode - 1 take bmp, 2 - take jpeg, 3 - make gif
    **/
@@ -60,28 +59,15 @@ class MainWindow final : public QMainWindow {
   Ui::MainWindow *ui_;
   s21::Controller &controller_;
   s21::Settings settings_;
-  //  QList<QImage> jiff;
-    int imagecounter = 0;
-    int screenshotcounter = 0;
-  //  int maxface;
-  //  QDir dir;
-  //  QString filename;
-  //  QColor color;
-  //  QColor back_color;
-  //  QColor vertex_color;
-  //  bool showLines;
-  //  bool smoothVertexes;
-  //  bool vertexesShown;
-  //  bool brokenEdges;
-  //  bool orth;
-  //  float minx = 0, miny = 0, minz = 0, maxx = 0, maxy = 0, maxz = 0;
-  //  Gigachad bigstructarray = {0};
-  //  float medianX, medianY, medianZ;
-  //  std::vector<GLfloat> vertexPositions;
-  //  std::vector<GLuint> indices;
-  //  int lineW;
-  //  int vertexW;
-  //  QTimer timer;
+
+  int imagecounter = 0;
+  int screenshotcounter = 0;
+
+  QAction enable_uncustomizable_lines_;
+  QAction enable_lines_;
+  QAction enable_points_;
+  QAction enable_everything_;
+  QMenu shader_menu_;
 };
 
 #endif  // MAINWINDOW_H

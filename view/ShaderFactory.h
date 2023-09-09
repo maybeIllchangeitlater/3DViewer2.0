@@ -1,0 +1,34 @@
+#ifndef CPP4_3DVIEWER_V2_0_VIEW_SHADERFACTORY_H_
+#define CPP4_3DVIEWER_V2_0_VIEW_SHADERFACTORY_H_
+
+#include "ShaderStates/ShaderCustomizableLines.h"
+#include "ShaderStates/ShaderEverythingButSlow.h"
+#include "ShaderStates/ShaderNoGeometry.h"
+#include "ShaderStates/ShaderPointsOnly.h"
+#include "ShaderStates/ShaderState.h"
+
+namespace s21 {
+class ShaderFactory {
+ public:
+  enum ShaderVersion {
+    kLinesOnly,
+    kCustomizableLines,
+    kPointsOnly,
+    kEverything
+  };
+  [[nodiscard]] ShaderState* create(enum ShaderVersion sv) const {
+    switch (sv) {
+      case kLinesOnly:
+        return new ShaderNoGeometry();
+      case kCustomizableLines:
+        return new ShaderCustomizableLines();
+      case kPointsOnly:
+        return new ShaderPointsOnly();
+      case kEverything:
+        return new ShaderEverythingButSlow();
+    }
+  }
+};
+}  // namespace s21
+
+#endif  // CPP4_3DVIEWER_V2_0_VIEW_VIEW_SHADERFACTORY_H_

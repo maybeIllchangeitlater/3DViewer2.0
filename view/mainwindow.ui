@@ -774,7 +774,7 @@
           <string notr="true"/>
          </property>
          <property name="text">
-          <string>changeShader(edit to context menu)</string>
+          <string>changeShader</string>
          </property>
         </widget>
        </item>
