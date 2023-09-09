@@ -1,0 +1,45 @@
+#version 410 core
+
+layout(lines) in;
+layout(triangle_strip, max_vertices = 16) out;
+
+uniform float lineWidth;
+uniform float pointWidth;
+uniform bool smoothVertex;
+uniform bool showVertex;
+uniform bool showLines;
+
+uniform vec4 pointColor;
+uniform vec4 lineColor;
+out vec4 Color;
+
+void main()
+{
+    if(showVertex){
+        Color = pointColor;
+        if(!smoothVertex){
+            gl_Position = gl_in[0].gl_Position + vec4(-pointWidth, -pointWidth, 0.0, 0.0);
+            EmitVertex();
+
+            gl_Position = gl_in[0].gl_Position + vec4(pointWidth, -pointWidth, 0.0, 0.0);
+            EmitVertex();
+
+            gl_Position = gl_in[0].gl_Position + vec4(-pointWidth, pointWidth, 0.0, 0.0);
+            EmitVertex();
+
+            gl_Position = gl_in[0].gl_Position + vec4(pointWidth, pointWidth, 0.0, 0.0);
+            EmitVertex();
+        }else{
+        for (int i = 0; i <= 8; ++i)
+            {
+                float angle = float(i) * 0.19634954084936207 * 4;
+                vec2 offset = vec2(cos(angle) * pointWidth, sin(angle) * pointWidth);
+                gl_Position = gl_in[0].gl_Position + vec4(offset, 0.0, 0.0);
+                EmitVertex();
+                gl_Position = gl_in[0].gl_Position;
+                EmitVertex();
+            }
+        }
+        EndPrimitive();
+    }
+}

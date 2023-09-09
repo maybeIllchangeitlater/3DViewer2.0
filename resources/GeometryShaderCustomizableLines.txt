@@ -1,0 +1,36 @@
+#version 410 core
+
+layout(lines) in;
+layout(triangle_strip, max_vertices = 4) out;
+
+uniform float lineWidth;
+uniform float pointWidth;
+uniform bool smoothVertex;
+uniform bool showVertex;
+uniform bool showLines;
+
+uniform vec4 pointColor;
+uniform vec4 lineColor;
+out vec4 Color;
+
+void main()
+{
+
+    if(showLines){
+    vec2 dir = normalize(gl_in[1].gl_Position.xy - gl_in[0].gl_Position.xy);
+    vec2 normal = vec2(-dir.y, dir.x) * lineWidth;
+    Color = lineColor;
+    gl_Position = gl_in[0].gl_Position + vec4(normal, 0.0, 0.0);
+    EmitVertex();
+
+    gl_Position = gl_in[0].gl_Position - vec4(normal, 0.0, 0.0);
+    EmitVertex();
+
+    gl_Position = gl_in[1].gl_Position + vec4(normal, 0.0, 0.0);
+    EmitVertex();
+
+    gl_Position = gl_in[1].gl_Position - vec4(normal, 0.0, 0.0);
+    EmitVertex();
+    EndPrimitive();
+    }
+}

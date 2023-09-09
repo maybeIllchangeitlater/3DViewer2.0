@@ -20,7 +20,7 @@ class OpenGLWidget final : public QOpenGLWidget{
  public:
   explicit OpenGLWidget(s21::Settings& settings, s21::Controller& controller, QWidget* parent = nullptr);
   ~OpenGLWidget();
-//   void SettingsChanged();
+  void ChangeShaders();
 
  private:
   void initializeGL();
@@ -29,6 +29,8 @@ class OpenGLWidget final : public QOpenGLWidget{
   void mousePressEvent(QMouseEvent* event);
   void wheelEvent(QWheelEvent* event);
   void mouseMoveEvent(QMouseEvent* event);
+  void AddShaders();
+
 
   s21::Settings& settings_;
   s21::Controller& controller_;
@@ -36,7 +38,6 @@ class OpenGLWidget final : public QOpenGLWidget{
   QPoint last_rmouse_pos_;
 
   QOpenGLShaderProgram shader_programm_;
-  QOpenGLShaderProgram shader_programm_point_;
   QMatrix4x4 projection_matrix_;
   QMatrix4x4 model_view_matrix_;
 

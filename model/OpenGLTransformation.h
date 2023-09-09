@@ -6,7 +6,7 @@ namespace s21{
 class OpenGLTransformation final:  public TransformationStrategy, protected QOpenGLFunctions{
 public:
     OpenGLTransformation() = default;
-    ~OpenGLTransformation() = default;
+    ~OpenGLTransformation() override {};
     void ApplyTranslation(QMatrix4x4& matrix, QVector<float>& vertex, float x, float y, float z) override;
     void ApplyScaling(QMatrix4x4& matrix, QVector<float>& vertex, float scale) override;
     void ApplyRotation(QMatrix4x4& matrix,  QVector<float>& vertex, float x, float y, float z) override;

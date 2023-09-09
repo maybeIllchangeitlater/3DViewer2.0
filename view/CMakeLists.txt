@@ -36,8 +36,11 @@ set(PROJECT_SOURCES
         ../model/OpenGLTransformation.cc
         ../model/CPUTransformation.cc
         ../model/CPUTransformation.h
-#        ../resources/FragShader.fsh
-#        ../resources/VertexShader.vsh
+        ../model/ShaderState.h
+        ../model/ShaderNoGeometry.h
+        ../model/ShaderPointsOnly.h
+        ../model/ShaderCustomizableLines.h
+        ../model/ShadersEverythingButSlow.h
         style.qrc
         ../shaders.qrc
 #        ../resources/VertexShaderCPU.vsh

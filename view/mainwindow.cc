@@ -6,6 +6,7 @@
 #include <QFontDatabase>
 #include <QFile>
 #include <QTextStream>
+#include <QMenu>
 #include <thread>
 
 MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
@@ -19,6 +20,21 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
         window_surface.setProfile(QSurfaceFormat::CoreProfile);
         QSurfaceFormat::setDefaultFormat(window_surface);
   ui_->setupUi(this);
+  QAction *enable_uncustomizable_lines = new QAction("Non-customizable, lines only(very fast)", this);
+  QAction *enable_lines = new QAction("Customizable, lines only(fast)", this);
+  QAction *enable_points = new QAction("Customizable, points only(slow)", this);
+  QAction *enable_everything = new QAction("Customizable, everything(very slow)", this);
+  connect(enable_uncustomizable_lines, &QAction::triggered, this, [this](){s21::ShaderNoGeometry s; controller_.SwapShader(&s); if(gl_widget_) gl_widget_->ChangeShaders();});
+  connect(enable_lines, &QAction::triggered, this, [this](){s21::ShaderCustomizableLines s; controller_.SwapShader(&s);if(gl_widget_) gl_widget_->ChangeShaders();});
+  connect(enable_points, &QAction::triggered, this, [this](){s21::ShaderPointsOnly s; controller_.SwapShader(&s);if(gl_widget_) gl_widget_->ChangeShaders();});
+  connect(enable_everything, &QAction::triggered, this, [this](){s21::ShaderEverythingButSlow s; controller_.SwapShader(&s);if(gl_widget_) gl_widget_->ChangeShaders();});
+  QMenu *shader_menu = new QMenu(this);
+  shader_menu->addAction(enable_uncustomizable_lines);
+  shader_menu->addAction(enable_lines);
+  shader_menu->addAction(enable_points);
+  shader_menu->addAction(enable_everything);
+  connect(ui_->changeShader, &QPushButton::clicked, this, [this, shader_menu]() {
+      shader_menu->exec(QCursor::pos());});
   connect(ui_->Browse, SIGNAL(clicked()), this, SLOT(BrowseModel()));
   connect(ui_->background_color, SIGNAL(clicked()), this,
           SLOT(ChangeBackgroundColor()));
@@ -62,19 +78,7 @@ void MainWindow::BrowseModel() {
       static_cast<QDir>(QDir::homePath()).absolutePath() +
           "/Desktop/viewer/models/",
       "obj files (*.obj)"));
-    controller_.ParseFile(filename);
-//    if (gl_widget_) {
-//      ui_->viewer_layout->removeWidget(gl_widget_);
-//      delete gl_widget_;
-//    }
-//    ui_->model_name->setText(filename);
-//    gl_widget_ =
-//        new OpenGLWidget(settings_, controller_,
-//                         this);
-//    ui_->viewer_layout->addWidget(gl_widget_);
-//  } catch (std::exception e) {
-//    ui_->model_name->setText(e.what());
-//  }
+    controller_.ParseFile(filename); // MNOGOPOTOK STARTS HERE
 }
 
 void MainWindow::UpdateView(bool) {
@@ -82,14 +86,10 @@ void MainWindow::UpdateView(bool) {
       ui_->viewer_layout->removeWidget(gl_widget_);
       delete gl_widget_;
     }
-//    ui_->model_name->setText(filename);
     gl_widget_ =
         new OpenGLWidget(settings_, controller_,
                          this);
     ui_->viewer_layout->addWidget(gl_widget_);
-//  } catch (std::exception e) {
-//    ui_->model_name->setText(e.what());
-//  }
 }
 
 void MainWindow::ChangeBackgroundColor() {

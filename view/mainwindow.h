@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QCloseEvent>
@@ -40,6 +40,11 @@ class MainWindow final : public QMainWindow {
 //  void RotateBy();
 
   void UpdateView(bool);
+//  void SwapToUncustomizableLines();
+//  void SwapToLines();
+//  void SwapToPoints();
+//  void EnableEverything();
+  void MakeScreenshot(int mode);
 
 
  private:
@@ -51,7 +56,6 @@ class MainWindow final : public QMainWindow {
   /**
    * @param mode - 1 take bmp, 2 - take jpeg, 3 - make gif
    **/
-  void MakeScreenshot(int mode);
   OpenGLWidget *gl_widget_;
   Ui::MainWindow *ui_;
   s21::Controller &controller_;

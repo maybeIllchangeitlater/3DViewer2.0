@@ -11,6 +11,14 @@ OpenGLWidget::OpenGLWidget(s21::Settings &settings,
 
 OpenGLWidget::~OpenGLWidget() { std::cout << "ustroy destroy" << std::endl; }
 
+void OpenGLWidget::ChangeShaders()
+{
+    shader_programm_.removeAllShaders();
+    AddShaders();
+    shader_programm_.link();
+    update();
+}
+
 
 void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
   if (event->buttons() & Qt::LeftButton) {
@@ -26,6 +34,13 @@ void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
     update();
     last_rmouse_pos_ = event->pos();
   }
+}
+
+void OpenGLWidget::AddShaders()
+{
+   shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, controller_.GetVertexShader());
+   shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, controller_.GetGeometryShader());
+   shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, controller_.GetFragmentShader());
 }
 
 
@@ -44,10 +59,7 @@ void OpenGLWidget::initializeGL() {
                settings_.back_color.blueF(), settings_.back_color.alphaF());
   glEnable(GL_DEPTH_TEST);
   /*----------------------------------------------------------------------------------------------------------------------*/
-  controller_.ShaderVersion() == 1 ? shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt") :
-                                     shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShaderCPU.txt");
-  shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShader.txt");
-  shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShader.txt");
+  AddShaders();
   shader_programm_.link();
   shader_programm_.bind();
 
@@ -104,7 +116,7 @@ void OpenGLWidget::paintGL() {
   vao_.bind();
   ibo_.bind();
 
-  if(controller_.ShaderVersion() == 2){
+  if(controller_.GetVertexShaderVersion() == 2){
       vbo_.bind();
       vbo_.allocate(controller_.GetVertexCopyConstRef().data(), controller_.GetVertexCopyConstRef().size() * sizeof(GLfloat));
       vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);

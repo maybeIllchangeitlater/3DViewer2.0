@@ -11,6 +11,10 @@ namespace s21{
          virtual void ApplyScaling(QMatrix4x4& matrix, QVector<float>& vertex, float scale) = 0;
          virtual void ApplyRotation(QMatrix4x4& matrix, QVector<float>& vertex, float x, float y, float z) = 0;
          virtual void MoveModel(QMatrix4x4& matrix, QVector<float>& vertex, const Settings& settings) = 0;
+        /**
+         * @brief GetVertexShader
+         * @param version 1 - for GPU transformations, 2 - for CPU transformations
+         */
          virtual int GetShaderVersion() = 0;
     };
 }
