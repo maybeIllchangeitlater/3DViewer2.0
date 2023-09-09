@@ -64,6 +64,7 @@ void MainWindow::UpdateView(bool correct_file) {
   if (gl_widget_) {
     ui_->viewer_layout->removeWidget(gl_widget_);
     delete gl_widget_;
+    gl_widget_ = nullptr;
   }
   if (correct_file) {
     gl_widget_ = new OpenGLWidget(settings_, controller_, this);
@@ -149,6 +150,13 @@ void MainWindow::ConnectToLambdas() {
                              MakeScreenshot(2);
                            }
                          });
+  connect(ui_->changePerspective, &QPushButton::clicked, this, [this](bool){
+      settings_.orth = !settings_.orth; //сказать Снежанне переделать в галочку
+      if(gl_widget_){
+          gl_widget_->ChangePerspective();
+          gl_widget_->update();
+      }
+  });
 }
 
 void MainWindow::ConnectTranslateToLambdas() {
@@ -253,6 +261,11 @@ void MainWindow::MakeScreenshot(int mode) {
   image.save(dir.absolutePath() + "/Desktop/viewer/screenshot_" +
              QString::number(screenshotcounter++) +
              (mode == 2 ? ".jpeg" : ".bmp"));
+}
+
+void MainWindow::MakeGif()
+{
+
 }
 
 void MainWindow::CreateOpenGLContext() {

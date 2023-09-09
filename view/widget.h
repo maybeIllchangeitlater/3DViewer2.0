@@ -22,6 +22,7 @@ class OpenGLWidget final : public QOpenGLWidget {
                         QWidget* parent = nullptr);
   ~OpenGLWidget();
   void ChangeShaders();
+  void ChangePerspective();
 
  private:
   void initializeGL();

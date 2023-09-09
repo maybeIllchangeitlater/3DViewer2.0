@@ -44,6 +44,11 @@ void OpenGLWidget::AddShaders() {
      shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, shader_version_->GetFragmentShader());
 }
 
+void OpenGLWidget::ChangePerspective()
+{
+    resizeGL(OpenGLWidget::width(), OpenGLWidget::height());
+}
+
 void OpenGLWidget::mousePressEvent(QMouseEvent *event) {
   if (event->button() == Qt::LeftButton) last_mouse_pos_ = event->pos();
   if (event->button() == Qt::RightButton) last_rmouse_pos_ = event->pos();
@@ -93,7 +98,7 @@ void OpenGLWidget::initializeGL() {
 void OpenGLWidget::resizeGL(int w, int h) {
   glViewport(0, 0, w, h);
   projection_matrix_.setToIdentity();
-  projection_matrix_.perspective(60.0f, static_cast<float>(w) / (h), 0.1f,
+  settings_.orth ?  projection_matrix_.ortho(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.0f) : projection_matrix_.perspective(60.0f, static_cast<float>(w) / (h), 0.1f,
                                  100.0f);
 }
 

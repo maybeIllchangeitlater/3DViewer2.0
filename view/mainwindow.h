@@ -19,6 +19,9 @@
 #include <QTimer>
 #include <iostream>
 #include <thread>
+#include <QMovie>
+#include <QImage>
+#include <QPainter>
 
 #include "../controller/controller.h"
 #include "widget.h"
@@ -43,6 +46,7 @@ class MainWindow final : public QMainWindow {
   void closeEvent(QCloseEvent *event) override;
   void UpdateView(bool correct_file);
   void MakeScreenshot(int mode);
+  void MakeGif();
 
  private:
   void CreateOpenGLContext();
@@ -52,9 +56,7 @@ class MainWindow final : public QMainWindow {
   void UpdateWidget();
   void SetSliders();
   void SetShaderMenu();
-  /**
-   * @param mode - 1 take bmp, 2 - take jpeg, 3 - make gif
-   **/
+
   OpenGLWidget *gl_widget_;
   Ui::MainWindow *ui_;
   s21::Controller &controller_;
