@@ -581,7 +581,7 @@ public:
         mBackward->setText(QCoreApplication::translate("MainWindow", "\342\207\251", nullptr));
         mUp->setText(QCoreApplication::translate("MainWindow", "\342\206\221", nullptr));
         Browse->setText(QCoreApplication::translate("MainWindow", "OPEN", nullptr));
-        changeShader->setText(QCoreApplication::translate("MainWindow", "changeShader(edit to context menu)", nullptr));
+        changeShader->setText(QCoreApplication::translate("MainWindow", "changeShader", nullptr));
         changePerspective->setText(QCoreApplication::translate("MainWindow", "change perspective", nullptr));
         line_color->setText(QCoreApplication::translate("MainWindow", "set line color", nullptr));
         vertex_color->setText(QCoreApplication::translate("MainWindow", "set vertex color", nullptr));

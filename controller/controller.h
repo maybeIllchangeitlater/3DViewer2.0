@@ -1,20 +1,40 @@
 #ifndef CPP4_3DVIEWER_V2_0_CONTROLLER_CONTROLLER_H_
 #define CPP4_3DVIEWER_V2_0_CONTROLLER_CONTROLLER_H_
-#include "../model/model.h"
+#include <QOpenGLFunctions>
+#include <thread>
+#include "../model/parser.h"
+#include "../model/Affines/TransformationStrategy.h"
+#include "../model/Affines/GPUTransformation.h"
+#include "../model/Affines/CPUTransformation.h"
+#include "../view/settings.h"
+
+
 namespace s21{
-    class Controller {
-//        Q_OBJECT
-    public:
-        explicit Controller(Model& model);
-        void OpenFile(QString& filename);
-        constexpr inline const QVector<float>& GetVertexConstRef() const{return model_.GetVertexConstRef();}
-        constexpr inline const QVector<int>& GetFaceConstRef() const{return model_.GetFaceConstRef();}
-//        OpenGLWidget * Display_Model();
+    class Controller : public QObject{
 
+        Q_OBJECT
 
+       public:
+           explicit Controller(ObjParser & parser, TransformationStrategy *transformer);
+           void ParseFile(QString filename) const;
+           void MoveModel(QMatrix4x4& matrix, const Settings &settings);
+           inline const QVector<unsigned int>& GetFaceConstRef() const{return face_;}
+           inline const QVector<float>& GetVertexCopyConstRef() const{return vertex_;}
+           constexpr const int GetVertexShaderVersion() const{return transformer_->GetShaderVersion();}
+           inline const QString GetFilename() const{return parser_.GetFilename();}
+
+    signals:
+        void ParseOver(bool good_file);
+
+    public slots:
+        void Update(bool);
 
     private:
-        Model& model_;
+        ObjParser & parser_;
+        TransformationStrategy *transformer_;
+        QVector<float> vertex_;
+        QVector<unsigned int> face_;
+        QVector<float> vertex_copy_;
 
     };
 }

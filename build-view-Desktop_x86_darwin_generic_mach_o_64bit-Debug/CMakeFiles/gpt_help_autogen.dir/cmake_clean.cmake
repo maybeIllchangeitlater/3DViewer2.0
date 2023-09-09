@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/gpt_help_autogen"
-  "gpt_help_autogen/include/ui_mainwindow.h"
   "gpt_help_autogen/mocs_compilation.cpp"
 )
 

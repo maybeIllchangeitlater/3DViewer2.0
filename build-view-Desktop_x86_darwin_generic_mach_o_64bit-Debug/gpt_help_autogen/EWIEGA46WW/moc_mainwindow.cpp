@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    const uint offsetsAndSize[24];
-    char stringdata0[141];
+    const uint offsetsAndSize[26];
+    char stringdata0[154];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -39,14 +39,16 @@ QT_MOC_LITERAL(80, 10), // "closeEvent"
 QT_MOC_LITERAL(91, 12), // "QCloseEvent*"
 QT_MOC_LITERAL(104, 5), // "event"
 QT_MOC_LITERAL(110, 10), // "UpdateView"
-QT_MOC_LITERAL(121, 14), // "MakeScreenshot"
-QT_MOC_LITERAL(136, 4) // "mode"
+QT_MOC_LITERAL(121, 12), // "correct_file"
+QT_MOC_LITERAL(134, 14), // "MakeScreenshot"
+QT_MOC_LITERAL(149, 4) // "mode"
 
     },
     "MainWindow\0ChangeBackgroundColor\0\0"
     "ChangeLineColor\0ChangeVertexColor\0"
     "BrowseModel\0closeEvent\0QCloseEvent*\0"
-    "event\0UpdateView\0MakeScreenshot\0mode"
+    "event\0UpdateView\0correct_file\0"
+    "MakeScreenshot\0mode"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,7 +72,7 @@ static const uint qt_meta_data_MainWindow[] = {
        5,    0,   59,    2, 0x08,    4 /* Private */,
        6,    1,   60,    2, 0x08,    5 /* Private */,
        9,    1,   63,    2, 0x08,    7 /* Private */,
-      10,    1,   66,    2, 0x08,    9 /* Private */,
+      11,    1,   66,    2, 0x08,    9 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -78,8 +80,8 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 7,    8,
-    QMetaType::Void, QMetaType::Bool,    2,
-    QMetaType::Void, QMetaType::Int,   11,
+    QMetaType::Void, QMetaType::Bool,   10,
+    QMetaType::Void, QMetaType::Int,   12,
 
        0        // eod
 };

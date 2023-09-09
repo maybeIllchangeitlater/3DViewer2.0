@@ -1,5 +1,6 @@
 #include "parser.h"
 #include <fstream>
+#include <iostream>
 namespace s21{
      void s21::ObjParser::ParseFile()
     {
@@ -7,30 +8,33 @@ namespace s21{
          tmp_face_.clear();
          QFile file(filename_);
          if(!file.exists() || !file.open(QIODevice::ReadOnly)){
-             throw std::logic_error("file is empty or doesn't exist");
              file.close();
-
+             emit ParseOver(false);
+             return;
          }
             while(!file.atEnd()){
                 auto data(file.readLine());
-                if(data[0] == 'v' && data[1] == ' ')
-                    PushVertex(data);
-                else if(data[0] == 'f'&& data[1] == ' ')
-                    PushFace(data);
-
+                if(data[0] == 'v' && data[1] == ' '){
+                    if(!PushVertex(data)){
+                        file.close();
+                        emit ParseOver(false);
+                        return;
+                    }
+                }
+                else if(data[0] == 'f'&& data[1] == ' '){
+                    if(!PushFace(data)){
+                        file.close();
+                        emit ParseOver(false);
+                        return;
+                    }
+                }
             }
-
-
-            // if (*(std::max_element(face.begin(), face.end())) > (vertex.size() /3 -1) ){
-            //     throw std::logic_error("nice SEGA you got there");
-            //     file.close();
-            // }
-            // ChangeFilename(filename, vertex, face);
-            file.close();
-            emit ParseOver(true);
+               file.close();
+               ChangeFilename();
+             *(std::max_element(tmp_face_.begin(), tmp_face_.end())) > (tmp_vertex_.size() /3 -1) ? emit ParseOver(false): emit ParseOver(true);
 
 }
-    void ObjParser::PushVertex(QByteArray &data)
+    bool ObjParser::PushVertex(QByteArray &data)
     {
         auto cstr = data.data();
         int size = 0, sizeline_counter = 0;
@@ -44,11 +48,11 @@ namespace s21{
             size = 0;
             ++sizeline_counter;
         }
-        // if(sizeline_counter != 3) throw std::invalid_argument("Broken Vertexes");
+        return sizeline_counter == 3;
 
     }
 
-    void ObjParser::PushFace(QByteArray &data)
+    bool ObjParser::PushFace(QByteArray &data)
     {
         int i = 0;
         auto cstr = data.data();
@@ -56,7 +60,7 @@ namespace s21{
         while(i<n && !(std::isdigit(*cstr))){
             ++cstr; i++;
         }
-        // if(*cstr == '\n') throw std::invalid_argument("Broken Face");
+         if(*cstr == '\n') return false;
         unsigned int first = std::stoi(cstr) -1;
         tmp_face_.push_back(first);
         while(i<n && !std::isspace(*cstr)){
@@ -76,15 +80,13 @@ namespace s21{
             }
         }
         tmp_face_.push_back(first);
+        return true;
     }
 
-    // void ObjParser::ChangeFilename(QString &filename, QVector<float> &vertex, QVector<unsigned int> &face)  const
-    // {
-    //     filename =  filename.mid(filename.lastIndexOf("/") + 1).chopped(4) + "\n" +
-    //             "Vertexes: " + QString::number(vertex.size() / 3) +
-    //             " Edges: " + QString::number(face.size()/2);
-    // }
-
-
-
+    void ObjParser::ChangeFilename()
+    {
+             filename_ =  filename_.mid(filename_.lastIndexOf("/") + 1).chopped(4) + "\n" +
+                     "Vertexes: " + QString::number(tmp_vertex_.size() / 3) +
+                     " Edges: " + QString::number(tmp_face_.size()/2);
+    }
 }

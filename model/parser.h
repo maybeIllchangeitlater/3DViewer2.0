@@ -13,6 +13,7 @@ namespace s21{
 
         constexpr inline const QVector<float>& GetTmpVertexConstRef() const{return tmp_vertex_;}
         constexpr inline const QVector<unsigned int>& GetFaceConstRef() const{return tmp_face_;}
+        constexpr inline const QString& GetFilename() const {return filename_;}
 
         void SetFilename(QString filename){
             filename_ = filename;
@@ -22,13 +23,12 @@ namespace s21{
         void ParseOver(bool);
 
     private:
-        void PushVertex(QByteArray& data);
-        void PushFace(QByteArray& data);
-        // void ChangeFilename(QString& filename, QVector<float> &vertex, QVector<unsigned int> &face) const;
+        bool PushVertex(QByteArray& data);
+        bool PushFace(QByteArray& data);
+         void ChangeFilename();
 
         QVector<float> tmp_vertex_;
         QVector<unsigned int> tmp_face_;
-
         QString filename_;
     };
 }

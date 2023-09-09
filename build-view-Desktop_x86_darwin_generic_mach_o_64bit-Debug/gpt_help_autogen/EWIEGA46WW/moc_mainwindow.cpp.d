@@ -212,6 +212,7 @@
   /usr/local/lib/QtCore.framework/Versions/A/Headers/QScopedPointer \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/QSize \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/QSizeF \
+  /usr/local/lib/QtCore.framework/Versions/A/Headers/QTextStream \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/QTimer \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qalgorithms.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qanystringview.h \
@@ -318,13 +319,16 @@
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qvarlengtharray.h \
   /usr/local/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QCloseEvent \
+  /usr/local/lib/QtGui.framework/Versions/A/Headers/QFontDatabase \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QMatrix4x4 \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QMouseEvent \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QMovie \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QOpenGLFunctions \
+  /usr/local/lib/QtGui.framework/Versions/A/Headers/QSurface \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QSurfaceFormat \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QTransform \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/QVector3D \
+  /usr/local/lib/QtGui.framework/Versions/A/Headers/qaction.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qbitmap.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qbrush.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qcolor.h \
@@ -332,6 +336,7 @@
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qevent.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qeventpoint.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qfont.h \
+  /usr/local/lib/QtGui.framework/Versions/A/Headers/qfontdatabase.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qfontinfo.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qfontmetrics.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qgenericmatrix.h \
@@ -358,6 +363,7 @@
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qrgb.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qrgba64.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qscreen.h \
+  /usr/local/lib/QtGui.framework/Versions/A/Headers/qsurface.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qsurfaceformat.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qtgui-config.h \
   /usr/local/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h \
@@ -380,11 +386,13 @@
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/QColorDialog \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/QFileDialog \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
+  /usr/local/lib/QtWidgets.framework/Versions/A/Headers/QMenu \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/QWidget \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qcolordialog.h \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qdialog.h \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qfiledialog.h \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
+  /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qmenu.h \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h \
   /usr/local/lib/QtWidgets.framework/Versions/A/Headers/qtwidgets-config.h \

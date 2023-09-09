@@ -142,149 +142,29 @@ gpt_help_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help_autogen.dir/build.make CMakeFiles/gpt_help_autogen.dir/build
 .PHONY : gpt_help_autogen/fast
 
-Users/susannel/3dviewer2/model/CPUTransformation.o: Users/susannel/3dviewer2/model/CPUTransformation.cc.o
-.PHONY : Users/susannel/3dviewer2/model/CPUTransformation.o
+Users/susannel/3dviewer2/main.o: Users/susannel/3dviewer2/main.cc.o
+.PHONY : Users/susannel/3dviewer2/main.o
 
 # target to build an object file
-Users/susannel/3dviewer2/model/CPUTransformation.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.o
-.PHONY : Users/susannel/3dviewer2/model/CPUTransformation.cc.o
+Users/susannel/3dviewer2/main.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/main.cc.o
+.PHONY : Users/susannel/3dviewer2/main.cc.o
 
-Users/susannel/3dviewer2/model/CPUTransformation.i: Users/susannel/3dviewer2/model/CPUTransformation.cc.i
-.PHONY : Users/susannel/3dviewer2/model/CPUTransformation.i
-
-# target to preprocess a source file
-Users/susannel/3dviewer2/model/CPUTransformation.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.i
-.PHONY : Users/susannel/3dviewer2/model/CPUTransformation.cc.i
-
-Users/susannel/3dviewer2/model/CPUTransformation.s: Users/susannel/3dviewer2/model/CPUTransformation.cc.s
-.PHONY : Users/susannel/3dviewer2/model/CPUTransformation.s
-
-# target to generate assembly for a file
-Users/susannel/3dviewer2/model/CPUTransformation.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/CPUTransformation.cc.s
-.PHONY : Users/susannel/3dviewer2/model/CPUTransformation.cc.s
-
-Users/susannel/3dviewer2/model/OpenGLTransformation.o: Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o
-.PHONY : Users/susannel/3dviewer2/model/OpenGLTransformation.o
-
-# target to build an object file
-Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o
-.PHONY : Users/susannel/3dviewer2/model/OpenGLTransformation.cc.o
-
-Users/susannel/3dviewer2/model/OpenGLTransformation.i: Users/susannel/3dviewer2/model/OpenGLTransformation.cc.i
-.PHONY : Users/susannel/3dviewer2/model/OpenGLTransformation.i
+Users/susannel/3dviewer2/main.i: Users/susannel/3dviewer2/main.cc.i
+.PHONY : Users/susannel/3dviewer2/main.i
 
 # target to preprocess a source file
-Users/susannel/3dviewer2/model/OpenGLTransformation.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.i
-.PHONY : Users/susannel/3dviewer2/model/OpenGLTransformation.cc.i
+Users/susannel/3dviewer2/main.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/main.cc.i
+.PHONY : Users/susannel/3dviewer2/main.cc.i
 
-Users/susannel/3dviewer2/model/OpenGLTransformation.s: Users/susannel/3dviewer2/model/OpenGLTransformation.cc.s
-.PHONY : Users/susannel/3dviewer2/model/OpenGLTransformation.s
-
-# target to generate assembly for a file
-Users/susannel/3dviewer2/model/OpenGLTransformation.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/OpenGLTransformation.cc.s
-.PHONY : Users/susannel/3dviewer2/model/OpenGLTransformation.cc.s
-
-Users/susannel/3dviewer2/model/model.o: Users/susannel/3dviewer2/model/model.cc.o
-.PHONY : Users/susannel/3dviewer2/model/model.o
-
-# target to build an object file
-Users/susannel/3dviewer2/model/model.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.o
-.PHONY : Users/susannel/3dviewer2/model/model.cc.o
-
-Users/susannel/3dviewer2/model/model.i: Users/susannel/3dviewer2/model/model.cc.i
-.PHONY : Users/susannel/3dviewer2/model/model.i
-
-# target to preprocess a source file
-Users/susannel/3dviewer2/model/model.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.i
-.PHONY : Users/susannel/3dviewer2/model/model.cc.i
-
-Users/susannel/3dviewer2/model/model.s: Users/susannel/3dviewer2/model/model.cc.s
-.PHONY : Users/susannel/3dviewer2/model/model.s
+Users/susannel/3dviewer2/main.s: Users/susannel/3dviewer2/main.cc.s
+.PHONY : Users/susannel/3dviewer2/main.s
 
 # target to generate assembly for a file
-Users/susannel/3dviewer2/model/model.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/model.cc.s
-.PHONY : Users/susannel/3dviewer2/model/model.cc.s
-
-Users/susannel/3dviewer2/model/parser.o: Users/susannel/3dviewer2/model/parser.cc.o
-.PHONY : Users/susannel/3dviewer2/model/parser.o
-
-# target to build an object file
-Users/susannel/3dviewer2/model/parser.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.o
-.PHONY : Users/susannel/3dviewer2/model/parser.cc.o
-
-Users/susannel/3dviewer2/model/parser.i: Users/susannel/3dviewer2/model/parser.cc.i
-.PHONY : Users/susannel/3dviewer2/model/parser.i
-
-# target to preprocess a source file
-Users/susannel/3dviewer2/model/parser.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.i
-.PHONY : Users/susannel/3dviewer2/model/parser.cc.i
-
-Users/susannel/3dviewer2/model/parser.s: Users/susannel/3dviewer2/model/parser.cc.s
-.PHONY : Users/susannel/3dviewer2/model/parser.s
-
-# target to generate assembly for a file
-Users/susannel/3dviewer2/model/parser.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/model/parser.cc.s
-.PHONY : Users/susannel/3dviewer2/model/parser.cc.s
-
-gpt_help_autogen/54WNFGSGJX/qrc_shaders.o: gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o
-.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.o
-
-# target to build an object file
-gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o
-.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.o
-
-gpt_help_autogen/54WNFGSGJX/qrc_shaders.i: gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.i
-.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.i
-
-# target to preprocess a source file
-gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.i
-.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.i
-
-gpt_help_autogen/54WNFGSGJX/qrc_shaders.s: gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.s
-.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.s
-
-# target to generate assembly for a file
-gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.s
-.PHONY : gpt_help_autogen/54WNFGSGJX/qrc_shaders.cpp.s
-
-gpt_help_autogen/EWIEGA46WW/qrc_style.o: gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o
-.PHONY : gpt_help_autogen/EWIEGA46WW/qrc_style.o
-
-# target to build an object file
-gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o
-.PHONY : gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.o
-
-gpt_help_autogen/EWIEGA46WW/qrc_style.i: gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.i
-.PHONY : gpt_help_autogen/EWIEGA46WW/qrc_style.i
-
-# target to preprocess a source file
-gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.i
-.PHONY : gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.i
-
-gpt_help_autogen/EWIEGA46WW/qrc_style.s: gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.s
-.PHONY : gpt_help_autogen/EWIEGA46WW/qrc_style.s
-
-# target to generate assembly for a file
-gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.s
-.PHONY : gpt_help_autogen/EWIEGA46WW/qrc_style.cpp.s
+Users/susannel/3dviewer2/main.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/Users/susannel/3dviewer2/main.cc.s
+.PHONY : Users/susannel/3dviewer2/main.cc.s
 
 gpt_help_autogen/mocs_compilation.o: gpt_help_autogen/mocs_compilation.cpp.o
 .PHONY : gpt_help_autogen/mocs_compilation.o
@@ -310,102 +190,6 @@ gpt_help_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/gpt_help_autogen/mocs_compilation.cpp.s
 .PHONY : gpt_help_autogen/mocs_compilation.cpp.s
 
-main.o: main.cc.o
-.PHONY : main.o
-
-# target to build an object file
-main.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/main.cc.o
-.PHONY : main.cc.o
-
-main.i: main.cc.i
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/main.cc.i
-.PHONY : main.cc.i
-
-main.s: main.cc.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/main.cc.s
-.PHONY : main.cc.s
-
-mainwindow.o: mainwindow.cc.o
-.PHONY : mainwindow.o
-
-# target to build an object file
-mainwindow.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/mainwindow.cc.o
-.PHONY : mainwindow.cc.o
-
-mainwindow.i: mainwindow.cc.i
-.PHONY : mainwindow.i
-
-# target to preprocess a source file
-mainwindow.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/mainwindow.cc.i
-.PHONY : mainwindow.cc.i
-
-mainwindow.s: mainwindow.cc.s
-.PHONY : mainwindow.s
-
-# target to generate assembly for a file
-mainwindow.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/mainwindow.cc.s
-.PHONY : mainwindow.cc.s
-
-settings.o: settings.cc.o
-.PHONY : settings.o
-
-# target to build an object file
-settings.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/settings.cc.o
-.PHONY : settings.cc.o
-
-settings.i: settings.cc.i
-.PHONY : settings.i
-
-# target to preprocess a source file
-settings.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/settings.cc.i
-.PHONY : settings.cc.i
-
-settings.s: settings.cc.s
-.PHONY : settings.s
-
-# target to generate assembly for a file
-settings.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/settings.cc.s
-.PHONY : settings.cc.s
-
-widget.o: widget.cc.o
-.PHONY : widget.o
-
-# target to build an object file
-widget.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/widget.cc.o
-.PHONY : widget.cc.o
-
-widget.i: widget.cc.i
-.PHONY : widget.i
-
-# target to preprocess a source file
-widget.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/widget.cc.i
-.PHONY : widget.cc.i
-
-widget.s: widget.cc.s
-.PHONY : widget.s
-
-# target to generate assembly for a file
-widget.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpt_help.dir/build.make CMakeFiles/gpt_help.dir/widget.cc.s
-.PHONY : widget.cc.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -416,39 +200,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... gpt_help_autogen"
 	@echo "... gpt_help"
-	@echo "... Users/susannel/3dviewer2/model/CPUTransformation.o"
-	@echo "... Users/susannel/3dviewer2/model/CPUTransformation.i"
-	@echo "... Users/susannel/3dviewer2/model/CPUTransformation.s"
-	@echo "... Users/susannel/3dviewer2/model/OpenGLTransformation.o"
-	@echo "... Users/susannel/3dviewer2/model/OpenGLTransformation.i"
-	@echo "... Users/susannel/3dviewer2/model/OpenGLTransformation.s"
-	@echo "... Users/susannel/3dviewer2/model/model.o"
-	@echo "... Users/susannel/3dviewer2/model/model.i"
-	@echo "... Users/susannel/3dviewer2/model/model.s"
-	@echo "... Users/susannel/3dviewer2/model/parser.o"
-	@echo "... Users/susannel/3dviewer2/model/parser.i"
-	@echo "... Users/susannel/3dviewer2/model/parser.s"
-	@echo "... gpt_help_autogen/54WNFGSGJX/qrc_shaders.o"
-	@echo "... gpt_help_autogen/54WNFGSGJX/qrc_shaders.i"
-	@echo "... gpt_help_autogen/54WNFGSGJX/qrc_shaders.s"
-	@echo "... gpt_help_autogen/EWIEGA46WW/qrc_style.o"
-	@echo "... gpt_help_autogen/EWIEGA46WW/qrc_style.i"
-	@echo "... gpt_help_autogen/EWIEGA46WW/qrc_style.s"
+	@echo "... Users/susannel/3dviewer2/main.o"
+	@echo "... Users/susannel/3dviewer2/main.i"
+	@echo "... Users/susannel/3dviewer2/main.s"
 	@echo "... gpt_help_autogen/mocs_compilation.o"
 	@echo "... gpt_help_autogen/mocs_compilation.i"
 	@echo "... gpt_help_autogen/mocs_compilation.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... mainwindow.o"
-	@echo "... mainwindow.i"
-	@echo "... mainwindow.s"
-	@echo "... settings.o"
-	@echo "... settings.i"
-	@echo "... settings.s"
-	@echo "... widget.o"
-	@echo "... widget.i"
-	@echo "... widget.s"
 .PHONY : help
 
 

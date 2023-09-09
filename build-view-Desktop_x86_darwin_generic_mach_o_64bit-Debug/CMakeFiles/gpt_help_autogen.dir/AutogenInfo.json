@@ -483,94 +483,12 @@
 		"/usr/local/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake",
 		"/usr/local/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessTargets.cmake",
 		"/usr/local/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake",
-		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeParseArguments.cmake",
-		"/Users/susannel/3dviewer2/view/style.qrc",
-		"/Users/susannel/3dviewer2/shaders.qrc"
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeParseArguments.cmake"
 	],
 	"CMAKE_SOURCE_DIR" : "/Users/susannel/3dviewer2/view",
 	"DEP_FILE" : "",
 	"DEP_FILE_RULE_NAME" : "",
-	"HEADERS" : 
-	[
-		[
-			"/Users/susannel/3dviewer2/model/CPUTransformation.h",
-			"MU",
-			"5QF3R2FZUP/moc_CPUTransformation.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/model/OpenGLTransformation.h",
-			"MU",
-			"5QF3R2FZUP/moc_OpenGLTransformation.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/model/ShaderCustomizableLines.h",
-			"MU",
-			"5QF3R2FZUP/moc_ShaderCustomizableLines.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/model/ShaderNoGeometry.h",
-			"MU",
-			"5QF3R2FZUP/moc_ShaderNoGeometry.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/model/ShaderPointsOnly.h",
-			"MU",
-			"5QF3R2FZUP/moc_ShaderPointsOnly.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/model/ShaderState.h",
-			"MU",
-			"5QF3R2FZUP/moc_ShaderState.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/model/ShadersEverythingButSlow.h",
-			"MU",
-			"5QF3R2FZUP/moc_ShadersEverythingButSlow.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/model/TransformationStrategy.h",
-			"MU",
-			"5QF3R2FZUP/moc_TransformationStrategy.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/model/model.h",
-			"MU",
-			"5QF3R2FZUP/moc_model.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/model/parser.h",
-			"MU",
-			"5QF3R2FZUP/moc_parser.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/view/mainwindow.h",
-			"MU",
-			"EWIEGA46WW/moc_mainwindow.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/view/settings.h",
-			"MU",
-			"EWIEGA46WW/moc_settings.cpp",
-			null
-		],
-		[
-			"/Users/susannel/3dviewer2/view/widget.h",
-			"MU",
-			"EWIEGA46WW/moc_widget.cpp",
-			null
-		]
-	],
+	"HEADERS" : [],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/include",
 	"MOC_COMPILATION_FILE" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/gpt_help_autogen/mocs_compilation.cpp",
@@ -634,14 +552,7 @@
 	"SETTINGS_FILE" : "/Users/susannel/3dviewer2/build-view-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/gpt_help_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "/Users/susannel/3dviewer2/model/CPUTransformation.cc", "MU", null ],
-		[ "/Users/susannel/3dviewer2/model/OpenGLTransformation.cc", "MU", null ],
-		[ "/Users/susannel/3dviewer2/model/model.cc", "MU", null ],
-		[ "/Users/susannel/3dviewer2/model/parser.cc", "MU", null ],
-		[ "/Users/susannel/3dviewer2/view/main.cc", "MU", null ],
-		[ "/Users/susannel/3dviewer2/view/mainwindow.cc", "MU", null ],
-		[ "/Users/susannel/3dviewer2/view/settings.cc", "MU", null ],
-		[ "/Users/susannel/3dviewer2/view/widget.cc", "MU", null ]
+		[ "/Users/susannel/3dviewer2/main.cc", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

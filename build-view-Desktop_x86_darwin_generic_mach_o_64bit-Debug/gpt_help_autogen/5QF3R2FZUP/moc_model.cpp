@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_s21__Controller_t {
-    const uint offsetsAndSize[8];
-    char stringdata0[34];
+    const uint offsetsAndSize[10];
+    char stringdata0[44];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_s21__Controller_t, stringdata0) + ofs), len 
@@ -32,10 +32,12 @@ static const qt_meta_stringdata_s21__Controller_t qt_meta_stringdata_s21__Contro
 QT_MOC_LITERAL(0, 15), // "s21::Controller"
 QT_MOC_LITERAL(16, 9), // "ParseOver"
 QT_MOC_LITERAL(26, 0), // ""
-QT_MOC_LITERAL(27, 6) // "Update"
+QT_MOC_LITERAL(27, 9), // "good_file"
+QT_MOC_LITERAL(37, 6) // "Update"
 
     },
-    "s21::Controller\0ParseOver\0\0Update"
+    "s21::Controller\0ParseOver\0\0good_file\0"
+    "Update"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,10 +58,10 @@ static const uint qt_meta_data_s21__Controller[] = {
        1,    1,   26,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    1,   29,    2, 0x0a,    3 /* Public */,
+       4,    1,   29,    2, 0x0a,    3 /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Bool,    2,
+    QMetaType::Void, QMetaType::Bool,    3,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Bool,    2,
