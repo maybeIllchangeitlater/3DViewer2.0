@@ -1,9 +1,10 @@
 all: install
 
-install: clean uninstall
+install: uninstall
 	mkdir build
+	mkdir $(HOME)/Desktop/Viewer
 	cd build && cmake ../CMakeLists.txt && make
-	cp -rf build/gpt_help.app $(HOME)/Desktop/Viewer/Viewer.app
+	mv build/gpt_help.app $(HOME)/Desktop/Viewer/Viewer.app
 
 uninstall:
 	rm -rf build
@@ -11,7 +12,7 @@ uninstall:
 
 dist: uninstall install
 	mkdir dist
-	cp -r $(HOME)/Desktop/Viewer/ dist/.
+	cp -r $(HOME)/Desktop/Viewer/dist/.
 	cp ../README.md dist
 	tar -czvf dist.tar.gz dist
 	rm -rf dist
