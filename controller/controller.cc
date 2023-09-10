@@ -25,7 +25,7 @@ void Controller::MoveModel(QMatrix4x4 &matrix, const Settings &settings)
    transformer_->MoveModel(matrix, vertex_, settings);
 }
 
-void Controller::Update(bool good_file) {
+void Controller::Update(bool good_file) noexcept {
     vertex_ = parser_.GetTmpVertexConstRef();
     vertex_copy_ = vertex_;
     face_ = parser_.GetFaceConstRef();

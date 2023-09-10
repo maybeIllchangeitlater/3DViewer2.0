@@ -27,8 +27,17 @@ class OpenGLWidget final : public QOpenGLWidget {
   void initializeGL();
   void resizeGL(int w, int h);
   void paintGL();
+  /**
+   * @brief Saves mouse position on click
+   */
   void mousePressEvent(QMouseEvent* event);
+  /**
+   * @brief Translation by Z
+   */
   void wheelEvent(QWheelEvent* event);
+  /**
+   * @brief RMB - translation by xy, LMB - translation by xy
+   */
   void mouseMoveEvent(QMouseEvent* event);
   void AddShaders();
 

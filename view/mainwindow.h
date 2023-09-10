@@ -34,17 +34,41 @@ class MainWindow final : public QMainWindow {
 
  public:
   explicit MainWindow(s21::Controller &controller, QWidget *parent = nullptr);
+    /**
+     * @brief Frontend things
+     */
   void LoadStyle();
   ~MainWindow();
 
  private:
   enum ScreenShotMode { kJpeg, kBMP };
+  /**
+   * @brief Creates "modern" opengl context to allow use of geometry shader and non-depricated openglfunctions
+   */
   void CreateOpenGLContext();
+  /**
+   * @brief Connects small change buttons to lambdas
+   */
   void ConnectToLambdas();
+  /**
+   * @brief Connects translate buttons to lambdas
+   */
   void ConnectTranslateToLambdas();
+  /**
+   * @brief Connects rotate buttons to lambdas
+   */
   void ConnectRotateToLambdas();
+  /**
+   * @brief if opengl widget exists updates widget
+   */
   void UpdateWidget();
+  /**
+   * @brief sets slider to saved versions or sets them to default if no saves are found
+   */
   void SetSliders() noexcept;
+  /**
+   * @brief Creates menu for shader switching
+   */
   void SetShaderMenu();
   void CompileAndSaveGif();
 
@@ -64,7 +88,13 @@ class MainWindow final : public QMainWindow {
 
  private slots:
   void BrowseModel();
+  /**
+   * @brief saves settings before app closes
+   */
   void closeEvent(QCloseEvent *event) override;
+  /**
+   * @brief upon recieving signal from controller updates opengl widget or returns error
+   */
   void UpdateView(bool correct_file);
   void ChangeBackgroundColor();
   void ChangeLineColor();

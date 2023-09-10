@@ -83,7 +83,7 @@ namespace s21{
         return true;
     }
 
-    void ObjParser::ChangeFilename()
+    void ObjParser::ChangeFilename() noexcept
     {
              filename_ =  filename_.mid(filename_.lastIndexOf("/") + 1).chopped(4) + "\n" +
                      "Vertexes: " + QString::number(tmp_vertex_.size() / 3) +

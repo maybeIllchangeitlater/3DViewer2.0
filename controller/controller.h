@@ -16,18 +16,31 @@ namespace s21{
 
        public:
            explicit Controller(ObjParser & parser, TransformationStrategy *transformer);
+           virtual ~Controller() = default;
+        /**
+         * @brief Parses file into vertexes and facets
+         * @param filename
+         */
            void ParseFile(QString filename) const;
            void MoveModel(QMatrix4x4& matrix, const Settings &settings);
-           inline const QVector<unsigned int>& GetFaceConstRef() const{return face_;}
-           inline const QVector<float>& GetVertexCopyConstRef() const{return vertex_;}
-           constexpr const int GetVertexShaderVersion() const{return transformer_->GetShaderVersion();}
-           inline const QString GetFilename() const{return parser_.GetFilename();}
+           const QVector<unsigned int>& GetFaceConstRef() const noexcept{return face_;}
+           const QVector<float>& GetVertexCopyConstRef() const noexcept{return vertex_;}
+           constexpr const int GetVertexShaderVersion() const noexcept{return transformer_->GetShaderVersion();}
+           const QString GetFilename() const noexcept{return parser_.GetFilename();}
 
     signals:
+           /**
+            * @brief returns signal after file parsing is over
+            * @param true - parse success, false - parse fail
+            */
         void ParseOver(bool good_file);
 
     public slots:
-        void Update(bool);
+        /**
+         * @brief recieves signal from parsing thread, updates vertexes and facets
+         * @param true - parse success, false - parse fail
+         */
+        void Update(bool) noexcept;
 
     private:
         ObjParser & parser_;
@@ -37,5 +50,5 @@ namespace s21{
         QVector<float> vertex_copy_;
 
     };
-}
+} //namespace s21
 #endif //CPP4_3DVIEWER_V2_0_CONTROLLER_CONTROLLER_H_

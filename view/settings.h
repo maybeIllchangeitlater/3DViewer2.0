@@ -35,11 +35,6 @@ class Settings {
   float rotation_y = 0;
   float rotation_z = 0;
   ShaderFactory::ShaderVersion shader_version = ShaderFactory::kEverything;
-  //  void SwapShader(ShaderState * shader){shader_ = shader;}
-  //  const char * GetVertexShader() const{return
-  //  shader_->GetVertexShader(GetVertexShaderVersion());} const char *
-  //  GetGeometryShader() const{return shader_->GetGeometryShader();}; const
-  //  char * GetFragmentShader() const{return shader_->GetFragmentShader();};
 };
 }  // namespace s21
 #endif  // CPP4_3DVIEWER_V2_0_VIEW_SETTINGS_H_

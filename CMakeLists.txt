@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(gpt_help VERSION 0.1 LANGUAGES CXX)
+project(gpt_help VERSION 0.1 LANGUAGES CXX C)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -44,6 +44,20 @@ set(PROJECT_SOURCES
         view/ShaderStates/ShaderEverythingButSlow.h
         view/style.qrc
         shaders.qrc
+        view/3rdParty/gifmaker/dgif_lib.c
+        view/3rdParty/gifmaker/egif_lib.c
+        view/3rdParty/gifmaker/gif_err.c
+        view/3rdParty/gifmaker/gif_font.c
+        view/3rdParty/gifmaker/gif_hash.c
+        view/3rdParty/gifmaker/gif_hash.h
+        view/3rdParty/gifmaker/gif_lib_private.h
+        view/3rdParty/gifmaker/gif_lib.h
+        view/3rdParty/gifmaker/gifalloc.c
+        view/3rdParty/gifmaker/qgifglobal.h
+        view/3rdParty/gifmaker/qgifimage_p.h
+        view/3rdParty/gifmaker/qgifimage.h
+        view/3rdParty/gifmaker/quantize.c
+        view/3rdParty/gifmaker/qgifimage.cpp
 
 )
 
@@ -71,6 +85,7 @@ else()
 endif()
 
 add_compile_options(-fsanitize=address -Wall -Werror -Wextra -std=c++17)
+target_include_directories(gpt_help PRIVATE view/QGifImage)
 target_link_libraries(gpt_help PRIVATE Qt${QT_VERSION_MAJOR}::Widgets -fsanitize=address)
 target_link_libraries(gpt_help PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 target_link_libraries(gpt_help PRIVATE Qt${QT_VERSION_MAJOR}::OpenGLWidgets)

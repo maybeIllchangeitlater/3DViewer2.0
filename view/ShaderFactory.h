@@ -16,6 +16,9 @@ class ShaderFactory {
     kPointsOnly,
     kEverything
   };
+  /**
+   * @brief Creates and returns const object of shader class
+   */
   [[nodiscard]] const ShaderState* create(enum ShaderVersion sv) const {
     switch (sv) {
       case kLinesOnly:
