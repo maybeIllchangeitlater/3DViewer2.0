@@ -1,10 +1,9 @@
-#ifndef WIDGET_H
-#define WIDGET_H
+#ifndef CPP4_3DVIEWER_V2_0_VIEW_WIDGET_H_
+#define CPP4_3DVIEWER_V2_0_VIEW_WIDGET_H_
 
 #include <QMatrix4x4>
 #include <QMouseEvent>
 #include <QOpenGLBuffer>
-#include <QOpenGLFunctions>
 #include <QOpenGLShaderProgram>
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLWidget>
@@ -49,8 +48,8 @@ class OpenGLWidget final : public QOpenGLWidget {
   GLuint index_buffer_;
   GLuint vertex_buffer_;
 
-  s21::ShaderState * shader_version_ = nullptr;
+  const s21::ShaderState* shader_version_ = nullptr;
   s21::ShaderFactory shader_factory_;
 };
 
-#endif  // WIDGET_H
+#endif  // CPP4_3DVIEWER_V2_0_VIEW_WIDGET_H_

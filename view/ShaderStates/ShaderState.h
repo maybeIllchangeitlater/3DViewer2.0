@@ -10,9 +10,9 @@ namespace s21{
          * @brief GetVertexShader
          * @param version 1 - for GPU transformations, 2 - for CPU transformations
          */
-        virtual const char * GetVertexShader(int version) {return version == 1 ? ":/resources/VertexShader.txt" : ":/resources/VertexShaderCPU.txt";};
-        virtual const char * GetGeometryShader() = 0;
-        virtual const char * GetFragmentShader() = 0;
+        virtual const char * GetVertexShader(int version) const noexcept {return version == 1 ? ":/resources/VertexShader.txt" : ":/resources/VertexShaderCPU.txt";};
+        virtual const char * GetGeometryShader() const noexcept  = 0;
+        virtual const char * GetFragmentShader() const noexcept  = 0;
 
     };
 } //namespace s21

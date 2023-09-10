@@ -11,14 +11,14 @@ OpenGLWidget::OpenGLWidget(s21::Settings &settings, s21::Controller &controller,
       vbo_(QOpenGLBuffer::VertexBuffer),
       ibo_(QOpenGLBuffer::IndexBuffer) {}
 
-OpenGLWidget::~OpenGLWidget() { delete shader_version_; std::cout << "ustroy destroy" << std::endl; }
+OpenGLWidget::~OpenGLWidget() { delete shader_version_; }
 
 void OpenGLWidget::ChangeShaders() {
-      shader_programm_.removeAllShaders();
-      delete shader_version_;
-      AddShaders();
-      shader_programm_.link();
-      update();
+  shader_programm_.removeAllShaders();
+  delete shader_version_;
+  AddShaders();
+  shader_programm_.link();
+  update();
 }
 
 void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
@@ -38,15 +38,18 @@ void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
 }
 
 void OpenGLWidget::AddShaders() {
-     shader_version_ = shader_factory_.create(settings_.shader_version);
-     shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, shader_version_->GetVertexShader(controller_.GetVertexShaderVersion()));
-     shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, shader_version_->GetGeometryShader());
-     shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, shader_version_->GetFragmentShader());
+  shader_version_ = shader_factory_.create(settings_.shader_version);
+  shader_programm_.addShaderFromSourceFile(
+      QOpenGLShader::Vertex,
+      shader_version_->GetVertexShader(controller_.GetVertexShaderVersion()));
+  shader_programm_.addShaderFromSourceFile(
+      QOpenGLShader::Geometry, shader_version_->GetGeometryShader());
+  shader_programm_.addShaderFromSourceFile(
+      QOpenGLShader::Fragment, shader_version_->GetFragmentShader());
 }
 
-void OpenGLWidget::ChangePerspective()
-{
-    resizeGL(OpenGLWidget::width(), OpenGLWidget::height());
+void OpenGLWidget::ChangePerspective() {
+  resizeGL(OpenGLWidget::width(), OpenGLWidget::height());
 }
 
 void OpenGLWidget::mousePressEvent(QMouseEvent *event) {
@@ -98,8 +101,10 @@ void OpenGLWidget::initializeGL() {
 void OpenGLWidget::resizeGL(int w, int h) {
   glViewport(0, 0, w, h);
   projection_matrix_.setToIdentity();
-  settings_.orth ?  projection_matrix_.ortho(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.0f) : projection_matrix_.perspective(60.0f, static_cast<float>(w) / (h), 0.1f,
-                                 100.0f);
+  settings_.orth
+      ? projection_matrix_.ortho(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.0f)
+      : projection_matrix_.perspective(60.0f, static_cast<float>(w) / (h), 0.1f,
+                                       100.0f);
 }
 
 void OpenGLWidget::paintGL() {

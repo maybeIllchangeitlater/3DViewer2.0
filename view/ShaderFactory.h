@@ -16,16 +16,16 @@ class ShaderFactory {
     kPointsOnly,
     kEverything
   };
-  [[nodiscard]] ShaderState* create(enum ShaderVersion sv) const {
+  [[nodiscard]] const ShaderState* create(enum ShaderVersion sv) const {
     switch (sv) {
       case kLinesOnly:
-        return new ShaderNoGeometry();
+        return new const ShaderNoGeometry();
       case kCustomizableLines:
-        return new ShaderCustomizableLines();
+        return new const ShaderCustomizableLines();
       case kPointsOnly:
-        return new ShaderPointsOnly();
+        return new const ShaderPointsOnly();
       case kEverything:
-        return new ShaderEverythingButSlow();
+        return new const ShaderEverythingButSlow();
     }
   }
 };

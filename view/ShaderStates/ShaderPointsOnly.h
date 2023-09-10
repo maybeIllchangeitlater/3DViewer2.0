@@ -6,8 +6,8 @@ namespace s21{
        public:
         ShaderPointsOnly() = default;
         ~ShaderPointsOnly() override {};
-        const char * GetGeometryShader() override {return ":/resources/GeometryShaderPointsOnly.txt";}
-        const char * GetFragmentShader() override {return ":/resources/FragShaderPointsOnly.txt";}
+        const char * GetGeometryShader() const noexcept override {return ":/resources/GeometryShaderPointsOnly.txt";}
+        const char * GetFragmentShader() const noexcept override {return ":/resources/FragShaderPointsOnly.txt";}
     };
 } //namespace s21
 #endif //CPP4_3DVIEWER_V2_0_VIEW_SHADERSTATES_SHADERPOINTSONLY_H_

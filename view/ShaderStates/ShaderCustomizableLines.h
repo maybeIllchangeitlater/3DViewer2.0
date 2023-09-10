@@ -6,8 +6,8 @@ namespace s21{
        public:
         ShaderCustomizableLines() = default;
         ~ShaderCustomizableLines() override {};
-        const char * GetGeometryShader() override {return ":/resources/GeometryShaderCustomizableLines.txt";}
-        const char * GetFragmentShader() override {return ":/resources/FragShader.txt";}
+        const char * GetGeometryShader() const noexcept override {return ":/resources/GeometryShaderCustomizableLines.txt";}
+        const char * GetFragmentShader() const noexcept override {return ":/resources/FragShader.txt";}
     };
 } //namespace s21
 #endif //CPP4_3DVIEWER_V2_0_VIEW_SHADERSTATES_SHADERCUSTOMIZABLELINES_H_

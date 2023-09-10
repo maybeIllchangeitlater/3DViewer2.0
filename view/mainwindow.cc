@@ -1,5 +1,9 @@
 #include "mainwindow.h"
 
+#include <QOffscreenSurface>
+#include <QOpenGLFramebufferObject>
+#include <iostream>
+
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
@@ -32,7 +36,6 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
 }
 
 MainWindow::~MainWindow() {
-  std::cout << "destructor destroy" << std::endl;
   if (gl_widget_) {
     delete gl_widget_;
   }
@@ -56,6 +59,7 @@ void MainWindow::BrowseModel() {
       static_cast<QDir>(QDir::homePath()).absolutePath() +
           "/Desktop/viewer/models/",
       "obj files (*.obj)"));
+  ui_->Browse->setEnabled(false);
   controller_.ParseFile(filename);
   ui_->model_name->setText("Loading...");
 }
@@ -72,6 +76,7 @@ void MainWindow::UpdateView(bool correct_file) {
     ui_->model_name->setText(controller_.GetFilename());
   } else
     ui_->model_name->setText("Not this time");
+  ui_->Browse->setEnabled(true);
 }
 
 void MainWindow::ChangeBackgroundColor() {
@@ -79,14 +84,14 @@ void MainWindow::ChangeBackgroundColor() {
   settings_.back_color = colorDialog.getColor(Qt::white, this);
   if (!settings_.back_color.isValid())
     settings_.back_color = QColorConstants::Black;
-  if (gl_widget_) gl_widget_->update();
+  UpdateWidget();
 }
 
 void MainWindow::ChangeLineColor() {
   QColorDialog colorDialog(this);
   settings_.color = colorDialog.getColor(Qt::white, this);
   if (!settings_.color.isValid()) settings_.color = QColorConstants::White;
-  if (gl_widget_) gl_widget_->update();
+  UpdateWidget();
 }
 
 void MainWindow::ChangeVertexColor() {
@@ -94,7 +99,7 @@ void MainWindow::ChangeVertexColor() {
   settings_.vertex_color = colorDialog.getColor(Qt::white, this);
   if (!settings_.vertex_color.isValid())
     settings_.vertex_color = QColorConstants::Red;
-  if (gl_widget_) gl_widget_->update();
+  UpdateWidget();
 }
 
 void MainWindow::closeEvent(QCloseEvent *event) {
@@ -103,85 +108,91 @@ void MainWindow::closeEvent(QCloseEvent *event) {
 }
 
 void MainWindow::ConnectToLambdas() {
-  ui_->line_thicc->connect(
+  connect(
       ui_->line_thicc, &QSlider::valueChanged, this, [this](int w) {
         settings_.line_width = static_cast<float>(w) / 100.0f;
         UpdateWidget();
       });
-  ui_->vertex_thicc->connect(
+  connect(
       ui_->vertex_thicc, &QSlider::valueChanged, this, [this](int w) {
         settings_.point_size = static_cast<float>(w) / 100.0f;
         UpdateWidget();
       });
-  ui_->scale_slider->connect(ui_->scale_slider, &QSlider::valueChanged, this,
+  connect(ui_->scale_slider, &QSlider::valueChanged, this,
                              [this](int w) {
                                settings_.scale = static_cast<float>(w) / 100.0f;
                                UpdateWidget();
                              });
-  ui_->show_lines->connect(ui_->show_lines, &QCheckBox::toggled, this,
+  connect(ui_->show_lines, &QCheckBox::toggled, this,
                            [this](bool b) {
                              settings_.lines_shown = b;
                              UpdateWidget();
                            });
-  ui_->show_vertexes->connect(ui_->show_vertexes, &QCheckBox::toggled, this,
+  connect(ui_->show_vertexes, &QCheckBox::toggled, this,
                               [this](bool b) {
                                 settings_.vertexes_shown = b;
                                 UpdateWidget();
                               });
-  ui_->broken_lines->connect(ui_->broken_lines, &QCheckBox::toggled, this,
+  connect(ui_->broken_lines, &QCheckBox::toggled, this,
                              [this](bool b) {
                                settings_.broken_lines = b;
                                UpdateWidget();
                              });
-  ui_->smooth_vertexes->connect(ui_->smooth_vertexes, &QCheckBox::toggled, this,
+  connect(ui_->smooth_vertexes, &QCheckBox::toggled, this,
                                 [this](bool b) {
                                   settings_.smooth_vertexes = b;
                                   UpdateWidget();
                                 });
-  ui_->takeBmp->connect(ui_->takeBmp, &QPushButton::clicked, this,
+  connect(ui_->takeBmp, &QPushButton::clicked, this,
                         [this](bool) {
                           if (gl_widget_) {
-                            MakeScreenshot(1);
+                            MakeScreenshot(kBMP);
                           }
                         });
-  ui_->takeJpeg->connect(ui_->takeJpeg, &QPushButton::clicked, this,
+  connect(ui_->takeJpeg, &QPushButton::clicked, this,
                          [this](bool) {
                            if (gl_widget_) {
-                             MakeScreenshot(2);
+                             MakeScreenshot(kJpeg);
                            }
                          });
-  connect(ui_->changePerspective, &QPushButton::clicked, this, [this](bool){
-      settings_.orth = !settings_.orth; //сказать Снежанне переделать в галочку
-      if(gl_widget_){
-          gl_widget_->ChangePerspective();
-          gl_widget_->update();
-      }
+  connect(ui_->gif, &QPushButton::clicked, this, [this](bool) {
+    if (gl_widget_) {
+      ui_->gif->setEnabled(false);
+      MakeGif();
+    }
+  });
+  connect(ui_->changePerspective, &QPushButton::clicked, this, [this](bool) {
+    settings_.orth = !settings_.orth;  // сказать Снежанне переделать в галочку
+    if (gl_widget_) {
+      gl_widget_->ChangePerspective();
+      gl_widget_->update();
+    }
   });
 }
 
 void MainWindow::ConnectTranslateToLambdas() {
-  ui_->mDown->connect(ui_->mDown, &QPushButton::clicked, this, [this](bool) {
+  connect(ui_->mDown, &QPushButton::clicked, this, [this](bool) {
     settings_.translation_y -= ui_->translateBy->text().toFloat();
     UpdateWidget();
   });
-  ui_->mUp->connect(ui_->mUp, &QPushButton::clicked, this, [this](bool) {
+  connect(ui_->mUp, &QPushButton::clicked, this, [this](bool) {
     settings_.translation_y += ui_->translateBy->text().toFloat();
     UpdateWidget();
   });
-  ui_->mLeft->connect(ui_->mLeft, &QPushButton::clicked, this, [this](bool) {
+  connect(ui_->mLeft, &QPushButton::clicked, this, [this](bool) {
     settings_.translation_x -= ui_->translateBy->text().toFloat();
     UpdateWidget();
   });
-  ui_->mRight->connect(ui_->mRight, &QPushButton::clicked, this, [this](bool) {
+  connect(ui_->mRight, &QPushButton::clicked, this, [this](bool) {
     settings_.translation_x += ui_->translateBy->text().toFloat();
     UpdateWidget();
   });
-  ui_->mForward->connect(
+  connect(
       ui_->mForward, &QPushButton::clicked, this, [this](bool) {
         settings_.translation_z -= ui_->translateBy->text().toFloat();
         UpdateWidget();
       });
-  ui_->mBackward->connect(
+  connect(
       ui_->mBackward, &QPushButton::clicked, this, [this](bool) {
         settings_.translation_z += ui_->translateBy->text().toFloat();
         UpdateWidget();
@@ -189,27 +200,27 @@ void MainWindow::ConnectTranslateToLambdas() {
 }
 
 void MainWindow::ConnectRotateToLambdas() {
-  ui_->rDown->connect(ui_->rDown, &QPushButton::clicked, this, [this](bool) {
+  connect(ui_->rDown, &QPushButton::clicked, this, [this](bool) {
     settings_.rotation_y += ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
-  ui_->rUp->connect(ui_->rUp, &QPushButton::clicked, this, [this](bool) {
+  connect(ui_->rUp, &QPushButton::clicked, this, [this](bool) {
     settings_.rotation_y -= ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
-  ui_->rLeft->connect(ui_->rLeft, &QPushButton::clicked, this, [this](bool) {
+  connect(ui_->rLeft, &QPushButton::clicked, this, [this](bool) {
     settings_.rotation_x -= ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
-  ui_->rRight->connect(ui_->rRight, &QPushButton::clicked, this, [this](bool) {
+  connect(ui_->rRight, &QPushButton::clicked, this, [this](bool) {
     settings_.rotation_x += ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
-  ui_->rzDown->connect(ui_->rzDown, &QPushButton::clicked, this, [this](bool) {
+  connect(ui_->rzDown, &QPushButton::clicked, this, [this](bool) {
     settings_.rotation_z += ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
-  ui_->rzUp->connect(ui_->rzUp, &QPushButton::clicked, this, [this](bool) {
+  connect(ui_->rzUp, &QPushButton::clicked, this, [this](bool) {
     settings_.rotation_z -= ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
@@ -219,7 +230,7 @@ void MainWindow::UpdateWidget() {
   if (gl_widget_) gl_widget_->update();
 }
 
-void MainWindow::SetSliders() {
+void MainWindow::SetSliders() noexcept {
   ui_->scale_slider->setSliderPosition(settings_.scale * 100);
   ui_->line_thicc->setSliderPosition(settings_.line_width * 100);
   ui_->vertex_thicc->setSliderPosition(settings_.point_size * 100);
@@ -254,18 +265,35 @@ void MainWindow::SetShaderMenu() {
           [this]() { shader_menu_.exec(QCursor::pos()); });
 }
 
-void MainWindow::MakeScreenshot(int mode) {
-  QPixmap pixmap = gl_widget_->grab();
-  QImage image = pixmap.toImage();
+void MainWindow::MakeScreenshot(enum ScreenShotMode mode) {
   QDir dir = QDir::homePath();
-  image.save(dir.absolutePath() + "/Desktop/viewer/screenshot_" +
-             QString::number(screenshotcounter++) +
-             (mode == 2 ? ".jpeg" : ".bmp"));
+  gl_widget_->grab().toImage().save(dir.absolutePath() +
+                                    "/Desktop/viewer/screenshot_" +
+                                    QString::number(screenshotcounter_++) +
+                                    (mode == kJpeg ? ".jpeg" : ".bmp"));
 }
 
-void MainWindow::MakeGif()
-{
+void MainWindow::MakeGif() {
+  connect(&timer_, &QTimer::timeout, this, [&, this]() {
+    if (image_.size() >= 50) {
+      timer_.stop();
+      std::thread t2([this]() { CompileAndSaveGif(); });
+      t2.detach();
+    } else
+      image_.push_back(gl_widget_->grab().toImage().scaled(
+          640, 480, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+  });
+  timer_.start(100);
+}
 
+void MainWindow::CompileAndSaveGif() {
+  QGifImage jiff;
+  jiff.setDefaultDelay(100);
+  QDir dir = QDir::homePath();
+  for (const auto &v : image_) jiff.addFrame(v);
+  jiff.save(dir.absolutePath() + "/Desktop/viewer/output.gif");
+  image_.clear();
+  ui_->gif->setEnabled(true);
 }
 
 void MainWindow::CreateOpenGLContext() {
@@ -275,4 +303,3 @@ void MainWindow::CreateOpenGLContext() {
   window_surface.setProfile(QSurfaceFormat::CoreProfile);
   QSurfaceFormat::setDefaultFormat(window_surface);
 }
-// TODO Multithreading, sliders read settings
