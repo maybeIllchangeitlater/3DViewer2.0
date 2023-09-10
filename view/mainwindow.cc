@@ -108,53 +108,44 @@ void MainWindow::closeEvent(QCloseEvent *event) {
 }
 
 void MainWindow::ConnectToLambdas() {
-  connect(
-      ui_->line_thicc, &QSlider::valueChanged, this, [this](int w) {
-        settings_.line_width = static_cast<float>(w) / 100.0f;
-        UpdateWidget();
-      });
-  connect(
-      ui_->vertex_thicc, &QSlider::valueChanged, this, [this](int w) {
-        settings_.point_size = static_cast<float>(w) / 100.0f;
-        UpdateWidget();
-      });
-  connect(ui_->scale_slider, &QSlider::valueChanged, this,
-                             [this](int w) {
-                               settings_.scale = static_cast<float>(w) / 100.0f;
-                               UpdateWidget();
-                             });
-  connect(ui_->show_lines, &QCheckBox::toggled, this,
-                           [this](bool b) {
-                             settings_.lines_shown = b;
-                             UpdateWidget();
-                           });
-  connect(ui_->show_vertexes, &QCheckBox::toggled, this,
-                              [this](bool b) {
-                                settings_.vertexes_shown = b;
-                                UpdateWidget();
-                              });
-  connect(ui_->broken_lines, &QCheckBox::toggled, this,
-                             [this](bool b) {
-                               settings_.broken_lines = b;
-                               UpdateWidget();
-                             });
-  connect(ui_->smooth_vertexes, &QCheckBox::toggled, this,
-                                [this](bool b) {
-                                  settings_.smooth_vertexes = b;
-                                  UpdateWidget();
-                                });
-  connect(ui_->takeBmp, &QPushButton::clicked, this,
-                        [this](bool) {
-                          if (gl_widget_) {
-                            MakeScreenshot(kBMP);
-                          }
-                        });
-  connect(ui_->takeJpeg, &QPushButton::clicked, this,
-                         [this](bool) {
-                           if (gl_widget_) {
-                             MakeScreenshot(kJpeg);
-                           }
-                         });
+  connect(ui_->line_thicc, &QSlider::valueChanged, this, [this](int w) {
+    settings_.line_width = static_cast<float>(w) / 100.0f;
+    UpdateWidget();
+  });
+  connect(ui_->vertex_thicc, &QSlider::valueChanged, this, [this](int w) {
+    settings_.point_size = static_cast<float>(w) / 100.0f;
+    UpdateWidget();
+  });
+  connect(ui_->scale_slider, &QSlider::valueChanged, this, [this](int w) {
+    settings_.scale = static_cast<float>(w) / 100.0f;
+    UpdateWidget();
+  });
+  connect(ui_->show_lines, &QCheckBox::toggled, this, [this](bool b) {
+    settings_.lines_shown = b;
+    UpdateWidget();
+  });
+  connect(ui_->show_vertexes, &QCheckBox::toggled, this, [this](bool b) {
+    settings_.vertexes_shown = b;
+    UpdateWidget();
+  });
+  connect(ui_->broken_lines, &QCheckBox::toggled, this, [this](bool b) {
+    settings_.broken_lines = b;
+    UpdateWidget();
+  });
+  connect(ui_->smooth_vertexes, &QCheckBox::toggled, this, [this](bool b) {
+    settings_.smooth_vertexes = b;
+    UpdateWidget();
+  });
+  connect(ui_->takeBmp, &QPushButton::clicked, this, [this](bool) {
+    if (gl_widget_) {
+      MakeScreenshot(kBMP);
+    }
+  });
+  connect(ui_->takeJpeg, &QPushButton::clicked, this, [this](bool) {
+    if (gl_widget_) {
+      MakeScreenshot(kJpeg);
+    }
+  });
   connect(ui_->gif, &QPushButton::clicked, this, [this](bool) {
     if (gl_widget_) {
       ui_->gif->setEnabled(false);
@@ -187,16 +178,14 @@ void MainWindow::ConnectTranslateToLambdas() {
     settings_.translation_x += ui_->translateBy->text().toFloat();
     UpdateWidget();
   });
-  connect(
-      ui_->mForward, &QPushButton::clicked, this, [this](bool) {
-        settings_.translation_z -= ui_->translateBy->text().toFloat();
-        UpdateWidget();
-      });
-  connect(
-      ui_->mBackward, &QPushButton::clicked, this, [this](bool) {
-        settings_.translation_z += ui_->translateBy->text().toFloat();
-        UpdateWidget();
-      });
+  connect(ui_->mForward, &QPushButton::clicked, this, [this](bool) {
+    settings_.translation_z -= ui_->translateBy->text().toFloat();
+    UpdateWidget();
+  });
+  connect(ui_->mBackward, &QPushButton::clicked, this, [this](bool) {
+    settings_.translation_z += ui_->translateBy->text().toFloat();
+    UpdateWidget();
+  });
 }
 
 void MainWindow::ConnectRotateToLambdas() {

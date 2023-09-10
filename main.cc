@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]) {
   s21::ObjParser p;
   s21::GPUTransformation t;
-//  s21::CPUTransformation t;
+  //  s21::CPUTransformation t;
   s21::Controller c(p, &t);
   QApplication a(argc, argv);
   MainWindow w(c);

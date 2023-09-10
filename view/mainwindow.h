@@ -34,16 +34,17 @@ class MainWindow final : public QMainWindow {
 
  public:
   explicit MainWindow(s21::Controller &controller, QWidget *parent = nullptr);
-    /**
-     * @brief Frontend things
-     */
+  /**
+   * @brief Frontend things
+   */
   void LoadStyle();
   ~MainWindow();
 
  private:
   enum ScreenShotMode { kJpeg, kBMP };
   /**
-   * @brief Creates "modern" opengl context to allow use of geometry shader and non-depricated openglfunctions
+   * @brief Creates "modern" opengl context to allow use of geometry shader and
+   * non-depricated openglfunctions
    */
   void CreateOpenGLContext();
   /**
@@ -63,7 +64,8 @@ class MainWindow final : public QMainWindow {
    */
   void UpdateWidget();
   /**
-   * @brief sets slider to saved versions or sets them to default if no saves are found
+   * @brief sets slider to saved versions or sets them to default if no saves
+   * are found
    */
   void SetSliders() noexcept;
   /**
@@ -93,7 +95,8 @@ class MainWindow final : public QMainWindow {
    */
   void closeEvent(QCloseEvent *event) override;
   /**
-   * @brief upon recieving signal from controller updates opengl widget or returns error
+   * @brief upon recieving signal from controller updates opengl widget or
+   * returns error
    */
   void UpdateView(bool correct_file);
   void ChangeBackgroundColor();
@@ -103,4 +106,4 @@ class MainWindow final : public QMainWindow {
   void MakeGif();
 };
 
-#endif  //CPP4_3DVIEWER_V2_0_VIEW_MAINWINDOW_H_
+#endif  // CPP4_3DVIEWER_V2_0_VIEW_MAINWINDOW_H_
