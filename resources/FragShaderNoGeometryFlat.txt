@@ -1,0 +1,30 @@
+#version 410 core
+#ifdef GL_KHR_blend_equation_advanced
+#extension GL_ARB_fragment_coord_conventions : enable
+#extension GL_KHR_blend_equation_advanced : enable
+#endif
+#define lowp
+#define mediump
+#define highp
+#line 1
+
+in vec3 fragNormal;
+
+uniform vec4 lineColor;
+
+out vec4 finalColor;
+
+void main()
+{
+    // Ensure the normal is normalized
+    vec3 normal = normalize(fragNormal);
+
+    // Use a fixed light direction (you may want to pass this as a uniform)
+    vec3 lightDirection = normalize(vec3(1.0, 1.0, 1.0));
+
+    // Calculate the diffuse reflection
+    float diffuse = max(dot(normal, lightDirection), 0.0);
+
+    // Combine the diffuse reflection with the line color
+    finalColor = vec4(lineColor.rgb * diffuse, lineColor.a);
+}

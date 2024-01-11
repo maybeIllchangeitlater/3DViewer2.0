@@ -38,14 +38,18 @@ void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
 }
 
 void OpenGLWidget::AddShaders() {
-  shader_version_ = shader_factory_.create(settings_.shader_version);
-  shader_programm_.addShaderFromSourceFile(
-      QOpenGLShader::Vertex,
-      shader_version_->GetVertexShader(controller_.GetVertexShaderVersion()));
-  shader_programm_.addShaderFromSourceFile(
-      QOpenGLShader::Geometry, shader_version_->GetGeometryShader());
-  shader_programm_.addShaderFromSourceFile(
-      QOpenGLShader::Fragment, shader_version_->GetFragmentShader());
+//  shader_version_ = shader_factory_.create(settings_.shader_version);
+//  shader_programm_.addShaderFromSourceFile(
+//      QOpenGLShader::Vertex,
+//      shader_version_->GetVertexShader(controller_.GetVertexShaderVersion()));
+//  shader_programm_.addShaderFromSourceFile(
+//      QOpenGLShader::Geometry, shader_version_->GetGeometryShader());
+//  shader_programm_.addShaderFromSourceFile(
+//      QOpenGLShader::Fragment, shader_version_->GetFragmentShader());
+
+    /////testing flat
+    shader_programm_.addCacheableShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShaderFlat.txt");
+    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderNoGeometryFlat.txt");
 }
 
 void OpenGLWidget::ChangePerspective() {
