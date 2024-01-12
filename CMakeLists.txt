@@ -25,8 +25,6 @@ set(PROJECT_SOURCES
         model/Affines/TransformationStrategy.h
         model/Affines/GPUTransformation.h
         model/Affines/GPUTransformation.cc
-        model/Affines/CPUTransformation.h
-        model/Affines/CPUTransformation.cc
         controller/controller.h
         controller/controller.cc
         view/mainwindow.h

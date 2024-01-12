@@ -51,9 +51,12 @@ void OpenGLWidget::AddShaders() {
 //    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderNoGeometryFlat.txt");
 //    shader_programm_.addCacheableShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShaderFlat.txt");
 
-    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderPointsOnly.txt");
-    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt");
-    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShaderPointsOnly.txt");
+//    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderPointsOnly.txt");
+//    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt");
+//    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShaderPointsOnly.txt");
+    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShader.txt");
+            shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt");
+            shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShader.txt");
 }
 
 void OpenGLWidget::ChangePerspective() {
@@ -85,8 +88,8 @@ void OpenGLWidget::initializeGL() {
 
   vbo_.create();
   vbo_.bind();
-  vbo_.allocate(controller_.GetVertexCopyConstRef().data(),
-                controller_.GetVertexCopyConstRef().size() * sizeof(GLfloat));
+  vbo_.allocate(controller_.GetVertexDataConstRef().data(),
+                controller_.GetVertexDataConstRef().size() * sizeof(GLfloat));
   vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
 
   ibo_.create();
@@ -100,7 +103,7 @@ void OpenGLWidget::initializeGL() {
 
   int vertex_location = shader_programm_.attributeLocation("position");
   shader_programm_.enableAttributeArray(vertex_location);
-  shader_programm_.setAttributeBuffer(vertex_location, GL_FLOAT, 0, 3);
+  shader_programm_.setAttributeBuffer(vertex_location, GL_FLOAT, 0, 3, sizeof(GLfloat) * 8);
 
   vbo_.release();
   vao_.release();
@@ -121,6 +124,8 @@ void OpenGLWidget::paintGL() {
   glClearColor(settings_.back_color.redF(), settings_.back_color.greenF(),
                settings_.back_color.blueF(), settings_.back_color.alphaF());
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
   shader_programm_.bind();
   shader_programm_.setUniformValue("projectionMatrix", projection_matrix_);
   controller_.MoveModel(model_view_matrix_, settings_);
@@ -138,13 +143,13 @@ void OpenGLWidget::paintGL() {
   vao_.bind();
   ibo_.bind();
 
-  if (controller_.GetVertexShaderVersion() == 2) {
-    vbo_.bind();
-    vbo_.allocate(controller_.GetVertexCopyConstRef().data(),
-                  controller_.GetVertexCopyConstRef().size() * sizeof(GLfloat));
-    vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
-    vbo_.release();
-  }
+//  if (controller_.GetVertexShaderVersion() == 2) {
+//    vbo_.bind();
+//    vbo_.allocate(controller_.GetVertexCopyConstRef().data(),
+//                  controller_.GetVertexCopyConstRef().size() * sizeof(GLfloat));
+//    vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
+//    vbo_.release();
+//  }
 
   glDrawElements(GL_LINES, controller_.GetFaceConstRef().size(),
                  GL_UNSIGNED_INT, nullptr);

@@ -3,7 +3,7 @@
 #include <QOpenGLFunctions>
 #include <thread>
 
-#include "../model/Affines/CPUTransformation.h"
+//#include "../model/Affines/CPUTransformation.h"
 #include "../model/Affines/GPUTransformation.h"
 #include "../model/Affines/TransformationStrategy.h"
 #include "../model/parser.h"
@@ -26,7 +26,7 @@ class Controller : public QObject {
   const QVector<unsigned int>& GetFaceConstRef() const noexcept {
     return face_;
   }
-  const QVector<VerticeData>& GetVerticesCopyConstRef() const noexcept {
+  const QVector<float>& GetVertexDataConstRef() const noexcept {
     return vertex_;
   }
   constexpr const int GetVertexShaderVersion() const noexcept {
@@ -51,8 +51,8 @@ class Controller : public QObject {
  private:
   ObjParser& parser_;
   TransformationStrategy* transformer_;
-  QVector<VerticeData> vertex_;
-  QVector<VerticeData> vertex_copy_;
+  QVector<float> vertex_;
+  QVector<float> vertex_copy_;
   QVector<unsigned int> face_;
 };
 }  // namespace s21

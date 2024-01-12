@@ -9,7 +9,7 @@ class TransformationStrategy {
  public:
   TransformationStrategy() = default;
   virtual ~TransformationStrategy() = default;
-  virtual void MoveModel(QMatrix4x4& matrix, QVector<VerticeData>& vertex,
+  virtual void MoveModel(QMatrix4x4& matrix, QVector<float>& vertex,
                          const Settings& settings) const = 0;
   /**
    * @brief GetVertexShader
@@ -18,11 +18,11 @@ class TransformationStrategy {
   virtual int GetShaderVersion() const noexcept = 0;
 
  protected:
-  virtual void ApplyTranslation(QMatrix4x4& matrix, QVector<VerticeData>& vertex,
+  virtual void ApplyTranslation(QMatrix4x4& matrix, QVector<float>& vertex,
                                 float x, float y, float z) const = 0;
-  virtual void ApplyScaling(QMatrix4x4& matrix, QVector<VerticeData>& vertex,
+  virtual void ApplyScaling(QMatrix4x4& matrix, QVector<float>& vertex,
                             float scale) const = 0;
-  virtual void ApplyRotation(QMatrix4x4& matrix, QVector<VerticeData>& vertex,
+  virtual void ApplyRotation(QMatrix4x4& matrix, QVector<float>& vertex,
                              float x, float y, float z) const = 0;
 };
 }  // namespace s21

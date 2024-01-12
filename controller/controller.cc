@@ -17,9 +17,9 @@ void Controller::MoveModel(QMatrix4x4 &matrix, const Settings &settings) {
 }
 
 void Controller::Update(bool good_file) {
-  vertex_ = parser_.GetVerticesDataConstRef();
+  vertex_ = std::move(parser_.GetVertexDataRef());
   vertex_copy_ = vertex_;
-  face_ = parser_.GetFaceConstRef();
+  face_ = std::move(parser_.GetIndicesRef());
   emit ParseOver(good_file);
 }
 }  // namespace s21

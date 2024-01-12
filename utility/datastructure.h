@@ -5,9 +5,16 @@
 #include <stdexcept>
 
 namespace s21{
-    struct Vertex{
+    struct Texture{
         float x;
         float y;
+        float& operator[](size_t index){
+            if(index == 0) return x;
+            if(index == 1) return y;
+            throw std::out_of_range("out of structure bounds");
+        }
+    };
+    struct Vertex : public Texture{
         float z;
         float& operator[](size_t index){
             if(index == 0) return x;
@@ -21,13 +28,8 @@ namespace s21{
             z *= num;
         }
     };
-    struct Normal : public Vertex{
-    };
+    using Normal = Vertex;
 
-    struct VerticeData{
-        Vertex vertex;
-        Normal normal;
-    };
 } //s21
 
 #endif //CPP4_3DVIEWER_V_2_1_UTILITY_DATASTRUCTURE_H

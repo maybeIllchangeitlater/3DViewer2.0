@@ -9,16 +9,16 @@ class GPUTransformation final : public TransformationStrategy,
  public:
   GPUTransformation() = default;
   ~GPUTransformation() override{};
-  void MoveModel(QMatrix4x4& matrix, QVector<VerticeData>& vertex,
+  void MoveModel(QMatrix4x4& matrix, QVector<float>& vertex,
                  const Settings& settings) const override;
   int GetShaderVersion() const noexcept override { return 1; };
 
  protected:
-  void ApplyTranslation(QMatrix4x4& matrix, QVector<VerticeData>& vertex, float x,
+  void ApplyTranslation(QMatrix4x4& matrix, QVector<float>& vertex, float x,
                         float y, float z) const override;
-  void ApplyScaling(QMatrix4x4& matrix, QVector<VerticeData>& vertex,
+  void ApplyScaling(QMatrix4x4& matrix, QVector<float>& vertex,
                     float scale) const override;
-  void ApplyRotation(QMatrix4x4& matrix, QVector<VerticeData>& vertex, float x,
+  void ApplyRotation(QMatrix4x4& matrix, QVector<float>& vertex, float x,
                      float y, float z) const override;
 };
 }  // namespace s21

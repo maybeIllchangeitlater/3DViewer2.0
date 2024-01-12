@@ -5,10 +5,7 @@
 namespace s21 {
 
 void s21::ObjParser::ParseFile() {
-  vertices_data_.clear();
-  tmp_normal_.clear();
-  tmp_face_vertex_.clear();
-  tmp_face_normal_.clear();
+  Clear();
 
   QFile file(filename_);
   if (!file.exists() || !file.open(QIODevice::ReadOnly)) {
@@ -17,115 +14,116 @@ void s21::ObjParser::ParseFile() {
     return;
   }
 
+  AddZeros();
+
   while (!file.atEnd()) {
-    auto data(file.readLine());
+    QByteArray data(file.readLine());
     if (data[0] == 'v' && data[1] == ' ') {
-        vertices_data_.emplaceBack();
-      if (!PushPoint(data, vertices_data_.back().vertex)) {
-        file.close();
-        emit ParseOver(false);
-        return;
-      }
-    } else if (data[0] == 'f' && data[1] == ' ') {
-      if (!PushFace(data)) {
+      if (PushPoint(data, tmp_vertex_) != 3) {
         file.close();
         emit ParseOver(false);
         return;
       }
     } else if (data[0] == 'v' && data[1] == 'n'){
-        tmp_normal_.emplaceBack();
-        if(!PushPoint(data, tmp_normal_.back())){
+        if(PushPoint(data, tmp_normal_) != 3){
             file.close();
             emit ParseOver(false);
             return;
         }
+    } else if(data[0] == 'v' && data[1] == 't'){
+        if(PushPoint(data, tmp_texture_) != 2){
+            file.close();
+            emit ParseOver(false);
+            return;
+        }
+    }else if (data[0] == 'f' && data[1] == ' ') {
+      if (!ParseFace(data)) {
+        file.close();
+        emit ParseOver(false);
+        return;
+      }
     }
   }
+
   file.close();
-  if(tmp_face_normal_.size() != tmp_face_vertex_.size()){
-      emit ParseOver(false);
-      return;
+
+  for (int i = 0; i < data_.size() / 8; ++i) {
+      indices_.emplaceBack(i);
   }
-  CombineData();
+
   ChangeFilename();
-  *(std::max_element(tmp_face_vertex_.begin(), tmp_face_vertex_.end())) >
-          (vertices_data_.size() / 3 - 1)
-      ? emit ParseOver(false)
-      : emit ParseOver(true);
   emit ParseOver(true);
 }
 
 template<typename Coordinatable>
-bool ObjParser::PushPoint(QByteArray &data, Coordinatable &target) {
+size_t ObjParser::PushPoint(QByteArray &data, Coordinatable &target) {
+  target.emplaceBack();
   auto cstr = data.data();
   size_t size = 0, sizeline_counter = 0;
   while (*cstr != EOF && *cstr != '\n') {
-    while (
-        !(std::isdigit(*cstr) || *cstr == '.' || *cstr == '-' || *cstr == '+'))
-      ++cstr;
-    while (std::isdigit(*(cstr + size)) || *(cstr + size) == '.' ||
-           *(cstr + size) == '-' || *(cstr + size) == '+')
-      ++size;
-    target[sizeline_counter] = std::stof(cstr);
+      while (!(IsNumber(*cstr))){
+          ++cstr;
+      }
+      while (IsNumber(*(cstr + size))){
+          ++size;
+      }
+
+      try{
+          target.back()[sizeline_counter] = std::stof(cstr);
+      }catch(...){
+          return SIZE_MAX;
+      }
+
     cstr += size;
     size = 0;
     ++sizeline_counter;
   }
-  return sizeline_counter == 3;
+  return sizeline_counter;
 }
 
-bool ObjParser::PushFace(QByteArray &data) {
-  size_t i = 0;
-  auto cstr = data.data();
-  size_t n = data.size();
+bool ObjParser::ParseFace(QByteArray &data) {
+    auto cstr = data.data();
+    size_t data_size = data.size();
+    size_t index = 0;
 
-  SkipUntilNextDigit(i, n, cstr);
-  if (*cstr == '\n') return false;
-  int first_vert = std::stoi(cstr) - 1;
-  tmp_face_vertex_.push_back(first_vert);
+    while(*cstr != EOF && *cstr != '\n'){
+        SkipUntilNextDigit(index, data_size, cstr);
+        if(index >= data_size || !ToVerticeData(cstr, tmp_vertex_)){
+            return false;
+        }
 
-  SkipUntilNextFace(i, n, cstr);
-  if (*cstr == '\n') return false;
-  int first_texture = std::stoi(cstr) - 1;
-  tmp_face_texture_.push_back(first_texture);
+        SkipUntilNextFace(index, data_size, cstr);
+        if(index >= data_size || !ToVerticeData(cstr, tmp_texture_)){
+            return false;
+        }
 
-  SkipUntilNextFace(i, n, cstr);
-  if (*cstr == '\n') return false;
-  int first_normal = std::stoi(cstr) - 1;
-  tmp_face_normal_.push_back(first_normal);
-
-  SkipUntilNextDigit(i, n, cstr);
-  int face;
-  while (i < n) {
-    face = std::stoi(cstr) - 1;
-    tmp_face_vertex_.push_back(face);
-    tmp_face_vertex_.push_back(face);
-    SkipUntilNextFace(i, n, cstr);
-
-    face = std::stoi(cstr) - 1;
-    tmp_face_texture_.push_back(face);
-    tmp_face_texture_.push_back(face);
-    SkipUntilNextFace(i, n, cstr);
-
-    face = std::stoi(cstr) - 1;
-    tmp_face_normal_.push_back(face);
-    tmp_face_normal_.push_back(face);
-    SkipUntilNextDigit(i, n, cstr);
-  }
-  tmp_face_vertex_.push_back(first_vert);
-  tmp_face_texture_.push_back(first_texture);
-  tmp_face_normal_.push_back(first_normal);
-  return true;
-}
-
-void ObjParser::CombineData()
-{
-    for(size_t i = 0; i < tmp_face_normal_.size(); ++i){
-        vertices_data_[tmp_face_vertex_[i]].normal = std::move(tmp_normal_[tmp_face_normal_[i]]);
+        SkipUntilNextFace(index, data_size, cstr);
+        if(index >= data_size || !ToVerticeData(cstr, tmp_normal_)){
+            return false;
+        }
     }
+
+    return true;
 }
 
-void ObjParser::SkipUntilNextDigit(size_t &index, size_t data_size, char *data)
+void ObjParser::AddZeros()
+{
+    tmp_vertex_.push_back({0,0,0});
+    tmp_texture_.push_back({0,0});
+    tmp_normal_.push_back({0,0,0});
+}
+
+void ObjParser::Clear()
+{
+    data_.clear();
+    indices_.clear();
+    tmp_vertex_.clear();
+    tmp_texture_.clear();
+    tmp_normal_.clear();
+}
+
+
+void ObjParser::SkipUntilNextDigit(size_t &index, size_t data_size, char *&data)
 {
     while (index < data_size && !std::isspace(*data)) {
       ++data;
@@ -137,19 +135,52 @@ void ObjParser::SkipUntilNextDigit(size_t &index, size_t data_size, char *data)
     }
 }
 
-void ObjParser::SkipUntilNextFace(size_t &index, size_t data_size, char *data)
+void ObjParser::SkipUntilNextFace(size_t &index, size_t data_size, char *&data)
 {
     while (index < data_size && *data != '/'){
         ++data;
         ++index;
     }
+    ++data;
+    ++index;
+}
+
+bool ObjParser::IsNumber(char c)
+{
+    return std::isdigit(c) || c == '.' || c == '-' || c == '+';
 }
 
 
 
 void ObjParser::ChangeFilename() noexcept {
   filename_ = filename_.mid(filename_.lastIndexOf("/") + 1).chopped(4) + "\n" +
-              "Vertexes: " + QString::number(vertices_data_.size() / 3) +
-              " Edges: " + QString::number(tmp_face_vertex_.size() / 2);
+              "Vertexes: " + QString::number(tmp_vertex_.size() / 3) +
+          " Edges: " + QString::number(indices_.size() / 2);
 }
+
+template<typename Coordinatable>
+bool ObjParser::ToVerticeData(char *&data, Coordinatable &from)
+{
+    short size = 0;
+    while(IsNumber(*(data + size))){
+        ++size;
+    }
+    int ind = std::stoi(data);
+    data += size;
+    size = 0;
+    if(ind >= from.size()){
+        return false;
+    }
+    if(ind < 0) {
+        ind += from.size();
+    };
+    data_.emplaceBack(from[ind].x);
+    data_.emplaceBack(from[ind].y);
+
+    if constexpr(std::is_same_v<Coordinatable, QVector<Vertex>>){
+        data_.emplaceBack(from[ind].z);
+    }
+    return true;
+}
+
 }  // namespace s21
