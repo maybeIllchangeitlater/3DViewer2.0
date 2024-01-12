@@ -8,6 +8,7 @@
 #include "../model/Affines/TransformationStrategy.h"
 #include "../model/parser.h"
 #include "../view/settings.h"
+#include "../utility/datastructure.h"
 
 namespace s21 {
 class Controller : public QObject {
@@ -25,7 +26,7 @@ class Controller : public QObject {
   const QVector<unsigned int>& GetFaceConstRef() const noexcept {
     return face_;
   }
-  const QVector<float>& GetVertexCopyConstRef() const noexcept {
+  const QVector<VerticeData>& GetVerticesCopyConstRef() const noexcept {
     return vertex_;
   }
   constexpr const int GetVertexShaderVersion() const noexcept {
@@ -45,14 +46,14 @@ class Controller : public QObject {
    * @brief recieves signal from parsing thread, updates vertexes and facets
    * @param true - parse success, false - parse fail
    */
-  void Update(bool) noexcept;
+  void Update(bool);
 
  private:
   ObjParser& parser_;
   TransformationStrategy* transformer_;
-  QVector<float> vertex_;
+  QVector<VerticeData> vertex_;
+  QVector<VerticeData> vertex_copy_;
   QVector<unsigned int> face_;
-  QVector<float> vertex_copy_;
 };
 }  // namespace s21
 #endif  // CPP4_3DVIEWER_V2_0_CONTROLLER_CONTROLLER_H_

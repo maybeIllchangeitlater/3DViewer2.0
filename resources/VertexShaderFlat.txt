@@ -1,15 +1,15 @@
 #version 410 core
 
 in vec3 position;
+in vec3 normal;
+
+out vec3 fragNormal;
 
 uniform mat4 projectionMatrix;
 uniform mat4 modelViewMatrix;
 
-out vec3 fragNormal;
-
 void main()
 {
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    fragNormal = mat3(transpose(inverse(modelViewMatrix))) * normalize(position);
-
+    fragNormal = mat3(transpose(inverse(modelViewMatrix))) * normalize(normal);
 }

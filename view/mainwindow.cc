@@ -36,9 +36,6 @@ MainWindow::MainWindow(s21::Controller &controller, QWidget *parent)
 }
 
 MainWindow::~MainWindow() {
-  if (gl_widget_) {
-    delete gl_widget_;
-  }
   delete ui_;
 }
 
@@ -65,14 +62,13 @@ void MainWindow::BrowseModel() {
 }
 
 void MainWindow::UpdateView(bool correct_file) {
-  if (gl_widget_) {
-    ui_->viewer_layout->removeWidget(gl_widget_);
-    delete gl_widget_;
-    gl_widget_ = nullptr;
+  if (gl_widget_.get()) {
+    ui_->viewer_layout->removeWidget(gl_widget_.get());
+    gl_widget_.reset();
   }
   if (correct_file) {
-    gl_widget_ = new OpenGLWidget(settings_, controller_, this);
-    ui_->viewer_layout->addWidget(gl_widget_);
+    gl_widget_ = std::make_unique<OpenGLWidget>(settings_, controller_, this);
+    ui_->viewer_layout->addWidget(gl_widget_.get());
     ui_->model_name->setText(controller_.GetFilename());
   } else
     ui_->model_name->setText("Not this time");

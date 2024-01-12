@@ -2,24 +2,24 @@
 namespace s21 {
 
 void CPUTransformation::ApplyTranslation(QMatrix4x4 &matrix,
-                                         QVector<float> &vertex, float x,
+                                         QVector<VerticeData> &vertex, float x,
                                          float y, float z) const {
   Q_UNUSED(matrix);
   for (auto b_it = vertex.begin(), e_it = vertex.end(); b_it != e_it;) {
-    *b_it++ += x;
-    *b_it++ += y;
-    *b_it++ += z;
+    b_it->vertex.x += x;
+    b_it->vertex.y += y;
+    b_it->vertex.z += z;
   }
 }
 
-void CPUTransformation::ApplyScaling(QMatrix4x4 &matrix, QVector<float> &vertex,
+void CPUTransformation::ApplyScaling(QMatrix4x4 &matrix, QVector<VerticeData> &vertex,
                                      float scale) const {
   Q_UNUSED(matrix);
-  for (auto &v : vertex) v *= scale;
+  for (auto &v : vertex) v.vertex *= scale;
 }
 
 void CPUTransformation::ApplyRotation(QMatrix4x4 &matrix,
-                                      QVector<float> &vertex, float x, float y,
+                                      QVector<VerticeData> &vertex, float x, float y,
                                       float z) const {
   Q_UNUSED(matrix);
   std::swap(x, y);

@@ -16,7 +16,6 @@ out vec4 finalColor;
 
 void main()
 {
-    // Ensure the normal is normalized
     vec3 normal = normalize(fragNormal);
 
     // Use a fixed light direction (you may want to pass this as a uniform)

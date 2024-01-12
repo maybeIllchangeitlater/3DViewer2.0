@@ -2,12 +2,14 @@
 #define CPP4_3DVIEWER_V2_0_MODEL_AFFINES_TRANSLATIONSTRATEGY_H_
 #include "../../view/settings.h"
 #include "QtGui/qmatrix4x4.h"
+#include "../../utility/datastructure.h"
+
 namespace s21 {
 class TransformationStrategy {
  public:
   TransformationStrategy() = default;
   virtual ~TransformationStrategy() = default;
-  virtual void MoveModel(QMatrix4x4& matrix, QVector<float>& vertex,
+  virtual void MoveModel(QMatrix4x4& matrix, QVector<VerticeData>& vertex,
                          const Settings& settings) const = 0;
   /**
    * @brief GetVertexShader
@@ -16,11 +18,11 @@ class TransformationStrategy {
   virtual int GetShaderVersion() const noexcept = 0;
 
  protected:
-  virtual void ApplyTranslation(QMatrix4x4& matrix, QVector<float>& vertex,
+  virtual void ApplyTranslation(QMatrix4x4& matrix, QVector<VerticeData>& vertex,
                                 float x, float y, float z) const = 0;
-  virtual void ApplyScaling(QMatrix4x4& matrix, QVector<float>& vertex,
+  virtual void ApplyScaling(QMatrix4x4& matrix, QVector<VerticeData>& vertex,
                             float scale) const = 0;
-  virtual void ApplyRotation(QMatrix4x4& matrix, QVector<float>& vertex,
+  virtual void ApplyRotation(QMatrix4x4& matrix, QVector<VerticeData>& vertex,
                              float x, float y, float z) const = 0;
 };
 }  // namespace s21

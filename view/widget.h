@@ -10,6 +10,7 @@
 #include <QTimer>
 #include <QVector3D>
 #include <QWidget>
+#include <memory>
 
 #include "../controller/controller.h"
 #include "settings.h"
@@ -57,7 +58,8 @@ class OpenGLWidget final : public QOpenGLWidget {
   GLuint index_buffer_;
   GLuint vertex_buffer_;
 
-  const s21::ShaderState* shader_version_ = nullptr;
+//  const s21::ShaderState* shader_version_ = nullptr;
+  std::unique_ptr<s21::ShaderState> shader_version_;
   s21::ShaderFactory shader_factory_;
 };
 

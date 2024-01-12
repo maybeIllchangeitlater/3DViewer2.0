@@ -58,6 +58,7 @@ set(PROJECT_SOURCES
         view/3rdParty/gifmaker/qgifimage.h
         view/3rdParty/gifmaker/quantize.c
         view/3rdParty/gifmaker/qgifimage.cpp
+        utility/datastructure.h
 
 )
 

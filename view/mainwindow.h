@@ -15,6 +15,7 @@
 #include <QSurface>
 #include <QTextStream>
 #include <thread>
+#include <memory>
 
 #include "../controller/controller.h"
 #include "view/3rdParty/gifmaker/gif_hash.h"
@@ -74,19 +75,19 @@ class MainWindow final : public QMainWindow {
   void SetShaderMenu();
   void CompileAndSaveGif();
 
-  OpenGLWidget *gl_widget_;
-  Ui::MainWindow *ui_;
-  s21::Controller &controller_;
   s21::Settings settings_;
-  int screenshotcounter_ = 0;
+  QMenu shader_menu_;
   QVector<QImage> image_;
-  QTimer timer_;
-
   QAction enable_uncustomizable_lines_;
   QAction enable_lines_;
   QAction enable_points_;
   QAction enable_everything_;
-  QMenu shader_menu_;
+  QTimer timer_;
+  std::unique_ptr<OpenGLWidget> gl_widget_;
+  Ui::MainWindow *ui_;
+  s21::Controller &controller_;
+  int screenshotcounter_ = 0;
+
 
  private slots:
   void BrowseModel();
