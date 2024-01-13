@@ -6,7 +6,10 @@
 #include <vector>
 
 namespace s21{
-    constexpr static const short OBJECT_PROPERTIES_COUNT = 8;
+    constexpr static short OBJECT_PROPERTIES_COUNT = 8;
+    constexpr static const short VERTEX_PROPERTIES_SIZE = 3;
+    constexpr static const short TEXTURE_PROPERTIES_SIZE = 2;
+    constexpr static const short NORMALE_PROPERTIES_SIZE = 3;
     struct Texture{
         float x;
         float y;

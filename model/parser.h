@@ -4,6 +4,8 @@
 #include <QDir>
 #include <cctype>
 #include <limits>
+#include <vector>
+#include "../utility/earcutting.h"
 #include "../utility/datastructure.h"
 
 namespace s21 {
@@ -41,31 +43,17 @@ class ObjParser : public QObject {
    */
   void AddZeros();
 
-  template<typename Coordinatable>
   /**
    * @brief Add point (vertex, texture or normal) from corresponding container to vertices data
    */
-  bool ToVerticeData(char *&data, QList<float> &polygon_raw, Coordinatable &from);
+  template<typename Coordinatable>
+  bool ToVerticeData(char *&data, Coordinatable &from);
 
   void Clear();
-  /**
-   * @brief triangulate polygon
-   */
-  void CutEars(QVector<float> &polygon_raw);
-  bool IsEar(QVector<float> &polygon_raw, QList<float>::Iterator &point);
-  void ClipMinimalAngle(QVector<float> &polygon_raw);
-  double CalculateAngle(QVector<float> &polygon_raw,
-                        QVector<float>::Iterator &point);
-  double CrossProduct(const std::pair<float, float> p1,
-                      const std::pair<float, float> p2,
-                      const std::pair<float, float> p3) const noexcept;
-  std::tuple<Vertex, Vertex, Vertex> GetPreviousCurrentNext(
-          QVector<float> &polygon_raw, QVector<float>::Iterator &point);
-
 
   void SkipUntilNextDigit(size_t &index, size_t data_size, char *&data);
   void SkipUntilNextFace(size_t &index, size_t data_size, char *&data);
-  bool IsNumber(char c);
+  static bool IsNumber(char c);
 
   void ChangeFilename() noexcept;
 
@@ -73,6 +61,7 @@ class ObjParser : public QObject {
   QVector<Vertex> tmp_vertex_;
   QVector<Normal> tmp_normal_;
 
+  EarCutting ear_cutter_;
   QVector<float> data_;
   QVector<unsigned int> indices_;
 
