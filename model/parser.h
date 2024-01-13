@@ -29,6 +29,12 @@ class ObjParser : public QObject {
   void ParseOver(bool);
 
  private:
+  enum FaceType{
+      VERTICE_ONLY,
+      VERTICES_NORMALES,
+      FULL,
+      UNKNOWN,
+  };
   /**
    * @brief Add point (vertex, texture or normal) from file to corresponding container
    */
@@ -53,7 +59,9 @@ class ObjParser : public QObject {
 
   void SkipUntilNextDigit(size_t &index, size_t data_size, char *&data);
   void SkipUntilNextFace(size_t &index, size_t data_size, char *&data);
+  void FigureOutFaceType(size_t data_size, char *data);
   static bool IsNumber(char c);
+  static bool LineOver(char c);
 
   void ChangeFilename() noexcept;
 
@@ -66,6 +74,7 @@ class ObjParser : public QObject {
   QVector<unsigned int> indices_;
 
   QString filename_;
+  FaceType face_type_ = UNKNOWN;
 };
 }  // namespace s21
 #endif  // CPP4_3DVIEWER_V2_0_MODEL_PARSER_H_

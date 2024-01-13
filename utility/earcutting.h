@@ -13,6 +13,7 @@ public:
     std::vector<float> CutEars();
     void Clear() { polygon_raw_.clear(); }
     std::vector<float> &GetPolygon() noexcept { return polygon_raw_; }
+    short &GetObjectPropertiesCount() noexcept { return object_properties_count; }
 private:
     bool IsEar(std::vector<float>::iterator &point);
     std::tuple<Vertex, Vertex, Vertex> GetPreviousCurrentNext(
@@ -30,7 +31,9 @@ private:
                                bool counterclockwise) const;
     void ClipMinimalAngle();
     double CalculateAngle(std::vector<float>::iterator &point) const;
+
     std::vector<float> polygon_raw_;
+    short object_properties_count = 8;
 };
 
 } // s21

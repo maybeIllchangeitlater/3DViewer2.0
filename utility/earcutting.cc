@@ -6,28 +6,28 @@ namespace s21 {
 std::vector<float> EarCutting::CutEars()
 {
     std::vector<float> triangled;
-    while(polygon_raw_.size() > 3 * OBJECT_PROPERTIES_COUNT){
+    while(polygon_raw_.size() > 3 * object_properties_count){
         bool ear_clipped = false;
-        for(auto iter = polygon_raw_.begin(); iter != polygon_raw_.end(); iter+=OBJECT_PROPERTIES_COUNT){
+        for(auto iter = polygon_raw_.begin(); iter != polygon_raw_.end(); iter+=object_properties_count){
             if(IsEar(iter)){
                 ear_clipped = true;
                 auto ear_iter = iter;
                 if(iter == polygon_raw_.begin()){
-                    auto previous = polygon_raw_.end() - OBJECT_PROPERTIES_COUNT;
-                    for(size_t i = 0; i < OBJECT_PROPERTIES_COUNT; ++i){
+                    auto previous = polygon_raw_.end() - object_properties_count;
+                    for(size_t i = 0; i < object_properties_count; ++i){
                         triangled.emplace_back(*previous++);
                     }
-                    for(size_t i = 0; i < OBJECT_PROPERTIES_COUNT * 2; ++i){
+                    for(size_t i = 0; i < object_properties_count * 2; ++i){
                         triangled.emplace_back(*iter++);
                     }
                 }else{
-                    if(iter == polygon_raw_.end() - OBJECT_PROPERTIES_COUNT){
-                        for(size_t i = 0; i < OBJECT_PROPERTIES_COUNT * 3; ++i){
+                    if(iter == polygon_raw_.end() - object_properties_count){
+                        for(size_t i = 0; i < object_properties_count * 3; ++i){
                             triangled.emplace_back(*iter++);
                         }
                     }
                 }
-                polygon_raw_.erase(ear_iter, ear_iter + OBJECT_PROPERTIES_COUNT);
+                polygon_raw_.erase(ear_iter, ear_iter + object_properties_count);
                 break;
             }
         }
@@ -35,7 +35,7 @@ std::vector<float> EarCutting::CutEars()
             ClipMinimalAngle();
         }
     }
-    if(polygon_raw_.size() == 3 * OBJECT_PROPERTIES_COUNT){
+    if(polygon_raw_.size() == 3 * object_properties_count){
         triangled.insert(triangled.end(), polygon_raw_.begin(), polygon_raw_.end());
     }
     return triangled;
@@ -49,14 +49,14 @@ bool EarCutting::IsEar(std::vector<float>::iterator &point)
             VerticesPositionedCounterClockWise(previous, current, next);
 
     auto previous_iter = point == polygon_raw_.begin()
-            ? polygon_raw_.end() - OBJECT_PROPERTIES_COUNT
-            : point - OBJECT_PROPERTIES_COUNT;
+            ? polygon_raw_.end() - object_properties_count
+            : point - object_properties_count;
     auto next_iter = point == polygon_raw_.end() - 1
             ? polygon_raw_.begin()
-            : point + OBJECT_PROPERTIES_COUNT;
+            : point + object_properties_count;
 
     // Check that there are no other vertices inside the triangle
-    for (auto iter = polygon_raw_.begin(); iter != polygon_raw_.end(); iter+=OBJECT_PROPERTIES_COUNT) {
+    for (auto iter = polygon_raw_.begin(); iter != polygon_raw_.end(); iter+=object_properties_count) {
         if (iter != point && iter != previous_iter && iter != next_iter) {
             Vertex p{*iter, *(iter + 1), *(iter + 2)};
             if(PointIsInsideTriangle(p, previous, current, next, counterclockwise)){
@@ -74,18 +74,18 @@ std::tuple<Vertex, Vertex, Vertex> EarCutting::
     Vertex previous;
     Vertex next;
     if(point != polygon_raw_.begin()){
-        previous = {*(point - OBJECT_PROPERTIES_COUNT),
-                        *(point - OBJECT_PROPERTIES_COUNT + 1),
-                    *(point - OBJECT_PROPERTIES_COUNT + 2)};
+        previous = {*(point - object_properties_count),
+                        *(point - object_properties_count + 1),
+                    *(point - object_properties_count + 2)};
     }else{
-        previous = {*(polygon_raw_.end() - OBJECT_PROPERTIES_COUNT),
-                    *(polygon_raw_.end() - OBJECT_PROPERTIES_COUNT + 1),
-                    *(polygon_raw_.end() - OBJECT_PROPERTIES_COUNT + 2)};
+        previous = {*(polygon_raw_.end() - object_properties_count),
+                    *(polygon_raw_.end() - object_properties_count + 1),
+                    *(polygon_raw_.end() - object_properties_count + 2)};
     }
-    if(point != polygon_raw_.end() - OBJECT_PROPERTIES_COUNT){
-            next = {*(point + OBJECT_PROPERTIES_COUNT),
-                            *(point + OBJECT_PROPERTIES_COUNT + 1),
-                    *(point + OBJECT_PROPERTIES_COUNT + 2)};
+    if(point != polygon_raw_.end() - object_properties_count){
+            next = {*(point + object_properties_count),
+                            *(point + object_properties_count + 1),
+                    *(point + object_properties_count + 2)};
         }else{
             next = {*(polygon_raw_.begin()),
                         *(polygon_raw_.begin() + 1),
@@ -150,7 +150,7 @@ void EarCutting::ClipMinimalAngle()
     double current_angle;
     auto minimal_angle_iter = polygon_raw_.begin();
     for(auto iter = polygon_raw_.begin(); iter != polygon_raw_.end();
-        iter+=OBJECT_PROPERTIES_COUNT){
+        iter+=object_properties_count){
         current_angle = CalculateAngle(iter);
         if(minimal_angle > current_angle){
             minimal_angle = current_angle;
@@ -158,7 +158,7 @@ void EarCutting::ClipMinimalAngle()
         }
     }
     polygon_raw_.erase(minimal_angle_iter,
-                      minimal_angle_iter + OBJECT_PROPERTIES_COUNT);
+                      minimal_angle_iter + object_properties_count);
 }
 
 double EarCutting::CalculateAngle(std::vector<float>::iterator &point) const

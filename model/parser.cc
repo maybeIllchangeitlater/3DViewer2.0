@@ -47,7 +47,7 @@ void s21::ObjParser::ParseFile() {
 
   file.close();
 
-  for (int i = 0; i < data_.size() / OBJECT_PROPERTIES_COUNT; ++i) {
+  for (int i = 0; i < data_.size() / ear_cutter_.GetObjectPropertiesCount(); ++i) {
       indices_.emplaceBack(i);
   }
 
@@ -61,17 +61,16 @@ size_t ObjParser::PushPoint(QByteArray &data, Coordinatable &target) {
   auto cstr = data.data();
   size_t size = 0, sizeline_counter = 0;
 
-  while (*cstr != EOF && *cstr != '\n') {
-      while (!(IsNumber(*cstr))){
+  while (!LineOver(*cstr)) {
+      while (!(IsNumber(*cstr)) && !LineOver(*cstr)){
           ++cstr;
       }
       while (IsNumber(*(cstr + size))){
           ++size;
       }
-
-      try{
+      if(size){
           target.back()[sizeline_counter] = std::stof(cstr);
-      }catch(...){
+      }else{
           return SIZE_MAX;
       }
 
@@ -88,20 +87,28 @@ bool ObjParser::ParseFace(QByteArray &data) {
     size_t data_size = data.size();
     size_t index = 0;
 
-    while(*cstr != EOF && *cstr != '\n'){
+    if(face_type_ == UNKNOWN){
+        FigureOutFaceType(data_size, cstr);
+    }
+
+    while(!LineOver(*cstr)){
         SkipUntilNextDigit(index, data_size, cstr);
         if(index >= data_size || !ToVerticeData(cstr, tmp_vertex_)){
             return false;
         }
 
-        SkipUntilNextFace(index, data_size, cstr);
-        if(index >= data_size || !ToVerticeData(cstr, tmp_texture_)){
-            return false;
+        if(face_type_ == FULL){
+            SkipUntilNextFace(index, data_size, cstr);
+            if(index >= data_size || !ToVerticeData(cstr, tmp_texture_)){
+                return false;
+            }
         }
 
-        SkipUntilNextFace(index, data_size, cstr);
-        if(index >= data_size || !ToVerticeData(cstr, tmp_normal_)){
-            return false;
+        if(face_type_ != VERTICE_ONLY){
+            SkipUntilNextFace(index, data_size, cstr);
+            if(index >= data_size || !ToVerticeData(cstr, tmp_normal_)){
+                return false;
+            }
         }
     }
 
@@ -115,9 +122,9 @@ bool ObjParser::ParseFace(QByteArray &data) {
 
 void ObjParser::AddZeros()
 {
-    tmp_vertex_.push_back({0,0,0});
-    tmp_texture_.push_back({0,0});
-    tmp_normal_.push_back({0,0,0});
+    tmp_vertex_.emplaceBack();
+    tmp_texture_.emplaceBack();
+    tmp_normal_.emplaceBack();
 }
 
 void ObjParser::Clear()
@@ -144,18 +151,49 @@ void ObjParser::SkipUntilNextDigit(size_t &index, size_t data_size, char *&data)
 
 void ObjParser::SkipUntilNextFace(size_t &index, size_t data_size, char *&data)
 {
-    while (index < data_size && *data != '/'){
+    while (index < data_size && *data != '/' && !std::isspace(*data)){
+        ++data;
+        ++index;
+    };
+    while(*data == '/'){
         ++data;
         ++index;
     }
-    ++data;
-    ++index;
+}
+
+void s21::ObjParser::FigureOutFaceType(size_t data_size, char *data)
+{
+    short slash_counter = 0;
+    for(size_t i = 0; i < data_size; ++i){
+        if(*(data++) == '/'){
+            ++slash_counter;
+            if(*data == '/'){
+                ++slash_counter;
+            }
+            break;
+        }
+    }
+    face_type_ = !slash_counter
+            ? VERTICE_ONLY
+            : slash_counter == 1
+                ? FULL
+                : VERTICES_NORMALES;
+    ear_cutter_.GetObjectPropertiesCount() -= face_type_ == VERTICE_ONLY
+            ? (TEXTURE_PROPERTIES_SIZE + NORMALE_PROPERTIES_SIZE)
+            : face_type_ == VERTICES_NORMALES
+                ? TEXTURE_PROPERTIES_SIZE
+                : 0;
 }
 
  bool ObjParser::IsNumber(char c)
 {
-    return std::isdigit(c) || c == '.' || c == '-' || c == '+';
-}
+     return std::isdigit(c) || c == '.' || c == '-' || c == '+';
+ }
+
+ bool ObjParser::LineOver(char c)
+ {
+    return c == EOF || c == '\n';
+ }
 
 void ObjParser::ChangeFilename() noexcept {
   filename_ = filename_.mid(filename_.lastIndexOf("/") + 1).chopped(4) + "\n" +
