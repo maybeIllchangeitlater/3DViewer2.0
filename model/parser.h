@@ -3,6 +3,7 @@
 
 #include <QDir>
 #include <cctype>
+#include <limits>
 #include "../utility/datastructure.h"
 
 namespace s21 {
@@ -44,9 +45,18 @@ class ObjParser : public QObject {
   /**
    * @brief Add point (vertex, texture or normal) from corresponding container to vertices data
    */
-  bool ToVerticeData(char *&data, Coordinatable &from);
+  bool ToVerticeData(char *&data, QList<float> &polygon_raw, Coordinatable &from);
 
   void Clear();
+  /**
+   * @brief triangulate polygon
+   */
+  void CutEars(QVector<float> &polygon_raw);
+  bool IsEar(QVector<float> &polygon_raw, QList<float>::Iterator &point);
+  void ClipMinimalAngle(QVector<float> &polygon_raw);
+  double CalculateAngle(QVector<float> &polygon_raw, QVector<float>::Iterator &point);
+  double CrossProduct(Vertex &p1, Vertex &p2, Vertex &p3);
+  std::tuple<Vertex, Vertex, Vertex> GetPreviousCurrentNext(QVector<float> &polygon_raw, QVector<float>::Iterator &point);
 
 
   void SkipUntilNextDigit(size_t &index, size_t data_size, char *&data);

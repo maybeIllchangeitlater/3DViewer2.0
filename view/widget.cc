@@ -105,6 +105,10 @@ void OpenGLWidget::initializeGL() {
   shader_programm_.enableAttributeArray(vertex_location);
   shader_programm_.setAttributeBuffer(vertex_location, GL_FLOAT, 0, 3, sizeof(GLfloat) * 8);
 
+  int normal_location = shader_programm_.attributeLocation("normal");
+  shader_programm_.enableAttributeArray(normal_location);
+  shader_programm_.setAttributeBuffer(normal_location, GL_FLOAT, sizeof(GLfloat) * 3, 3, sizeof(GLfloat) * 8);
+
   vbo_.release();
   vao_.release();
   ibo_.release();

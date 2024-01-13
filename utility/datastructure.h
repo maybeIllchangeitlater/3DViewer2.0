@@ -3,8 +3,10 @@
 
 #include <cstddef>
 #include <stdexcept>
+#include <vector>
 
 namespace s21{
+    constexpr static const short OBJECT_PROPERTIES_COUNT = 8;
     struct Texture{
         float x;
         float y;

@@ -6,7 +6,6 @@
 #define lowp
 #define mediump
 #define highp
-#line 1
 
 in vec3 fragNormal;
 
