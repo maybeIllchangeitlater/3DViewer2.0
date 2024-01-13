@@ -157,18 +157,23 @@ void ObjParser::CutEars(QVector<float> &polygon_raw)
         }
     }
     if(polygon_raw.size() == 3 * OBJECT_PROPERTIES_COUNT){
-        triangled += std::move(polygon_raw);
+        triangled += polygon_raw;
     }
-    data_ += std::move(triangled);
+    data_ += triangled;
 }
 
 bool ObjParser::IsEar(QVector<float> &polygon_raw, QList<float>::Iterator &point)
 {
     auto [previous, current, next] = GetPreviousCurrentNext(polygon_raw, point);
-    // Check if the angle at the current vertex is concave
-    double cross_product = CrossProduct(previous, current, next);
-    if (cross_product >= 0) {
-        return false;
+    // Check if the angle at the current vertex is concave (counterclockwise order)
+    double cross_product
+            = CrossProduct(std::make_pair(previous.x, previous.y),
+                           std::make_pair(current.x, current.y),
+                           std::make_pair(next.x, next.y));
+    bool counterclockwise = true;
+    if(cross_product >= 0){
+        std::swap(previous, next);
+        counterclockwise = false;
     }
 
     auto previous_iter = point == polygon_raw.begin()
@@ -184,12 +189,40 @@ bool ObjParser::IsEar(QVector<float> &polygon_raw, QList<float>::Iterator &point
 
             Vertex p{*iter, *(iter + 1), *(iter + 2)};
                 // Check if the point is inside the triangle
-            double cross_product1 = CrossProduct(previous, current, p);
-            double cross_product2 = CrossProduct(previous, p, current);
-            double cross_product3 = CrossProduct(p, current, next);
-
-            if (cross_product1 >= 0 && cross_product2 >= 0 && cross_product3 >= 0) {
-                return false;
+            double cross_product1 =
+                    CrossProduct(std::make_pair(previous.x, previous.y),
+                                 std::make_pair(current.x, current.y),
+                                 std::make_pair(p.x, p.y));
+            double cross_product2 =
+                    CrossProduct(std::make_pair(previous.x, previous.y),
+                                 std::make_pair(p.x, p.y),
+                                 std::make_pair(next.x, next.y));
+            double cross_product3 =
+                    CrossProduct(std::make_pair(p.x, p.y),
+                                 std::make_pair(current.x, current.y),
+                                 std::make_pair(next.x, next.y));
+            double cross_product4 =
+                    CrossProduct(std::make_pair(previous.x, previous.z),
+                                 std::make_pair(current.x, current.z),
+                                 std::make_pair(p.x, p.z));
+            double cross_product5 =
+                    CrossProduct(std::make_pair(previous.x, previous.z),
+                                 std::make_pair(p.x, p.z),
+                                 std::make_pair(next.x, next.z));
+            double cross_product6 =
+                    CrossProduct(std::make_pair(p.x, p.z),
+                                 std::make_pair(current.x, current.z),
+                                 std::make_pair(next.x, next.z));
+            if(counterclockwise){
+                if (cross_product1 >= 0 && cross_product2 >= 0 && cross_product3 >= 0
+                        && cross_product4 >= 0 && cross_product5 >= 0 && cross_product6 >= 0) {
+                    return false;
+                }
+            }else{
+                if (cross_product1 <= 0 && cross_product2 <= 0 && cross_product3 <= 0
+                        && cross_product4 <= 0 && cross_product5 <= 0 && cross_product6 <= 0) {
+                    return false;
+                }
             }
         }
     }
@@ -201,14 +234,16 @@ void ObjParser::ClipMinimalAngle(QVector<float> &polygon_raw)
     double minimal_angle = std::numeric_limits<double>::max();
     double current_angle;
     auto minimal_angle_iter = polygon_raw.begin();
-    for(auto iter = polygon_raw.begin(); iter != polygon_raw.end(); iter+=OBJECT_PROPERTIES_COUNT){
+    for(auto iter = polygon_raw.begin(); iter != polygon_raw.end();
+        iter+=OBJECT_PROPERTIES_COUNT){
         current_angle = CalculateAngle(polygon_raw, iter);
         if(minimal_angle > current_angle){
             minimal_angle = current_angle;
             minimal_angle_iter = iter;
         }
     }
-    polygon_raw.erase(minimal_angle_iter, minimal_angle_iter + OBJECT_PROPERTIES_COUNT);
+    polygon_raw.erase(minimal_angle_iter,
+                      minimal_angle_iter + OBJECT_PROPERTIES_COUNT);
 }
 
 double ObjParser::CalculateAngle(QVector<float> &polygon_raw, QVector<float>::Iterator &point)
@@ -228,9 +263,12 @@ double ObjParser::CalculateAngle(QVector<float> &polygon_raw, QVector<float>::It
     return std::atan2(cross, dot);
 }
 
-double ObjParser::CrossProduct(Vertex &p1, Vertex &p2, Vertex &p3)
+double ObjParser::CrossProduct(const std::pair<float, float> p1,
+            const std::pair<float, float> p2,
+            const std::pair<float, float> p3) const noexcept
 {
-    return (p2.x - p1.x) * (p3.y - p2.y) - (p3.x - p2.x) * (p2.y - p1.y);
+    return (p2.first - p1.first) * (p3.second - p2.second)
+            - (p3.first - p2.first) * (p2.second - p1.second);
 }
 
 std::tuple<Vertex, Vertex, Vertex> ObjParser::GetPreviousCurrentNext(QVector<float> &polygon_raw,
@@ -249,9 +287,9 @@ std::tuple<Vertex, Vertex, Vertex> ObjParser::GetPreviousCurrentNext(QVector<flo
                     *(polygon_raw.end() - OBJECT_PROPERTIES_COUNT + 2)};
     }
     if(point != polygon_raw.end() - OBJECT_PROPERTIES_COUNT){
-            next = {*(point - OBJECT_PROPERTIES_COUNT),
-                            *(point - OBJECT_PROPERTIES_COUNT + 1),
-                    *(point - OBJECT_PROPERTIES_COUNT + 2)};
+            next = {*(point + OBJECT_PROPERTIES_COUNT),
+                            *(point + OBJECT_PROPERTIES_COUNT + 1),
+                    *(point + OBJECT_PROPERTIES_COUNT + 2)};
         }else{
             next = {*(polygon_raw.begin()),
                         *(polygon_raw.begin() + 1),
@@ -288,8 +326,6 @@ bool ObjParser::IsNumber(char c)
 {
     return std::isdigit(c) || c == '.' || c == '-' || c == '+';
 }
-
-
 
 void ObjParser::ChangeFilename() noexcept {
   filename_ = filename_.mid(filename_.lastIndexOf("/") + 1).chopped(4) + "\n" +

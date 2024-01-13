@@ -128,7 +128,7 @@ void OpenGLWidget::paintGL() {
   glClearColor(settings_.back_color.redF(), settings_.back_color.greenF(),
                settings_.back_color.blueF(), settings_.back_color.alphaF());
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+  glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
   shader_programm_.bind();
   shader_programm_.setUniformValue("projectionMatrix", projection_matrix_);

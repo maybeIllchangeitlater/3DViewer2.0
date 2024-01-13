@@ -54,9 +54,13 @@ class ObjParser : public QObject {
   void CutEars(QVector<float> &polygon_raw);
   bool IsEar(QVector<float> &polygon_raw, QList<float>::Iterator &point);
   void ClipMinimalAngle(QVector<float> &polygon_raw);
-  double CalculateAngle(QVector<float> &polygon_raw, QVector<float>::Iterator &point);
-  double CrossProduct(Vertex &p1, Vertex &p2, Vertex &p3);
-  std::tuple<Vertex, Vertex, Vertex> GetPreviousCurrentNext(QVector<float> &polygon_raw, QVector<float>::Iterator &point);
+  double CalculateAngle(QVector<float> &polygon_raw,
+                        QVector<float>::Iterator &point);
+  double CrossProduct(const std::pair<float, float> p1,
+                      const std::pair<float, float> p2,
+                      const std::pair<float, float> p3) const noexcept;
+  std::tuple<Vertex, Vertex, Vertex> GetPreviousCurrentNext(
+          QVector<float> &polygon_raw, QVector<float>::Iterator &point);
 
 
   void SkipUntilNextDigit(size_t &index, size_t data_size, char *&data);
