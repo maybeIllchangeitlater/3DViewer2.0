@@ -48,15 +48,15 @@ void OpenGLWidget::AddShaders() {
 //      QOpenGLShader::Fragment, shader_version_->GetFragmentShader());
 
     /////testing flat
-//    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderNoGeometryFlat.txt");
-//    shader_programm_.addCacheableShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShaderFlat.txt");
+    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderNoGeometryFlat.txt");
+    shader_programm_.addCacheableShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShaderFlat.txt");
 
 //    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderPointsOnly.txt");
 //    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt");
 //    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShaderPointsOnly.txt");
-    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShader.txt");
-            shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt");
-            shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShader.txt");
+//    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderNoGeometry.txt");
+//            shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt");
+//            shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShader.txt");
 }
 
 void OpenGLWidget::ChangePerspective() {
@@ -124,7 +124,7 @@ void OpenGLWidget::paintGL() {
   glClearColor(settings_.back_color.redF(), settings_.back_color.greenF(),
                settings_.back_color.blueF(), settings_.back_color.alphaF());
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
   shader_programm_.bind();
   shader_programm_.setUniformValue("projectionMatrix", projection_matrix_);
@@ -151,7 +151,7 @@ void OpenGLWidget::paintGL() {
 //    vbo_.release();
 //  }
 
-  glDrawElements(GL_LINES, controller_.GetFaceConstRef().size(),
+  glDrawElements(GL_TRIANGLES, controller_.GetFaceConstRef().size(),
                  GL_UNSIGNED_INT, nullptr);
   ibo_.release();
   vao_.release();
