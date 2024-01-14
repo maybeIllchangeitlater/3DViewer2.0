@@ -20,21 +20,27 @@ class Settings {
   QColor color;
   QColor back_color;
   QColor vertex_color;
-  bool orth;
-  bool smooth_vertexes;
-  bool vertexes_shown;
-  bool lines_shown;
-  bool broken_lines;
+  QColor light_color;
+  QVector3D translation = {0, 0, 0};
+  QVector3D rotation = {0, 0, 0};
+  QVector3D camera = {0, 0, 0};
+  QVector3D camera_up = {0, 0, 0};
+  QVector3D light_position = {1, 1, 1};
   float line_width = 0.01;
   float point_size = 0.01;
   float scale = 1.0;
-  float translation_x = 0;
-  float translation_y = 0;
-  float translation_z = 0;
-  float rotation_x = 0;
-  float rotation_y = 0;
-  float rotation_z = 0;
+  float ambient = 0.1;
+  float specular = 0.5;
   ShaderFactory::ShaderVersion shader_version = ShaderFactory::kEverything;
+  bool wireframe = true;
+  bool lights_on = false;
+  bool flat_shading = true;
+  bool orth = false;
+  bool vertexes_shown = false;
+  bool smooth_vertexes = false;
+  bool lines_shown = true;
+  bool broken_lines = false;
+
 };
 }  // namespace s21
 #endif  // CPP4_3DVIEWER_V2_0_VIEW_SETTINGS_H_

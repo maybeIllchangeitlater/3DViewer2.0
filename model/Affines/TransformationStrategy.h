@@ -2,7 +2,7 @@
 #define CPP4_3DVIEWER_V2_0_MODEL_AFFINES_TRANSLATIONSTRATEGY_H_
 #include "../../view/settings.h"
 #include "QtGui/qmatrix4x4.h"
-#include "../../utility/datastructure.h"
+#include "../datastructure.h"
 
 namespace s21 {
 class TransformationStrategy {

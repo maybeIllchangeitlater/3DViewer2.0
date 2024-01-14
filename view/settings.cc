@@ -2,11 +2,6 @@
 namespace s21 {
 
 Settings::Settings() {
-  vertexes_shown = false;
-  smooth_vertexes = true;
-  broken_lines = false;
-  lines_shown = true;
-  orth = false;
   color.setRgbF(1.0f, 1.0f, 1.0f, 1.0f);
   back_color.setRgbF(0.0f, 0.0f, 0.0f, 1.0f);
   vertex_color.setRgbF(1.0f, 0.0f, 1.0f, 1.0f);  // to default settings
@@ -27,15 +22,23 @@ void Settings::SaveSettings() {
   settings["vertex_color_g"] = vertex_color.green();
   settings["vertex_color_b"] = vertex_color.blue();
   settings["vertex_color_a"] = vertex_color.alpha();
-  settings["smooth_vertexes"] = smooth_vertexes;
-  settings["vertexes_shown"] = vertexes_shown;
-  settings["broken_lines"] = broken_lines;
-  settings["lines_shown"] = lines_shown;
+  settings["light_color_r"] = light_color.red();
+  settings["light_color_g"] = light_color.green();
+  settings["light_color_b"] = light_color.blue();
+  settings["light_color_a"] = light_color.alpha();
   settings["line_width"] = line_width;
   settings["point_size"] = point_size;
-  settings["orth"] = orth;
-  settings["scale"] = scale;
+  settings["ambient"] = ambient;
+  settings["specular"] = specular;
   settings["shader_version"] = shader_version;
+  settings["wireframe"] = wireframe;
+  settings["lights_on"] = lights_on;
+  settings["flat_shading"] = flat_shading;
+  settings["orth"] = orth;
+  settings["vertexes_shown"] = vertexes_shown;
+  settings["smooth_vertexes"] = smooth_vertexes;
+  settings["lines_shown"] = lines_shown;
+  settings["broken_lines"] = broken_lines;
 
   QJsonDocument doc(settings);
   QFile file(static_cast<QDir>(QDir::homePath()).absolutePath() +
@@ -66,16 +69,24 @@ void Settings::LoadSettings() {
     vertex_color.setGreen(settings.value("vertex_color_g").toInt());
     vertex_color.setBlue(settings.value("vertex_color_b").toInt());
     vertex_color.setAlpha(settings.value("vertex_color_a").toInt());
-    orth = settings.value("orth").toBool();
-    smooth_vertexes = settings.value("smooth_vertexes").toBool();
-    vertexes_shown = settings.value("vertexes_shown").toBool();
-    broken_lines = settings.value("broken_lines").toBool();
-    lines_shown = settings.value("lines_shown").toBool();
+    light_color.setRed(settings.value("light_color_r").toInt());
+    light_color.setGreen(settings.value("light_color_g").toInt());
+    light_color.setBlue(settings.value("light_color_b").toInt());
+    light_color.setAlpha(settings.value("light_color_a").toInt());
     line_width = settings.value("line_width").toDouble();
     point_size = settings.value("point_size").toDouble();
-    scale = settings.value("scale").toDouble();
+    ambient = settings.value("ambient").toDouble();
+    specular = settings.value("specular").toDouble();
     shader_version = static_cast<ShaderFactory::ShaderVersion>(
         settings.value("shader_version").toInt());
+    wireframe = settings.value("wireframe").toBool();
+    lights_on = settings.value("lights_on").toBool();
+    flat_shading = settings.value("flat_shading").toBool();
+    orth = settings.value("orth").toBool();
+    vertexes_shown = settings.value("vertexes_shown").toBool();
+    smooth_vertexes = settings.value("smooth_vertexes").toBool();
+    lines_shown = settings.value("lines_shown").toBool();
+    broken_lines = settings.value("broken_lines").toBool();
 
     file.close();
   }

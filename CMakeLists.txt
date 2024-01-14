@@ -22,11 +22,10 @@ set(PROJECT_SOURCES
         main.cc
         model/parser.h
         model/parser.cc
+        model/datastructure.h
         model/Affines/TransformationStrategy.h
         model/Affines/GPUTransformation.h
         model/Affines/GPUTransformation.cc
-#        utility/earcutting.h
-#        utility/earcutting.cc
         controller/controller.h
         controller/controller.cc
         view/mainwindow.h
@@ -58,8 +57,6 @@ set(PROJECT_SOURCES
         view/3rdParty/gifmaker/qgifimage.h
         view/3rdParty/gifmaker/quantize.c
         view/3rdParty/gifmaker/qgifimage.cpp
-        utility/datastructure.h
-
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

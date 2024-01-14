@@ -24,14 +24,14 @@ void OpenGLWidget::ChangeShaders() {
 void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
   if (event->buttons() & Qt::LeftButton) {
     QPoint delta = event->pos() - last_mouse_pos_;
-    settings_.rotation_x += delta.x();
-    settings_.rotation_y += delta.y();
+    settings_.rotation[0] += delta.x();
+    settings_.rotation[1] += delta.y();
     update();
     last_mouse_pos_ = event->pos();
   } else if (event->buttons() & Qt::RightButton) {
     QPoint delta = event->pos() - last_rmouse_pos_;
-    settings_.translation_x += delta.x() / 100.0f;
-    settings_.translation_y -= delta.y() / 100.0f;
+    settings_.translation[0] += delta.x() / 100.0f;
+    settings_.translation[1] -= delta.y() / 100.0f;
     update();
     last_rmouse_pos_ = event->pos();
   }
@@ -56,7 +56,83 @@ void OpenGLWidget::AddShaders() {
 //    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShaderPointsOnly.txt");
 //    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderNoGeometry.txt");
 //            shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt");
-//            shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShader.txt");
+    //            shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShader.txt");
+}
+
+void OpenGLWidget::ConfigureAttributeBuffers()
+{
+    int vertex_location = shader_programm_.attributeLocation("position");
+    shader_programm_.enableAttributeArray(vertex_location);
+    shader_programm_.setAttributeBuffer(vertex_location, GL_FLOAT, 0, s21::VERTEX_PROPERTIES_SIZE,
+                                        sizeof(GLfloat) * controller_.GetObjectPropertiesCount());
+
+    if(controller_.ObjectHasTextures()){
+        has_texture_map_ = true;
+        int texture_map_location = shader_programm_.attributeLocation("textures");
+        shader_programm_.enableAttributeArray(texture_map_location);
+        shader_programm_.setAttributeBuffer(texture_map_location, GL_FLOAT, sizeof(GLfloat) * s21::VERTEX_PROPERTIES_SIZE,
+                                            s21::TEXTURE_PROPERTIES_SIZE,
+                                           sizeof(GLfloat) * controller_.GetObjectPropertiesCount());
+    }
+
+    if(controller_.ObjectHasNormales()){
+        has_normales_ = true;
+        int normal_location = shader_programm_.attributeLocation("normal");
+        shader_programm_.enableAttributeArray(normal_location);
+        int normales_offset = has_texture_map_
+                ? (s21::VERTEX_PROPERTIES_SIZE + s21::TEXTURE_PROPERTIES_SIZE) * sizeof(GLfloat)
+                : s21::VERTEX_PROPERTIES_SIZE * sizeof(GLfloat);
+        shader_programm_.setAttributeBuffer(normal_location, GL_FLOAT, normales_offset,
+                                            s21::NORMALE_PROPERTIES_SIZE,
+                                            sizeof(GLfloat) * controller_.GetObjectPropertiesCount());
+    }
+}
+
+void OpenGLWidget::CalculateCamera()
+{
+    float sin_rot_x = std::sin(settings_.rotation[0] * M_PI / 180);
+    float sin_rot_y = std::sin(settings_.rotation[1] * M_PI / 180);
+    float cos_rot_x = std::cos(settings_.rotation[0] * M_PI / 180);
+    float cos_rot_y = std::cos(settings_.rotation[1] * M_PI / 180);
+
+    float radial_distance_from_origin = 3.0f * cos_rot_y;
+
+      settings_.camera[0] = radial_distance_from_origin * sin_rot_x;
+      settings_.camera[1] = 3.0f * sin_rot_y;
+      settings_.camera[2] = radial_distance_from_origin * cos_rot_x;
+
+      settings_.camera_up[0] = -sin_rot_x * sin_rot_y;
+      settings_.camera_up[1] = cos_rot_y;
+      settings_.camera_up[2] = -cos_rot_x * sin_rot_y;
+}
+
+void OpenGLWidget::ConfigureDisplay()
+{
+    if (texture_) {
+        shader_programm_.setUniformValue("textured", true);
+        texture_->bind();
+      } else {
+        shader_programm_.setUniformValue("textured", false);
+        shader_programm_.setUniformValue("pointColor", settings_.vertex_color);
+        shader_programm_.setUniformValue("lineColor", settings_.color);
+      }
+      if (has_normales_ && !settings_.wireframe && settings_.lights_on) {
+            shader_programm_.setUniformValue("normales", true);
+            shader_programm_.setUniformValue("lightColor", settings_.light_color);
+            shader_programm_.setUniformValueArray("lightPosistion", &settings_.light_position, 1);
+            shader_programm_.setUniformValueArray("cameraPosition", &settings_.camera, 1);
+            shader_programm_.setUniformValue("flat", settings_.flat_shading ? true : false);
+            shader_programm_.setUniformValue("ambient", settings_.ambient);
+            shader_programm_.setUniformValue("specular", settings_.specular);
+      } else {
+            shader_programm_.setUniformValue("normales", false);
+            shader_programm_.setUniformValue("lineWidth", settings_.line_width);
+            shader_programm_.setUniformValue("pointWidth", settings_.point_size);
+            shader_programm_.setUniformValue("showVertex", settings_.vertexes_shown);
+            shader_programm_.setUniformValue("smoothVertex", settings_.smooth_vertexes);
+            shader_programm_.setUniformValue("showLines", settings_.lines_shown);
+            shader_programm_.setUniformValue("edgedLines", settings_.broken_lines);
+      }
 }
 
 void OpenGLWidget::ChangePerspective() {
@@ -69,12 +145,12 @@ void OpenGLWidget::mousePressEvent(QMouseEvent *event) {
 }
 
 void OpenGLWidget::wheelEvent(QWheelEvent *event) {
-  settings_.translation_z -=
+  settings_.translation[2] -=
       static_cast<float>(event->angleDelta().y()) / 120.0f;
   update();
 }
 
-void OpenGLWidget::initializeGL() {
+void OpenGLWidget::initializeGL() {    
   glClearColor(settings_.back_color.redF(), settings_.back_color.greenF(),
                settings_.back_color.blueF(), settings_.back_color.alphaF());
   glEnable(GL_DEPTH_TEST);
@@ -82,9 +158,6 @@ void OpenGLWidget::initializeGL() {
   AddShaders();
   shader_programm_.link();
   shader_programm_.bind();
-
-  shader_programm_.setUniformValue("pointColor", settings_.vertex_color);
-  shader_programm_.setUniformValue("lineColor", settings_.color);
 
   vbo_.create();
   vbo_.bind();
@@ -101,15 +174,7 @@ void OpenGLWidget::initializeGL() {
   vao_.create();
   vao_.bind();
 
-  int vertex_location = shader_programm_.attributeLocation("position");
-  shader_programm_.enableAttributeArray(vertex_location);
-  shader_programm_.setAttributeBuffer(vertex_location, GL_FLOAT, 0, 3,
-                                      sizeof(GLfloat) * controller_.GetObjectPropertiesCount());
-
-  int normal_location = shader_programm_.attributeLocation("normal");
-  shader_programm_.enableAttributeArray(normal_location);
-  shader_programm_.setAttributeBuffer(normal_location, GL_FLOAT, sizeof(GLfloat) * 3, 3,
-                                      sizeof(GLfloat) * controller_.GetObjectPropertiesCount());
+  ConfigureAttributeBuffers();
 
   vbo_.release();
   vao_.release();
@@ -131,20 +196,13 @@ void OpenGLWidget::paintGL() {
                settings_.back_color.blueF(), settings_.back_color.alphaF());
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+  CalculateCamera();
 
   shader_programm_.bind();
   shader_programm_.setUniformValue("projectionMatrix", projection_matrix_);
   controller_.MoveModel(model_view_matrix_, settings_);
-  shader_programm_.setUniformValue("lineWidth", settings_.line_width);
-  shader_programm_.setUniformValue("pointWidth", settings_.point_size);
-  shader_programm_.setUniformValue("showVertex", settings_.vertexes_shown);
-  shader_programm_.setUniformValue("smoothVertex", settings_.smooth_vertexes);
-  shader_programm_.setUniformValue("showLines", settings_.lines_shown);
-  shader_programm_.setUniformValue("edgedLines", settings_.broken_lines);
   shader_programm_.setUniformValue("modelViewMatrix", model_view_matrix_);
-
-  shader_programm_.setUniformValue("pointColor", settings_.vertex_color);
-  shader_programm_.setUniformValue("lineColor", settings_.color);
+  ConfigureDisplay();
 
   vao_.bind();
   ibo_.bind();

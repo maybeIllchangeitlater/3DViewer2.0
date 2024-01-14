@@ -4,6 +4,8 @@
 #include <QMatrix4x4>
 #include <QMouseEvent>
 #include <QOpenGLBuffer>
+#include <QOpenGLTexture>
+#include <QOpenGLShader>
 #include <QOpenGLShaderProgram>
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLWidget>
@@ -41,6 +43,8 @@ class OpenGLWidget final : public QOpenGLWidget {
    */
   void mouseMoveEvent(QMouseEvent* event);
   void AddShaders();
+  void ConfigureAttributeBuffers();
+  void ConfigureDisplay();
 
   s21::Settings& settings_;
   s21::Controller& controller_;
@@ -60,7 +64,11 @@ class OpenGLWidget final : public QOpenGLWidget {
 
 //  const s21::ShaderState* shader_version_ = nullptr;
   std::unique_ptr<s21::ShaderState> shader_version_;
+  std::unique_ptr<QOpenGLTexture> texture_;
   s21::ShaderFactory shader_factory_;
+
+  bool has_normales_ = false;
+  bool has_texture_map_ = false;
 };
 
 #endif  // CPP4_3DVIEWER_V2_0_VIEW_WIDGET_H_

@@ -5,8 +5,7 @@
 #include <cctype>
 #include <limits>
 #include <vector>
-#include "../utility/earcutting.h"
-#include "../utility/datastructure.h"
+#include "datastructure.h"
 
 namespace s21 {
 
@@ -22,6 +21,8 @@ class ObjParser : public QObject {
   QVector<float> &GetVertexDataRef() noexcept { return data_; }
   QVector<unsigned int> &GetIndicesRef() noexcept { return indices_; }
   short GetObjectPropertiesCount() const noexcept { return object_properties_count_; }
+  bool ObjectHasNormales() const noexcept { return has_normales_; }
+  bool ObjectHasTextures() const noexcept { return has_textures_; }
   const QString &GetFilename() const noexcept { return filename_; }
 
   void SetFilename(QString filename) noexcept { filename_ = filename; }

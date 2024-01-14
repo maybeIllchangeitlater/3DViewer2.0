@@ -8,7 +8,7 @@
 #include "../model/Affines/TransformationStrategy.h"
 #include "../model/parser.h"
 #include "../view/settings.h"
-#include "../utility/datastructure.h"
+#include "../model/datastructure.h"
 
 namespace s21 {
 class Controller : public QObject {
@@ -31,6 +31,12 @@ class Controller : public QObject {
   }
   short GetObjectPropertiesCount() const noexcept{
       return parser_.GetObjectPropertiesCount();
+  }
+  bool ObjectHasNormales() const noexcept{
+      return parser_.ObjectHasNormales();
+  }
+  bool ObjectHasTextures() const noexcept{
+      return parser_.ObjectHasTextures();
   }
   constexpr const int GetVertexShaderVersion() const noexcept {
     return transformer_->GetShaderVersion();
