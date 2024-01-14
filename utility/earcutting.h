@@ -33,7 +33,7 @@ private:
     double CalculateAngle(std::vector<float>::iterator &point) const;
 
     std::vector<float> polygon_raw_;
-    short object_properties_count = 8;
+    short object_properties_count;
 };
 
 } // s21

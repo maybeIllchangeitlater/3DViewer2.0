@@ -29,6 +29,9 @@ class Controller : public QObject {
   const QVector<float>& GetVertexDataConstRef() const noexcept {
     return vertex_;
   }
+  short GetObjectPropertiesCount() const noexcept{
+      return parser_.GetObjectPropertiesCount();
+  }
   constexpr const int GetVertexShaderVersion() const noexcept {
     return transformer_->GetShaderVersion();
   }
@@ -52,7 +55,7 @@ class Controller : public QObject {
   ObjParser& parser_;
   TransformationStrategy* transformer_;
   QVector<float> vertex_;
-  QVector<float> vertex_copy_;
+//  QVector<float> vertex_copy_;
   QVector<unsigned int> face_;
 };
 }  // namespace s21

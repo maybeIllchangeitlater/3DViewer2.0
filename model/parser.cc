@@ -13,7 +13,7 @@ void s21::ObjParser::ParseFile() {
     emit ParseOver(false);
     return;
   }
-
+  ParseFlags(file);
   AddZeros();
 
   while (!file.atEnd()) {
@@ -47,12 +47,32 @@ void s21::ObjParser::ParseFile() {
 
   file.close();
 
-  for (int i = 0; i < data_.size() / ear_cutter_.GetObjectPropertiesCount(); ++i) {
+  for (int i = 0; i < data_.size() / object_properties_count_; ++i) {
       indices_.emplaceBack(i);
   }
 
   ChangeFilename();
   emit ParseOver(true);
+}
+
+void ObjParser::ParseFlags(QFile &file)
+{
+    while (!file.atEnd() && !(has_textures_ && has_normales_)) {
+      QByteArray data(file.readLine());
+      if (data[0] == 'v' && data[1] == 'n') {
+          has_normales_ = true;
+      }else if(data[0] == 'v' && data[1] == 't'){
+           has_textures_ = true;
+      }
+    }
+    if(!has_normales_){
+        object_properties_count_ -= NORMALE_PROPERTIES_SIZE;
+    }
+    if(!has_textures_){
+        object_properties_count_ -= TEXTURE_PROPERTIES_SIZE;
+    }
+    file.seek(0);
+
 }
 
 template<typename Coordinatable>
@@ -62,7 +82,7 @@ size_t ObjParser::PushPoint(QByteArray &data, Coordinatable &target) {
   size_t size = 0, sizeline_counter = 0;
 
   while (!LineOver(*cstr)) {
-      while (!(IsNumber(*cstr)) && !LineOver(*cstr)){
+      while (!LineOver(*cstr) && !(IsNumber(*cstr))){
           ++cstr;
       }
       while (IsNumber(*(cstr + size))){
@@ -82,41 +102,39 @@ size_t ObjParser::PushPoint(QByteArray &data, Coordinatable &target) {
 }
 
 bool ObjParser::ParseFace(QByteArray &data) {
-    ear_cutter_.Clear();
     auto cstr = data.data();
-    size_t data_size = data.size();
-    size_t index = 0;
+    size_t counter = 0;
+    QVector<float> first_vertice;
+    QVector<float> first_triangle_last_vertice;
 
-    if(face_type_ == UNKNOWN){
-        FigureOutFaceType(data_size, cstr);
-    }
-
+try{
     while(!LineOver(*cstr)){
-        SkipUntilNextDigit(index, data_size, cstr);
-        if(index >= data_size || !ToVerticeData(cstr, tmp_vertex_)){
+        tmp_vertices_.clear();
+        SkipUntilNextDigit(cstr);
+        if(LineOver(*cstr) || !ToVerticeData(cstr, tmp_vertex_)){
             return false;
         }
 
-        if(face_type_ == FULL){
-            SkipUntilNextFace(index, data_size, cstr);
-            if(index >= data_size || !ToVerticeData(cstr, tmp_texture_)){
+        SkipUntilNextFace(cstr);
+        if(CheckTexture(cstr)){
+            if(LineOver(*cstr) || !ToVerticeData(cstr, tmp_texture_)){
                 return false;
             }
         }
-
-        if(face_type_ != VERTICE_ONLY){
-            SkipUntilNextFace(index, data_size, cstr);
-            if(index >= data_size || !ToVerticeData(cstr, tmp_normal_)){
+        SkipUntilNextFace(cstr);
+        if(CheckNormale(cstr)){
+            if(LineOver(*cstr) || !ToVerticeData(cstr, tmp_normal_)){
                 return false;
             }
         }
+        FakeTriangulate(first_vertice, first_triangle_last_vertice, counter);
     }
-
-    std::vector<float> triangulated = ear_cutter_.CutEars();
-    for(const auto&v : triangulated){
-        data_.emplaceBack(v);
+}catch(...){
+    return false;
+}
+    if(counter < 3){
+        data_ += first_vertice;
     }
-
     return true;
 }
 
@@ -129,6 +147,9 @@ void ObjParser::AddZeros()
 
 void ObjParser::Clear()
 {
+    has_normales_ = false;
+    has_textures_ = false;
+    object_properties_count_ = DEFAULT_OBJECT_PROPERTIES_COUNT;
     data_.clear();
     indices_.clear();
     tmp_vertex_.clear();
@@ -137,65 +158,88 @@ void ObjParser::Clear()
 }
 
 
-void ObjParser::SkipUntilNextDigit(size_t &index, size_t data_size, char *&data)
+void ObjParser::SkipUntilNextDigit(char *&data) noexcept
 {
-    while (index < data_size && !std::isspace(*data)) {
+    while (!LineOver(*data) && !std::isspace(*data)) {
       ++data;
-      ++index;
     }
-    while (index < data_size && !(std::isdigit(*data))) {
+    while (!LineOver(*data) && !(std::isdigit(*data))) {
       ++data;
-      ++index;
     }
 }
 
-void ObjParser::SkipUntilNextFace(size_t &index, size_t data_size, char *&data)
+void ObjParser::SkipUntilNextFace(char *&data) noexcept
 {
-    while (index < data_size && *data != '/' && !std::isspace(*data)){
+    while (!LineOver(*data) && *data != '/' && !std::isspace(*data)){
         ++data;
-        ++index;
     };
+}
+
+bool ObjParser::CheckTexture(char *&data)
+{
+    if(!has_textures_){
+        return false;
+    }
+    if(*data != '/' || *(data + 1) == '/'){
+        for(short i = 0; i < TEXTURE_PROPERTIES_SIZE; ++i){
+            tmp_vertices_.emplace_back();
+        }
+        return false;
+    }
+    ++data;
+    return true;
+}
+
+bool ObjParser::CheckNormale(char *&data)
+{
+    if(!has_normales_){
+        return false;
+    }
+    if(std::isspace(*data)){
+        for(short i = 0; i < NORMALE_PROPERTIES_SIZE; ++i){
+            tmp_vertices_.emplace_back();
+        }
+        return false;
+    }
     while(*data == '/'){
         ++data;
-        ++index;
     }
+    return true;
 }
 
-void s21::ObjParser::FigureOutFaceType(size_t data_size, char *data)
+void ObjParser::FakeTriangulate(QVector<float> &first, QVector<float> &middle, size_t& counter)
 {
-    short slash_counter = 0;
-    for(size_t i = 0; i < data_size; ++i){
-        if(*(data++) == '/'){
-            ++slash_counter;
-            if(*data == '/'){
-                ++slash_counter;
-            }
-            break;
+    if(counter < 3){
+        if(!counter){
+            data_ += tmp_vertices_;
+            first = std::move(tmp_vertices_);
+        }else if(counter == 2){
+            data_ += tmp_vertices_;
+            middle = std::move(tmp_vertices_);
+        }else{
+            data_ += tmp_vertices_;
         }
+        ++counter;
+    }else{
+        data_ += first;
+        data_ += middle;
+        data_ += tmp_vertices_;
+        middle = std::move(tmp_vertices_);
     }
-    face_type_ = !slash_counter
-            ? VERTICE_ONLY
-            : slash_counter == 1
-                ? FULL
-                : VERTICES_NORMALES;
-    ear_cutter_.GetObjectPropertiesCount() -= face_type_ == VERTICE_ONLY
-            ? (TEXTURE_PROPERTIES_SIZE + NORMALE_PROPERTIES_SIZE)
-            : face_type_ == VERTICES_NORMALES
-                ? TEXTURE_PROPERTIES_SIZE
-                : 0;
 }
 
- bool ObjParser::IsNumber(char c)
+
+ bool ObjParser::IsNumber(char c) noexcept
 {
      return std::isdigit(c) || c == '.' || c == '-' || c == '+';
  }
 
- bool ObjParser::LineOver(char c)
+ bool ObjParser::LineOver(char c) noexcept
  {
-    return c == EOF || c == '\n';
+    return c == EOF || c == '\n' || c == '\r' || c == '\0';
  }
 
-void ObjParser::ChangeFilename() noexcept {
+void ObjParser::ChangeFilename() {
   filename_ = filename_.mid(filename_.lastIndexOf("/") + 1).chopped(4) + "\n" +
               "Vertexes: " + QString::number(tmp_vertex_.size() / 3) +
           " Edges: " + QString::number(indices_.size() / 2);
@@ -205,7 +249,7 @@ template<typename Coordinatable>
 bool ObjParser::ToVerticeData(char *&data, Coordinatable &from)
 {
     short size = 0;
-    while(IsNumber(*(data + size))){
+    while(!LineOver(*(data + size)) && IsNumber(*(data + size))){
         ++size;
     }
     int ind = std::stoi(data);
@@ -217,11 +261,11 @@ bool ObjParser::ToVerticeData(char *&data, Coordinatable &from)
     if(ind < 0) {
         ind += from.size();
     };
-    ear_cutter_.GetPolygon().emplace_back(from[ind].x);
-    ear_cutter_.GetPolygon().emplace_back(from[ind].y);
+    tmp_vertices_.emplace_back(from[ind].x);
+    tmp_vertices_.emplace_back(from[ind].y);
 
     if constexpr(std::is_same_v<Coordinatable, QVector<Vertex>>){
-        ear_cutter_.GetPolygon().emplace_back(from[ind].z);
+        tmp_vertices_.emplace_back(from[ind].z);
     }
     return true;
 }

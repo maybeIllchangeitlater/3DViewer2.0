@@ -12,13 +12,13 @@ void Controller::ParseFile(QString filename) const {
 }
 
 void Controller::MoveModel(QMatrix4x4 &matrix, const Settings &settings) {
-  if (transformer_->GetShaderVersion() == 2) vertex_ = vertex_copy_;
+//  if (transformer_->GetShaderVersion() == 2) vertex_ = vertex_copy_;
   transformer_->MoveModel(matrix, vertex_, settings);
 }
 
 void Controller::Update(bool good_file) {
   vertex_ = std::move(parser_.GetVertexDataRef());
-  vertex_copy_ = vertex_;
+//  vertex_copy_ = vertex_;
   face_ = std::move(parser_.GetIndicesRef());
   emit ParseOver(good_file);
 }

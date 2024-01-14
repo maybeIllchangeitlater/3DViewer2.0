@@ -21,6 +21,7 @@ class ObjParser : public QObject {
    */
   QVector<float> &GetVertexDataRef() noexcept { return data_; }
   QVector<unsigned int> &GetIndicesRef() noexcept { return indices_; }
+  short GetObjectPropertiesCount() const noexcept { return object_properties_count_; }
   const QString &GetFilename() const noexcept { return filename_; }
 
   void SetFilename(QString filename) noexcept { filename_ = filename; }
@@ -29,12 +30,10 @@ class ObjParser : public QObject {
   void ParseOver(bool);
 
  private:
-  enum FaceType{
-      VERTICE_ONLY,
-      VERTICES_NORMALES,
-      FULL,
-      UNKNOWN,
-  };
+  /**
+   * @brief Check if file contains textures and normales
+   */
+  void ParseFlags(QFile &file);
   /**
    * @brief Add point (vertex, texture or normal) from file to corresponding container
    */
@@ -56,25 +55,41 @@ class ObjParser : public QObject {
   bool ToVerticeData(char *&data, Coordinatable &from);
 
   void Clear();
+  /**
+   * @brief SkipUntilNextDigit. used to get to vertex coordinates
+   */
+  static void SkipUntilNextDigit(char *&data) noexcept;
+  /**
+   * @brief SkipUntilNextFace. get to \ or ' '
+   */
+  static void SkipUntilNextFace(char *&data) noexcept;
+  /**
+   * @brief if texture exists in file and facet returns true. if it exist in file but not found in face adds default values 000
+   */
+  bool CheckTexture(char *&data);
+  bool CheckNormale(char *&data);
+  /**
+   * @brief triangulates polygon (with terrible memory and speed complexity, oh well. extra 1800 lines of code can wait for another time)
+   */
+  void FakeTriangulate(QVector<float>& first, QVector<float> &middle, size_t &counter);
 
-  void SkipUntilNextDigit(size_t &index, size_t data_size, char *&data);
-  void SkipUntilNextFace(size_t &index, size_t data_size, char *&data);
-  void FigureOutFaceType(size_t data_size, char *data);
-  static bool IsNumber(char c);
-  static bool LineOver(char c);
+  static bool IsNumber(char c) noexcept;
+  static bool LineOver(char c) noexcept;
 
-  void ChangeFilename() noexcept;
+  void ChangeFilename() ;
 
   QVector<Texture> tmp_texture_;
   QVector<Vertex> tmp_vertex_;
   QVector<Normal> tmp_normal_;
+  QVector<float> tmp_vertices_;
 
-  EarCutting ear_cutter_;
   QVector<float> data_;
   QVector<unsigned int> indices_;
 
   QString filename_;
-  FaceType face_type_ = UNKNOWN;
+  short object_properties_count_;
+  bool has_normales_;
+  bool has_textures_;
 };
 }  // namespace s21
 #endif  // CPP4_3DVIEWER_V2_0_MODEL_PARSER_H_

@@ -35,9 +35,13 @@ std::vector<float> EarCutting::CutEars()
             ClipMinimalAngle();
         }
     }
-    if(polygon_raw_.size() == 3 * object_properties_count){
-        triangled.insert(triangled.end(), polygon_raw_.begin(), polygon_raw_.end());
+
+    triangled.insert(triangled.end(), polygon_raw_.begin(), polygon_raw_.end());
+
+    while(triangled.size() < 3 * object_properties_count){
+        triangled.insert(triangled.begin(), triangled.begin(), triangled.begin() + object_properties_count);
     }
+
     return triangled;
 }
 
@@ -180,3 +184,83 @@ double EarCutting::CalculateAngle(std::vector<float>::iterator &point) const
 
 
 } // namespace s21
+
+/*
+ * std::vector<Triangle> triangulatePolygonWithHoles(const std::vector<Point>& outerBoundary, const std::vector<std::vector<Point>>& holes) {
+            std::vector<Triangle> triangles;
+
+            // Triangulate the outer boundary
+            std::vector<Triangle> outerTriangles = earCut(outerBoundary);
+            triangles.insert(triangles.end(), outerTriangles.begin(), outerTriangles.end());
+
+            // Triangulate each hole separately
+            for (const auto& hole : holes) {
+                std::vector<Triangle> holeTriangles = earCut(hole);
+                triangles.insert(triangles.end(), holeTriangles.begin(), holeTriangles.end());
+
+                // Connect the edges of the outer boundary with the hole
+                connectBoundaryWithHole(outerBoundary, hole, triangles);
+            }
+
+            return triangles;
+        }
+
+        std::vector<Triangle> earCut(const std::vector<Point>& polygon) {
+            // Existing implementation of the Ear Cutting algorithm for a simple polygon
+            // ...
+        }
+
+        void connectBoundaryWithHole(const std::vector<Point>& outerBoundary, const std::vector<Point>& hole, std::vector<Triangle>& triangles) {
+            // Find the closest vertex on the hole to each edge of the outer boundary
+            for (size_t i = 0; i < outerBoundary.size(); ++i) {
+                const Point& edgeStart = outerBoundary[i];
+                const Point& edgeEnd = outerBoundary[(i + 1) % outerBoundary.size()];
+
+                Point closestVertex = findClosestVertex(edgeStart, edgeEnd, hole);
+
+                // Create new triangles connecting the edge of the outer boundary with the hole
+                triangles.push_back(Triangle(edgeStart, edgeEnd, closestVertex));
+            }
+        }
+
+        Point findClosestVertex(const Point& start, const Point& end, const std::vector<Point>& vertices) {
+            Point closestVertex = vertices[0];
+            double minDistance = distance(start, closestVertex);
+
+            for (size_t i = 1; i < vertices.size(); ++i) {
+                double distanceToEdge = distanceToLineSegment(start, end, vertices[i]);
+                if (distanceToEdge < minDistance) {
+                    minDistance = distanceToEdge;
+                    closestVertex = vertices[i];
+                }
+            }
+
+            return closestVertex;
+        }
+
+        double distance(const Point& p1, const Point& p2) {
+            double dx = p2.x - p1.x;
+            double dy = p2.y - p1.y;
+            return std::sqrt(dx * dx + dy * dy);
+        }
+
+        double distanceToLineSegment(const Point& start, const Point& end, const Point& point) {
+            double dx = end.x - start.x;
+            double dy = end.y - start.y;
+            double lengthSquared = dx * dx + dy * dy;
+
+            if (lengthSquared == 0.0) {
+                return distance(point, start);
+            }
+
+            double t = std::max(0.0, std::min(1.0, dotProduct(point - start, end - start) / lengthSquared));
+            Point projection = start + (end - start) * t;
+
+            return distance(point, projection);
+        }
+
+        double dotProduct(const Point& p1, const Point& p2) {
+            return p1.x * p2.x + p1.y * p2.y;
+        }
+
+*/
