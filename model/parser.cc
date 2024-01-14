@@ -19,19 +19,19 @@ void s21::ObjParser::ParseFile() {
   while (!file.atEnd()) {
     QByteArray data(file.readLine());
     if (data[0] == 'v' && data[1] == ' ') {
-      if (PushPoint(data, tmp_vertex_) != VERTEX_PROPERTIES_SIZE) {
+      if (!PushPoint(data, tmp_vertex_)) {
         file.close();
         emit ParseOver(false);
         return;
       }
     } else if (data[0] == 'v' && data[1] == 'n'){
-        if(PushPoint(data, tmp_normal_) != NORMALE_PROPERTIES_SIZE){
+        if(!PushPoint(data, tmp_normal_)){
             file.close();
             emit ParseOver(false);
             return;
         }
     } else if(data[0] == 'v' && data[1] == 't'){
-        if(PushPoint(data, tmp_texture_) != TEXTURE_PROPERTIES_SIZE){
+        if(!PushPoint(data, tmp_texture_)){
             file.close();
             emit ParseOver(false);
             return;
@@ -76,10 +76,10 @@ void ObjParser::ParseFlags(QFile &file)
 }
 
 template<typename Coordinatable>
-size_t ObjParser::PushPoint(QByteArray &data, Coordinatable &target) {
+bool ObjParser::PushPoint(QByteArray &data, Coordinatable &target) {
   target.emplaceBack();
   auto cstr = data.data();
-  size_t size = 0, sizeline_counter = 0;
+  size_t size = 0, index = 0;
 
   while (!LineOver(*cstr)) {
       while (!LineOver(*cstr) && !(IsNumber(*cstr))){
@@ -88,17 +88,17 @@ size_t ObjParser::PushPoint(QByteArray &data, Coordinatable &target) {
       while (IsNumber(*(cstr + size))){
           ++size;
       }
-      if(size){
-          target.back()[sizeline_counter] = std::stof(cstr);
-      }else{
-          return SIZE_MAX;
+      try{
+          target.back()[index] = std::stof(cstr);
+      }catch(...){
+          return false;
       }
 
     cstr += size;
     size = 0;
-    ++sizeline_counter;
+    ++index;
   }
-  return sizeline_counter;
+  return true;
 }
 
 bool ObjParser::ParseFace(QByteArray &data) {
@@ -128,6 +128,7 @@ try{
             }
         }
         FakeTriangulate(first_vertice, first_triangle_last_vertice, counter);
+        SkipWhitespaces(cstr);
     }
 }catch(...){
     return false;
@@ -160,9 +161,6 @@ void ObjParser::Clear()
 
 void ObjParser::SkipUntilNextDigit(char *&data) noexcept
 {
-    while (!LineOver(*data) && !std::isspace(*data)) {
-      ++data;
-    }
     while (!LineOver(*data) && !(std::isdigit(*data))) {
       ++data;
     }
@@ -173,6 +171,13 @@ void ObjParser::SkipUntilNextFace(char *&data) noexcept
     while (!LineOver(*data) && *data != '/' && !std::isspace(*data)){
         ++data;
     };
+}
+
+void ObjParser::SkipWhitespaces(char *&data) noexcept
+{
+    while(std::isspace(*data)){
+        ++data;
+    }
 }
 
 bool ObjParser::CheckTexture(char *&data)
@@ -240,9 +245,10 @@ void ObjParser::FakeTriangulate(QVector<float> &first, QVector<float> &middle, s
  }
 
 void ObjParser::ChangeFilename() {
-  filename_ = filename_.mid(filename_.lastIndexOf("/") + 1).chopped(4) + "\n" +
-              "Vertexes: " + QString::number(tmp_vertex_.size() / 3) +
-          " Edges: " + QString::number(indices_.size() / 2);
+//  filename_ = filename_.mid(filename_.lastIndexOf("/") + 1).chopped(4) + "\n" +
+//              "Vertexes: " + QString::number(data_.size() / object_properties_count_) +
+//          " Edges: " + QString::number(indices_.size() / 2);
+    filename_ = filename_.mid(filename_.lastIndexOf("/") + 1).chopped(4);
 }
 
 template<typename Coordinatable>

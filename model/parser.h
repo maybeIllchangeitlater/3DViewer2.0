@@ -38,7 +38,7 @@ class ObjParser : public QObject {
    * @brief Add point (vertex, texture or normal) from file to corresponding container
    */
   template<typename Coordinatable>
-  size_t PushPoint(QByteArray& data, Coordinatable &target);
+  bool PushPoint(QByteArray& data, Coordinatable &target);
   /**
    * @brief Add vertexes, textures and normales to vertex data vector during facet parsing
    */
@@ -66,6 +66,7 @@ class ObjParser : public QObject {
   /**
    * @brief if texture exists in file and facet returns true. if it exist in file but not found in face adds default values 000
    */
+  static void SkipWhitespaces(char *&data) noexcept;
   bool CheckTexture(char *&data);
   bool CheckNormale(char *&data);
   /**
