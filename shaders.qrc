@@ -10,5 +10,7 @@
         <file>resources/GeometryShaderPointsOnly.txt</file>
         <file>resources/FragShaderPointsOnly.txt</file>
         <file>resources/GeometryShaderCustomizableLines.txt</file>
+	<file>resources/LightFragShader.txt</file>
+	<file>resources/LightVertexShader.txt</file>
     </qresource>
 </RCC>

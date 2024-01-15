@@ -44,7 +44,11 @@ class OpenGLWidget final : public QOpenGLWidget {
   void mouseMoveEvent(QMouseEvent* event);
   void AddShaders();
   void ConfigureAttributeBuffers();
+  void LightsOn();
+  void CalculateCamera();
   void ConfigureDisplay();
+
+  void DrawLight();
 
   s21::Settings& settings_;
   s21::Controller& controller_;
@@ -52,12 +56,13 @@ class OpenGLWidget final : public QOpenGLWidget {
   QPoint last_rmouse_pos_;
 
   QOpenGLShaderProgram shader_programm_;
+  QOpenGLShaderProgram shader_light_;
   QMatrix4x4 projection_matrix_;
   QMatrix4x4 model_view_matrix_;
 
-  QOpenGLBuffer ibo_;
-  QOpenGLBuffer vbo_;
-  QOpenGLVertexArrayObject vao_;
+  QOpenGLBuffer ibo_, ibo_light_;;
+  QOpenGLBuffer vbo_, vbo_light_;
+  QOpenGLVertexArrayObject vao_, vao_light_;
 
   GLuint index_buffer_;
   GLuint vertex_buffer_;

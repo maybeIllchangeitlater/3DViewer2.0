@@ -27,11 +27,11 @@ void GPUTransformation::MoveModel(QMatrix4x4 &matrix, QVector<float> &vertex,
                                   const Settings &settings) const {
   Q_UNUSED(vertex);
   matrix.setToIdentity();
-  ApplyTranslation(matrix, vertex, settings.translation_x,
-                   settings.translation_y, settings.translation_z);
+  ApplyTranslation(matrix, vertex, settings.translation[0],
+                   settings.translation[1], settings.translation[2]);
   ApplyScaling(matrix, vertex, settings.scale);
-  ApplyRotation(matrix, vertex, settings.rotation_x, settings.rotation_y,
-                settings.rotation_z);
+  ApplyRotation(matrix, vertex, settings.rotation[0], settings.rotation[1],
+                settings.rotation[2]);
 }
 
 }  // namespace s21

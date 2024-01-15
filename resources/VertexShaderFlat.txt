@@ -4,17 +4,18 @@ in vec3 position;
 in vec2 texture;
 in vec3 normal;
 
+out vec3 fragPosition;
 out vec3 fragNormal;
 out vec2 textureCoord;
-out vec3 FragPosistion;
+
 
 uniform mat4 projectionMatrix;
 uniform mat4 modelViewMatrix;
 
 void main()
 {
-    fragPosistion = vec3(modelViewMatrix * vec4(position, 1.0));
-    fragNormal = mat3(transpose(inverse(modelViewMatrix))) * normalize(normal);
+    fragPosition = vec3(modelViewMatrix * vec4(position, 1.0));
+    fragNormal = mat3(transpose(inverse(modelViewMatrix))) * normal;
     textureCoord = vec2(texture.x, 1.0 - texture.y);
-    gl_Position = projectionMatrix * vec4(fragPosistion, 1.0);
+    gl_Position = projectionMatrix * vec4(fragPosition, 1.0);
 }

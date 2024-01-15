@@ -159,54 +159,54 @@ void MainWindow::ConnectToLambdas() {
 
 void MainWindow::ConnectTranslateToLambdas() {
   connect(ui_->mDown, &QPushButton::clicked, this, [this](bool) {
-    settings_.translation_y -= ui_->translateBy->text().toFloat();
+    settings_.translation[1] -= ui_->translateBy->text().toFloat();
     UpdateWidget();
   });
   connect(ui_->mUp, &QPushButton::clicked, this, [this](bool) {
-    settings_.translation_y += ui_->translateBy->text().toFloat();
+    settings_.translation[1] += ui_->translateBy->text().toFloat();
     UpdateWidget();
   });
   connect(ui_->mLeft, &QPushButton::clicked, this, [this](bool) {
-    settings_.translation_x -= ui_->translateBy->text().toFloat();
+    settings_.translation[0] -= ui_->translateBy->text().toFloat();
     UpdateWidget();
   });
   connect(ui_->mRight, &QPushButton::clicked, this, [this](bool) {
-    settings_.translation_x += ui_->translateBy->text().toFloat();
+    settings_.translation[0] += ui_->translateBy->text().toFloat();
     UpdateWidget();
   });
   connect(ui_->mForward, &QPushButton::clicked, this, [this](bool) {
-    settings_.translation_z -= ui_->translateBy->text().toFloat();
+    settings_.translation[2] -= ui_->translateBy->text().toFloat();
     UpdateWidget();
   });
   connect(ui_->mBackward, &QPushButton::clicked, this, [this](bool) {
-    settings_.translation_z += ui_->translateBy->text().toFloat();
+    settings_.translation[2] += ui_->translateBy->text().toFloat();
     UpdateWidget();
   });
 }
 
 void MainWindow::ConnectRotateToLambdas() {
   connect(ui_->rDown, &QPushButton::clicked, this, [this](bool) {
-    settings_.rotation_y += ui_->rotateBy->text().toFloat();
+    settings_.rotation[1] += ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
   connect(ui_->rUp, &QPushButton::clicked, this, [this](bool) {
-    settings_.rotation_y -= ui_->rotateBy->text().toFloat();
+    settings_.rotation[1] -= ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
   connect(ui_->rLeft, &QPushButton::clicked, this, [this](bool) {
-    settings_.rotation_x -= ui_->rotateBy->text().toFloat();
+    settings_.rotation[0] -= ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
   connect(ui_->rRight, &QPushButton::clicked, this, [this](bool) {
-    settings_.rotation_x += ui_->rotateBy->text().toFloat();
+    settings_.rotation[0] += ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
   connect(ui_->rzDown, &QPushButton::clicked, this, [this](bool) {
-    settings_.rotation_z += ui_->rotateBy->text().toFloat();
+    settings_.rotation[2] += ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
   connect(ui_->rzUp, &QPushButton::clicked, this, [this](bool) {
-    settings_.rotation_z -= ui_->rotateBy->text().toFloat();
+    settings_.rotation[2] -= ui_->rotateBy->text().toFloat();
     UpdateWidget();
   });
 }

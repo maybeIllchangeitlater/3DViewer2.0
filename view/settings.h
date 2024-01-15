@@ -25,7 +25,7 @@ class Settings {
   QVector3D rotation = {0, 0, 0};
   QVector3D camera = {0, 0, 0};
   QVector3D camera_up = {0, 0, 0};
-  QVector3D light_position = {1, 1, 1};
+  QVector3D light_position = {50, 0, -50};
   float line_width = 0.01;
   float point_size = 0.01;
   float scale = 1.0;

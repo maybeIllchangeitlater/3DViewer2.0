@@ -9,6 +9,7 @@ OpenGLWidget::OpenGLWidget(s21::Settings &settings, s21::Controller &controller,
       controller_(controller),
       QOpenGLWidget(parent),
       vbo_(QOpenGLBuffer::VertexBuffer),
+      vbo_light_((QOpenGLBuffer::VertexBuffer)),
       ibo_(QOpenGLBuffer::IndexBuffer) {}
 
 OpenGLWidget::~OpenGLWidget() {}
@@ -38,25 +39,9 @@ void OpenGLWidget::mouseMoveEvent(QMouseEvent *event) {
 }
 
 void OpenGLWidget::AddShaders() {
-//  shader_version_ = shader_factory_.create(settings_.shader_version); //change to returning value to uniqueptr obv
-//  shader_programm_.addShaderFromSourceFile(
-//      QOpenGLShader::Vertex,
-//      shader_version_->GetVertexShader(controller_.GetVertexShaderVersion()));
-//  shader_programm_.addShaderFromSourceFile(
-//      QOpenGLShader::Geometry, shader_version_->GetGeometryShader());
-//  shader_programm_.addShaderFromSourceFile(
-//      QOpenGLShader::Fragment, shader_version_->GetFragmentShader());
-
     /////testing flat
-    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderNoGeometryFlat.txt");
-    shader_programm_.addCacheableShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShaderFlat.txt");
-
-//    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderPointsOnly.txt");
-//    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt");
-//    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShaderPointsOnly.txt");
-//    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderNoGeometry.txt");
-//            shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShader.txt");
-    //            shader_programm_.addShaderFromSourceFile(QOpenGLShader::Geometry, ":/resources/GeometryShader.txt");
+    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/FragShaderNoGeometry.txt");
+    shader_programm_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/VertexShaderFlat.txt");
 }
 
 void OpenGLWidget::ConfigureAttributeBuffers()
@@ -77,6 +62,8 @@ void OpenGLWidget::ConfigureAttributeBuffers()
 
     if(controller_.ObjectHasNormales()){
         has_normales_ = true;
+        settings_.lights_on = true;
+        settings_.wireframe = false;
         int normal_location = shader_programm_.attributeLocation("normal");
         shader_programm_.enableAttributeArray(normal_location);
         int normales_offset = has_texture_map_
@@ -86,6 +73,50 @@ void OpenGLWidget::ConfigureAttributeBuffers()
                                             s21::NORMALE_PROPERTIES_SIZE,
                                             sizeof(GLfloat) * controller_.GetObjectPropertiesCount());
     }
+}
+
+void OpenGLWidget::LightsOn()
+{
+    shader_light_.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/resources/LightFragShader.txt");
+    shader_light_.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resources/LightVertexShader.txt");
+    shader_light_.link();
+    shader_light_.bind();
+    vao_light_.create();
+    vbo_light_.create();
+
+    GLfloat lamp_vertices[] = {
+        1.000000,  1.000000,  -1.000000, -1.000000, 1.000000,  -1.000000,
+        -1.000000, 1.000000,  1.000000,  1.000000,  1.000000,  -1.000000,
+        -1.000000, 1.000000,  1.000000,  1.000000,  1.000000,  1.000000,
+        1.000000,  -1.000000, 1.000000,  1.000000,  1.000000,  1.000000,
+        -1.000000, 1.000000,  1.000000,  1.000000,  -1.000000, 1.000000,
+        -1.000000, 1.000000,  1.000000,  -1.000000, -1.000000, 1.000000,
+        -1.000000, -1.000000, 1.000000,  -1.000000, 1.000000,  1.000000,
+        -1.000000, 1.000000,  -1.000000, -1.000000, -1.000000, 1.000000,
+        -1.000000, 1.000000,  -1.000000, -1.000000, -1.000000, -1.000000,
+        -1.000000, -1.000000, -1.000000, 1.000000,  -1.000000, -1.000000,
+        1.000000,  -1.000000, 1.000000,  -1.000000, -1.000000, -1.000000,
+        1.000000,  -1.000000, 1.000000,  -1.000000, -1.000000, 1.000000,
+        1.000000,  -1.000000, -1.000000, 1.000000,  1.000000,  -1.000000,
+        1.000000,  1.000000,  1.000000,  1.000000,  -1.000000, -1.000000,
+        1.000000,  1.000000,  1.000000,  1.000000,  -1.000000, 1.000000,
+        -1.000000, -1.000000, -1.000000, -1.000000, 1.000000,  -1.000000,
+        1.000000,  1.000000,  -1.000000, -1.000000, -1.000000, -1.000000,
+        1.000000,  1.000000,  -1.000000, 1.000000,  -1.000000, -1.000000};
+
+    vbo_light_.allocate(lamp_vertices, sizeof(GLfloat) * 36 * 3);
+    vbo_light_.setUsagePattern(QOpenGLBuffer::StaticDraw);
+
+    vao_light_.bind();
+    vbo_light_.bind();
+
+    shader_light_.setAttributeBuffer("lPosistion", GL_FLOAT, 0, 3);
+    shader_light_.enableAttributeArray("lPosistion");
+    shader_light_.bind();
+
+    vao_light_.release();
+    vbo_light_.release();
+    shader_light_.release();
 }
 
 void OpenGLWidget::CalculateCamera()
@@ -119,7 +150,7 @@ void OpenGLWidget::ConfigureDisplay()
       if (has_normales_ && !settings_.wireframe && settings_.lights_on) {
             shader_programm_.setUniformValue("normales", true);
             shader_programm_.setUniformValue("lightColor", settings_.light_color);
-            shader_programm_.setUniformValueArray("lightPosistion", &settings_.light_position, 1);
+            shader_programm_.setUniformValueArray("lightPosition", &settings_.light_position, 1);
             shader_programm_.setUniformValueArray("cameraPosition", &settings_.camera, 1);
             shader_programm_.setUniformValue("flat", settings_.flat_shading ? true : false);
             shader_programm_.setUniformValue("ambient", settings_.ambient);
@@ -133,6 +164,34 @@ void OpenGLWidget::ConfigureDisplay()
             shader_programm_.setUniformValue("showLines", settings_.lines_shown);
             shader_programm_.setUniformValue("edgedLines", settings_.broken_lines);
       }
+}
+
+void OpenGLWidget::DrawLight()
+{
+
+        if (has_normales_ && !settings_.wireframe && settings_.lights_on) {
+          shader_light_.bind();
+          vao_light_.bind();
+
+          QMatrix4x4 lamp;
+
+          shader_light_.setUniformValueArray("projectionMatrix", &projection_matrix_, 1);
+          shader_light_.setUniformValueArray("modelMatrix", &model_view_matrix_, 1);
+
+
+          lamp.translate(settings_.light_position);
+          lamp.scale(0.1f);
+
+          shader_light_.setUniformValueArray("model", &lamp, 1);
+
+
+          glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+          glDrawArrays(GL_TRIANGLES, 0, 36);
+
+          vao_light_.release();
+          shader_light_.release();
+        }
+
 }
 
 void OpenGLWidget::ChangePerspective() {
@@ -180,6 +239,8 @@ void OpenGLWidget::initializeGL() {
   vao_.release();
   ibo_.release();
   shader_programm_.release();
+
+  LightsOn();
 }
 
 void OpenGLWidget::resizeGL(int w, int h) {
@@ -203,21 +264,17 @@ void OpenGLWidget::paintGL() {
   controller_.MoveModel(model_view_matrix_, settings_);
   shader_programm_.setUniformValue("modelViewMatrix", model_view_matrix_);
   ConfigureDisplay();
+  model_view_matrix_.lookAt(settings_.camera, {0, 0, 0}, settings_.camera_up);
 
   vao_.bind();
   ibo_.bind();
 
-//  if (controller_.GetVertexShaderVersion() == 2) {
-//    vbo_.bind();
-//    vbo_.allocate(controller_.GetVertexCopyConstRef().data(),
-//                  controller_.GetVertexCopyConstRef().size() * sizeof(GLfloat));
-//    vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
-//    vbo_.release();
-//  }
-
   glDrawElements(GL_TRIANGLES, controller_.GetFaceConstRef().size(),
                  GL_UNSIGNED_INT, nullptr);
+
   ibo_.release();
   vao_.release();
   shader_programm_.release();
+
+  DrawLight();
 }
